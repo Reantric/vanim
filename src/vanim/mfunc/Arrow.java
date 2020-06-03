@@ -2,7 +2,7 @@ package vanim.mfunc;
 
 import static vanim.planar.*;
 import vanim.misc.*;
-import vanim.shapes.*;
+import vanim.root.VObject;
 import processing.core.*;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class Arrow extends VObject {
     int optimalDelVal;
 
     public Arrow(PGraphics c, float x, float y){
-        super(c,x,y,0);
+        super(c,x,y,new Color(0));
         vector = new PVector(x,y);
         coords = new ArrayList<>();
         coordsSize = 0;

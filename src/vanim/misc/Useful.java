@@ -18,7 +18,7 @@ public class Useful {
             return Integer.toString(PApplet.round(x));
 
         // assuming square roots!
-        return "√" + Integer.toString(PApplet.round(x*x));
+        return "√" + PApplet.round(x * x);
     }
 
     /**

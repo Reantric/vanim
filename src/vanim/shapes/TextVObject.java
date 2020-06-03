@@ -1,10 +1,10 @@
 package vanim.shapes;
 
-import org.w3c.dom.Text;
-import vanim.misc.*;
 import static vanim.misc.Mapper.*;
 import static vanim.planar.*;
 import processing.core.*;
+import vanim.misc.Color;
+import vanim.root.VObject;
 
 public class TextVObject extends VObject {
     public String str;
@@ -13,8 +13,8 @@ public class TextVObject extends VObject {
     int align = CENTER;
     boolean displayRect = true;
 
-    public TextVObject(PGraphics c, String s, float x, float y, float size, float colHue, float colSat, float colBright){
-        super(c,x,y,colHue,colSat,colBright);
+    public TextVObject(PGraphics c, String s, float x, float y, float size, Color color){
+        super(c,x,y,color);
         c.textSize(size);
         width = c.textWidth(s);
         height = size;
@@ -22,12 +22,8 @@ public class TextVObject extends VObject {
         str = s;
     }
 
-    public TextVObject(PGraphics c, String s, float x, float y, float colHue,float colSat,float colBright){
-        this(c,s,x,y,c.textSize,colHue, colSat,colBright);
-    }
-
-    public TextVObject(PGraphics c, String s, float x, float y, float size, float colHue){
-        this(c,s,x,y,size,colHue, 255,255);
+    public TextVObject(PGraphics c, String s, float x, float y, Color color){
+        this(c,s,x,y,c.textSize,color);
     }
 
     public void setTextAlign(int ALIGN) {
@@ -48,7 +44,7 @@ public class TextVObject extends VObject {
             this.backgroundRect();
 
         canvas.textSize(tSize);
-        canvas.fill(hue,sat,bri,map2(transp,0,255,0,255,QUADRATIC,EASE_IN));
+        canvas.fill(color.getHue(),color.getSaturation(),color.getBrightness(),map2(transp,0,255,0,255,QUADRATIC,EASE_IN));
 
         if (canvas.textAlign != align)
             canvas.textAlign(align);

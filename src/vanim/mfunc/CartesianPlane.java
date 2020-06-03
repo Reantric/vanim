@@ -1,7 +1,7 @@
 package vanim.mfunc;
 import static vanim.planar.*;
 import vanim.misc.*;
-import vanim.planar;
+import vanim.root.VObject;
 import vanim.shapes.*;
 import processing.core.*;
 
@@ -66,10 +66,9 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
         startingY = (float) Useful.floorAny(-canvas.height/(2*sY),yValue); // <---- Issues here when resizing canvas
         max = startingX - xValue/5; // should start at 25
         aspectRatio = (WIDTH/1080.0f)/(rescaleX/rescaleY);
-        delVal = 159;
         //canvas.line(-sX*startingX,0,sX*startingX,0);
-        xAxis = new DoubleLine(canvas,sX*startingX,0,-sX*startingX,0,4,255,0,255);
-        yAxis = new DoubleLine(canvas,0,sY*startingY,0,-sY*startingY,4,255,0,255);
+        xAxis = new DoubleLine(canvas,sX*startingX,0,-sX*startingX,0,4,new Color(255,0,255));
+        yAxis = new DoubleLine(canvas,0,sY*startingY,0,-sY*startingY,4,new Color(255,0,255));
         frameCountInit = processing.frameCount;
         frameCountBuffer = 15;
         /* VObject[] inits */
@@ -83,22 +82,22 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
 
         for (int i = 0; i < xLines.length; i++){
 
-            if (i != yLines.length/2 && i < yLines.length) {
+            if (i != yLines.length/2 && i < yLines.length) { // Assumption takes place here
                 if ((startingY + yValue * i / 2) % yValue == 0) {
-                    yLines[i] = new DoubleLine(canvas, sX * startingX, sY * (startingY + yValue * i / 2), -sX * startingX, sY * (startingY + yValue * i / 2), 4, 150, 200, 255);
-                    yText[i / 2] = new TextVObject(canvas, df.format(-startingY - yValue * i / 2), -12, sY * (startingY + yValue * i / 2) - 12, 255, 0, 255);
+                    yLines[i] = new DoubleLine(canvas, sX * startingX, sY * (startingY + yValue * i / 2), -sX * startingX, sY * (startingY + yValue * i / 2), 4, new Color(150, 200, 255));
+                    yText[i / 2] = new TextVObject(canvas, df.format(-startingY - yValue * i / 2), -12, sY * (startingY + yValue * i / 2) - 12, new Color(255, 0, 255));
                     yText[i / 2].setTextAlign(RIGHT);
                     yText[i / 2].setDisplayRect(false);
                 } else
-                    yLines[i] = new DoubleLine(canvas, sX * startingX, sY * (startingY + yValue * i / 2), -sX * startingX, sY * (startingY + yValue * i / 2), 1.5f, 150, 200, 255);
+                    yLines[i] = new DoubleLine(canvas, sX * startingX, sY * (startingY + yValue * i / 2), -sX * startingX, sY * (startingY + yValue * i / 2), 1.5f, new Color(150, 200, 255));
             }
 
             if (i != xLines.length/2) {
                 if ((startingX + xValue * i / 2) % xValue == 0) {
-                    xLines[i] = new DoubleLine(canvas, sX * (startingX + xValue * i / 2), sY * startingY, sX * (startingX + xValue * i / 2), sY * -startingY,4,150,200,255);
-                    xText[i / 2] = new TextVObject(canvas, df.format(startingX + xValue * i / 2), startingX + xValue * i / 2 > 0 ? sX * (startingX + xValue * i / 2) : sX * (startingX + xValue * i / 2) - 8, 44, 255, 0, 255);
+                    xLines[i] = new DoubleLine(canvas, sX * (startingX + xValue * i / 2), sY * startingY, sX * (startingX + xValue * i / 2), sY * -startingY,4,new Color(150,200,255));
+                    xText[i / 2] = new TextVObject(canvas, df.format(startingX + xValue * i / 2), startingX + xValue * i / 2 > 0 ? sX * (startingX + xValue * i / 2) : sX * (startingX + xValue * i / 2) - 8, 44, new Color(255, 0, 255));
                 } else
-                    xLines[i] = new DoubleLine(canvas, sX * (startingX + xValue * i / 2), sY * startingY, sX * (startingX + xValue * i / 2), sY * -startingY,1.5f,150,200,255);
+                    xLines[i] = new DoubleLine(canvas, sX * (startingX + xValue * i / 2), sY * startingY, sX * (startingX + xValue * i / 2), sY * -startingY,1.5f,new Color(150,200,255));
             }
         }
 
@@ -298,7 +297,7 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
     }
 
     public float g(float x){
-        return x < 0 ? -4* sin(x): (float) -log(x);
+        return x < 0 ? -4* sin(x): -log(x);
     }
 
     public void loadRandArr(){

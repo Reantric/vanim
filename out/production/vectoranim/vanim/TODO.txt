@@ -1,0 +1,2 @@
+Fix the radius method of the circle, check overloading overrided methods to fix the scale(float... obj) and display(float... obj)
+in the VObject class. Have more fun with tetration and e, and make slow progress towards fixing the scaling of the circle.

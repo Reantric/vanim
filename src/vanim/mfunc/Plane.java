@@ -2,7 +2,7 @@ package vanim.mfunc;
 
 import processing.core.*;
 
-interface Plane {
+public interface Plane {
     boolean generatePlane();
     boolean scale(float... obj); //1-2 args for scale
     void rotatePlane(float theta);

@@ -1,11 +1,8 @@
 package vanim.shapes;
-import vanim.misc.*;
 import processing.core.*;
-import vanim.planar;
+import vanim.misc.Color;
+import vanim.root.VObject;
 
-import javax.swing.*;
-
-import static vanim.planar.*;
 import static vanim.misc.Mapper.*;
 
 public class Line extends VObject {
@@ -17,7 +14,7 @@ public class Line extends VObject {
     float incX, incY;
 
     public Line(PApplet p, PGraphics c, float x1, float y1, float x2, float y2){
-        this(p,c, x1, y1, x2,y2,4,255,255,255);
+        this(p,c, x1, y1, x2,y2,4,new Color());
     }
 
     @Override
@@ -27,16 +24,16 @@ public class Line extends VObject {
 
 
     public Line(PGraphics c, float x1, float y1, float x2, float y2){
-        this(null,c,x1,y1,x2,y2,4,255,255,255);
+        this(null,c,x1,y1,x2,y2,4,new Color());
     }
 
     public Line(PGraphics c, float x1, float y1, float x2, float y2, float weight, float colHue){
-        this(null,c,x1,y1,x2,y2,weight,colHue,255,255);
+        this(null,c,x1,y1,x2,y2,weight,new Color(colHue));
     }
 
 
-    public Line(PApplet p,PGraphics c, float x1, float y1, float x2, float y2, float weight, float colHue, float colSat, float colBright) { //p not used here...
-        super(p,c, x1, y1, 0,colHue,colSat,colBright);
+    public Line(PApplet p,PGraphics c, float x1, float y1, float x2, float y2, float weight, Color color) { //p not used here...
+        super(p,c, x1, y1, 0,color);
         this.weight = weight;
         finalX = x2;
         finalY = y2;
@@ -116,7 +113,7 @@ public class Line extends VObject {
         if (weight != 0)
             canvas.strokeWeight(weight);
 
-        canvas.stroke(hue, hue == 255 ? 0 : 255, 255);
+        canvas.stroke(color.getHue(), color.hue255() ? 0 : 255, 255);
         canvas.line(startX, startY, pos.x, pos.y);
         return pos.x == finalX && pos.y == finalY;
     }

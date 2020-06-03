@@ -1,5 +1,6 @@
 package vanim.mfunc;
 
+import vanim.misc.Color;
 import vanim.planar;
 import vanim.shapes.*;
 import processing.core.*;
@@ -16,7 +17,7 @@ public class Narrator {
 
 
     public void setupNarrator(){
-        allText.add(new TextVObject(canvas,"But how do we find the slope of the tangent line?",-630,-480,80,30));
+        allText.add(new TextVObject(canvas,"But how do we find the slope of the tangent line?",-630,-480,80,new Color(30)));
       //  allText.add(new TextVObject(canvas,"Vanim",-660,-320,130,77));
     }
 

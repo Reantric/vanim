@@ -9,11 +9,15 @@ import processing.core.*;
 
 
 public class Circle extends Ellipse{
-    //public Ellipse(PGraphics c,float x, float y, float xAxis, float yAxis,float speed, int delVal){
-    public Circle(PGraphics c, float x, float y, float radius,float speed, int delVal){
-        super(c,x,y,radius,radius,speed,delVal);
+    public Circle(PGraphics c, float x, float y, float radius,int speed){
+        super(c,x,y,radius,radius,speed,floor(TAU * 100/speed + 2));
     }
 
+    public float getRadius(){
+        //width and height are same in Circle, depends on sX and sY
+        return this.width/plane.sX;
+    }
+    //Specific to circle!
     /* public boolean drawTangentLine(float x, float y){
         x *= 1.007f;
         y *= 1.007f;
@@ -33,11 +37,6 @@ public class Circle extends Ellipse{
         incrementor += distance/50.0f;
         return newDist/distance > 0.99 && newDist/distance < 1.01;
     } */
-
-    @Override
-    public boolean scale(float... obj) {
-        return false;
-    }
 
 
 
