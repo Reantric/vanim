@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Vanim
 =======
 # 2DGP
@@ -7,4 +6,3 @@ Also VANIM, A vector animation software that can be used for educational purpose
 
 ![VANIM](/coverImages/vanim.gif)
 
->>>>>>> 60a1ed73817566e9f38887bf057f4d0225cce589
