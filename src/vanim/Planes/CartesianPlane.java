@@ -1,6 +1,12 @@
-package vanim.mfunc;
+package vanim.Planes;
 import static vanim.planar.*;
+
+import vanim.mfunc.Arrow;
+import vanim.mfunc.Easing;
+import vanim.mfunc.Plane;
+import vanim.mfunc.Scaling;
 import vanim.misc.*;
+import vanim.planar;
 import vanim.root.VObject;
 import vanim.shapes.*;
 import processing.core.*;
@@ -16,7 +22,7 @@ import java.util.ArrayList;
 public class CartesianPlane extends VObject implements Plane { // Work on mouseDrag after!
     public float xValue, yValue;
     public float transparency = 255;
-    public float sX = 1,sY = 1;
+    public Scale relScale = planar.absScale;
     float startingX, startingY;
     float rescaleX, rescaleY;
     float scaleFactor;
@@ -52,23 +58,24 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
      * @param ySpace Distance between y ticks
      */
     public CartesianPlane(PApplet p, PGraphics c, float xSpace, float ySpace){
-        super(p,c,0,0,p.width,p.height);
+        super(p,c,0,0,p.width,p.height,new Color(),absScale);
         xValue = xSpace;
         yValue = ySpace;
-        canvas = c;
+        //canvas = c;
+        canvas = processing.createGraphics(1920, 1080, P2D);
         rescaleX = (float) canvas.width/WIDTH;
         rescaleY = (float) canvas.height/HEIGHT;
-        sX = 300/xValue * rescaleX; // 200 def
-        sY = 300/yValue * rescaleY; // 200 def
+        relScale.setScaleX(300/xValue * rescaleX); // 200 def
+        relScale.setScaleY(300/yValue * rescaleY); // 200 def
         scaleFactor = 6/5.0f * xValue/100.0f;
         scaleFactor = 0.06f; // debug
-        startingX = (float) Useful.floorAny(-canvas.width/(2*sX),xValue); // <---- Issues here when resizing canvas
-        startingY = (float) Useful.floorAny(-canvas.height/(2*sY),yValue); // <---- Issues here when resizing canvas
+        startingX = (float) Useful.floorAny(-canvas.width/(2*relScale.getScaleX()),xValue); // <---- Issues here when resizing canvas
+        startingY = (float) Useful.floorAny(-canvas.height/(2*relScale.getScaleY()),yValue); // <---- Issues here when resizing canvas
         max = startingX - xValue/5; // should start at 25
         aspectRatio = (WIDTH/1080.0f)/(rescaleX/rescaleY);
-        //canvas.line(-sX*startingX,0,sX*startingX,0);
-        xAxis = new DoubleLine(canvas,sX*startingX,0,-sX*startingX,0,4,new Color(255,0,255));
-        yAxis = new DoubleLine(canvas,0,sY*startingY,0,-sY*startingY,4,new Color(255,0,255));
+        //canvas.line(-relScale.getScaleX()*startingX,0,relScale.getScaleX()*startingX,0);
+        xAxis = new DoubleLine(canvas,startingX,0,-startingX,0,4,new Color(255,0,255));
+        yAxis = new DoubleLine(canvas,0,startingY,0,-startingY,4,new Color(255,0,255));
         frameCountInit = processing.frameCount;
         frameCountBuffer = 15;
         /* VObject[] inits */
@@ -84,20 +91,20 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
 
             if (i != yLines.length/2 && i < yLines.length) { // Assumption takes place here
                 if ((startingY + yValue * i / 2) % yValue == 0) {
-                    yLines[i] = new DoubleLine(canvas, sX * startingX, sY * (startingY + yValue * i / 2), -sX * startingX, sY * (startingY + yValue * i / 2), 4, new Color(150, 200, 255));
-                    yText[i / 2] = new TextVObject(canvas, df.format(-startingY - yValue * i / 2), -12, sY * (startingY + yValue * i / 2) - 12, new Color(255, 0, 255));
+                    yLines[i] = new DoubleLine(canvas, startingX, startingY + yValue * i / 2, -startingX, startingY + yValue * i / 2, 4, new Color(150, 200, 255));
+                    yText[i / 2] = new TextVObject(canvas, df.format(-startingY - yValue * i / 2), -12, relScale.getScaleY() * (startingY + yValue * i / 2) - 12, new Color(255, 0, 255));
                     yText[i / 2].setTextAlign(RIGHT);
                     yText[i / 2].setDisplayRect(false);
                 } else
-                    yLines[i] = new DoubleLine(canvas, sX * startingX, sY * (startingY + yValue * i / 2), -sX * startingX, sY * (startingY + yValue * i / 2), 1.5f, new Color(150, 200, 255));
+                    yLines[i] = new DoubleLine(canvas, startingX, startingY + yValue * i / 2, -startingX, startingY + yValue * i / 2, 1.5f, new Color(150, 200, 255));
             }
 
             if (i != xLines.length/2) {
                 if ((startingX + xValue * i / 2) % xValue == 0) {
-                    xLines[i] = new DoubleLine(canvas, sX * (startingX + xValue * i / 2), sY * startingY, sX * (startingX + xValue * i / 2), sY * -startingY,4,new Color(150,200,255));
-                    xText[i / 2] = new TextVObject(canvas, df.format(startingX + xValue * i / 2), startingX + xValue * i / 2 > 0 ? sX * (startingX + xValue * i / 2) : sX * (startingX + xValue * i / 2) - 8, 44, new Color(255, 0, 255));
+                    xLines[i] = new DoubleLine(canvas, startingX + xValue * i / 2, startingY, startingX + xValue * i / 2, -startingY,4,new Color(150,200,255));
+                    xText[i / 2] = new TextVObject(canvas, df.format(startingX + xValue * i / 2), startingX + xValue * i / 2 > 0 ? relScale.getScaleX() * (startingX + xValue * i / 2) : relScale.getScaleX() * (startingX + xValue * i / 2) - 8, 44, new Color(255, 0, 255));
                 } else
-                    xLines[i] = new DoubleLine(canvas, sX * (startingX + xValue * i / 2), sY * startingY, sX * (startingX + xValue * i / 2), sY * -startingY,1.5f,new Color(150,200,255));
+                    xLines[i] = new DoubleLine(canvas, startingX + xValue * i / 2, startingY, startingX + xValue * i / 2, -startingY,1.5f,new Color(150,200,255));
             }
         }
 
@@ -164,26 +171,26 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
         canvas.textSize(42);
         canvas.textAlign(CENTER);
         canvas.rectMode(CENTER);
-        for (float x = startingX; x < -startingX; x += xValue){ //-width/(2*sX) - xValue/5 + xValue, starting 0,0 at width/2, height/2
+        for (float x = startingX; x < -startingX; x += xValue){ //-width/(2*relScale.getScaleX()) - xValue/5 + xValue, starting 0,0 at width/2, height/2
 
             if (x == 0) continue;
 
             String tX = df.format(x);
             canvas.fill(0,0,0,125);
             canvas.noStroke();
-            canvas.rect(sX*x,30,60 + (tX.length()-3)*10,56);
+            canvas.rect(relScale.getScaleX()*x,30,60 + (tX.length()-3)*10,56);
             canvas.fill(255);
 
             if (x > 0)
-                canvas.text(tX,sX*x,44);
+                canvas.text(tX,relScale.getScaleX()*x,44);
             else
-                canvas.text(tX,sX*x-8,44);
+                canvas.text(tX,relScale.getScaleX()*x-8,44);
         }
 
         canvas.textAlign(RIGHT);
         for (float y = startingY; y < -startingY; y += yValue){
             if (y == 0) continue;
-            canvas.text(df.format(-y),-12,sY*y-12);
+            canvas.text(df.format(-y),-12,relScale.getScaleY()*y-12);
         }
 
         return true;
@@ -256,8 +263,8 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
 
             /* Optimize graph, only use if no autoscale! */
 
-            canvas.line(sX*i,-sY*f(i),sX*(i+scaleFactor),-sY*(f(i+scaleFactor)));
-            canvas.line(sX*i,-sY*g(i),sX*(i+scaleFactor),-sY*(g(i+scaleFactor)));
+            canvas.line(relScale.getScaleX()*i,-relScale.getScaleY()*f(i),relScale.getScaleX()*(i+scaleFactor),-relScale.getScaleY()*(f(i+scaleFactor)));
+            canvas.line(relScale.getScaleX()*i,-relScale.getScaleY()*g(i),relScale.getScaleX()*(i+scaleFactor),-relScale.getScaleY()*(g(i+scaleFactor)));
 
 
         }
@@ -375,7 +382,7 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
 
         float rotationAngle = v.heading();
         //should draw Ellipse but is drawing circle (FIX FOR OTHER RES OF CANVAS)
-        float magnitude = arrow.getMag(sX,aspectRatio); // max < 0 ? sX*v.mag() - 16 : sX*v.mag(); //arrow.vectorMag; // 6 works...?! apply ease to this v.mag() - 6
+        float magnitude = arrow.getMag(relScale.getScaleX(),aspectRatio); // max < 0 ? relScale.getScaleX()*v.mag() - 16 : relScale.getScaleX()*v.mag(); //arrow.vectorMag; // 6 works...?! apply ease to this v.mag() - 6
 
         canvas.stroke(currentColor,255,255);
         canvas.strokeCap(processing.ROUND);
@@ -386,13 +393,13 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
         canvas.fill(Useful.getColor(arrow.coordsSize,0,delVal),255,255);
 
         if (processing.TAU + rotationAngle > 3*processing.PI/2 && rotationAngle < 0)
-            Useful.rotatedText(df.format(degrees(rotationAngle > 0 ? rotationAngle : processing.TAU + rotationAngle))+"°",canvas,sX*v.x/4,-sY*v.y/4,processing.PI-rotationAngle);
+            Useful.rotatedText(df.format(degrees(rotationAngle > 0 ? rotationAngle : processing.TAU + rotationAngle))+"°",canvas,relScale.getScaleX()*v.x/4,-relScale.getScaleY()*v.y/4,processing.PI-rotationAngle);
         else
-            Useful.rotatedText(df.format(degrees(rotationAngle > 0 ? rotationAngle : processing.TAU + rotationAngle))+"°",canvas,sX*v.x/4.75f,-sY*v.y/4.75f,processing.PI-rotationAngle);
+            Useful.rotatedText(df.format(degrees(rotationAngle > 0 ? rotationAngle : processing.TAU + rotationAngle))+"°",canvas,relScale.getScaleX()*v.x/4.75f,-relScale.getScaleY()*v.y/4.75f,processing.PI-rotationAngle);
 
         canvas.textSize(80);
         canvas.fill(255,255,255);
-        Useful.rotatedText(Useful.propFormat(v.mag()),canvas,sX*v.x/2 ,-sY*v.y/2,processing.PI-rotationAngle);
+        Useful.rotatedText(Useful.propFormat(v.mag()),canvas,relScale.getScaleX()*v.x/2 ,-relScale.getScaleY()*v.y/2,processing.PI-rotationAngle);
         /* text */
 
         canvas.rotate(-rotationAngle);
@@ -408,7 +415,7 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
 
         canvas.popMatrix();
 
-        arrow.addPoint(sX*v.x,-sY*v.y);
+        arrow.addPoint(relScale.getScaleX()*v.x,-relScale.getScaleY()*v.y);
         arrow.graph(canvas,delVal); //delVAL
         /* overlaying text */
         canvas.textSize(42);
@@ -417,13 +424,13 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
             canvas.textAlign(LEFT,CENTER);
         else
             canvas.textAlign(RIGHT,CENTER);
-        canvas.text(String.format("[cos(%s),sin(%s)]",df.format(v.x),df.format(v.y)),1.09f*sX*v.x,1.09f*-sY*v.y);
+        canvas.text(String.format("[cos(%s),sin(%s)]",df.format(v.x),df.format(v.y)),1.09f*relScale.getScaleX()*v.x,1.09f*-relScale.getScaleY()*v.y);
         /* overlaying text */
 
         /* cherry on top */
         canvas.noStroke();
         canvas.fill(Useful.getColor(arrow.coordsSize,0,delVal),255,255);
-        canvas.circle(sX*v.x,-sY*v.y,8);
+        canvas.circle(relScale.getScaleX()*v.x,-relScale.getScaleY()*v.y,8);
 
     }
 

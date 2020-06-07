@@ -2,11 +2,10 @@ package vanim.shapes;
 
 import processing.core.PGraphics;
 import vanim.misc.Color;
+import vanim.misc.Scale;
 import vanim.misc.Useful;
+import vanim.planar;
 import vanim.root.VObject;
-import vanim.mfunc.CartesianPlane;
-
-import static vanim.planar.plane;
 
 public class ClosedShape extends VObject { // Maybe in the far far future when i add 3D call this ClosedShape2D
     protected int delVal, optimalDelVal;
@@ -14,8 +13,14 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
     protected int speed;
     protected float distance;
 
-    public ClosedShape(PGraphics c, float x, float y, float xAxis, float yAxis) {
-        super(c, x, y, xAxis * plane.sX, yAxis * plane.sY, new Color(0));
+   // public ClosedShape(PGraphics c, float x, float y, float xAxis, float yAxis) {
+     //   this(c,x,y,xAxis,yAxis,1,100,planar.scale);
+    //}
+
+    public ClosedShape(PGraphics c, float x, float y, float xAxis, float yAxis, int speed, int delVal, Scale scale) {
+        super(null,c, x, y, xAxis, yAxis, new Color(0),scale);
+        this.speed = speed;
+        this.delVal = delVal;
     }
 
     public boolean graph() {
@@ -42,34 +47,32 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
     @Override
     public boolean scale(float... obj) { //Instant scaling!, is Absolute! Not relative!
         int len = obj.length;
-        width /= scale[0];
-        height /= scale[1];
+        width /= relScale.getScaleX();
+        height /= relScale.getScaleY();
         if (len == 1) {
-            scale[0] = obj[0];
-            scale[1] = scale[0];
-            scale[2] = scale[0];
-            width *= scale[0];
-            height *= scale[1];
+            relScale.setScaleAll(obj[0]);
+            width *= relScale.getScaleX();
+            height *= relScale.getScaleY();
 
             for (int i = 0; i < coordsSize; i++) {
-                coords.get(i)[0] = original.get(i)[0] * scale[0];
-                coords.get(i)[1] = original.get(i)[1] * scale[0];
+                coords.get(i)[0] = original.get(i)[0] * relScale.getScaleX();
+                coords.get(i)[1] = original.get(i)[1] * relScale.getScaleX();
             }
         } else if (len == 2) {
 
-            scale[0] = obj[0];
-            scale[1] = obj[1];
-            width *= scale[0];
-            height *= scale[1];
+            relScale.setScaleX(obj[0]);
+            relScale.setScaleY(obj[1]);
+            width *= relScale.getScaleX();
+            height *= relScale.getScaleY();
 
             for (int i = 0; i < coordsSize; i++) {
-                coords.get(i)[0] = original.get(i)[0] * scale[0];
-                coords.get(i)[1] = original.get(i)[1] * scale[1];
+                coords.get(i)[0] = original.get(i)[0] * relScale.getScaleX();
+                coords.get(i)[1] = original.get(i)[1] * relScale.getScaleY();
             }
         }
 
-        //distance = Math.max((width/scale[0] + height/scale[1])*0.7f,(width + height) * 0.9f);
-        //distance = Math.min((width / scale[0] + height / scale[1]), (width + height) * 0.9f);
+        //distance = Math.max((width/relScale.getScaleX() + height/relScale.getScaleY())*0.7f,(width + height) * 0.9f);
+        //distance = Math.min((width / relScale.getScaleX() + height / relScale.getScaleY()), (width + height) * 0.9f);
         return true;
     }
 

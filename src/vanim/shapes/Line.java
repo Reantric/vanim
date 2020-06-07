@@ -1,6 +1,8 @@
 package vanim.shapes;
 import processing.core.*;
 import vanim.misc.Color;
+import vanim.misc.Scale;
+import vanim.planar;
 import vanim.root.VObject;
 
 import static vanim.misc.Mapper.*;
@@ -14,29 +16,23 @@ public class Line extends VObject {
     float incX, incY;
 
     public Line(PApplet p, PGraphics c, float x1, float y1, float x2, float y2){
-        this(p,c, x1, y1, x2,y2,4,new Color());
+        this(p,c, x1, y1, x2,y2,4,new Color(),planar.absScale);
     }
-
-    @Override
-    public boolean scale(float... obj) {
-        return false;
-    }
-
 
     public Line(PGraphics c, float x1, float y1, float x2, float y2){
-        this(null,c,x1,y1,x2,y2,4,new Color());
+        this(null,c,x1,y1,x2,y2,4,new Color(),planar.absScale);
     }
 
     public Line(PGraphics c, float x1, float y1, float x2, float y2, float weight, float colHue){
-        this(null,c,x1,y1,x2,y2,weight,new Color(colHue));
+        this(null,c,x1,y1,x2,y2,weight,new Color(colHue), planar.absScale);
     }
 
 
-    public Line(PApplet p,PGraphics c, float x1, float y1, float x2, float y2, float weight, Color color) { //p not used here...
+    public Line(PApplet p,PGraphics c, float x1, float y1, float x2, float y2, float weight, Color color, Scale scale) { //p not used here...
         super(p,c, x1, y1, 0,color);
         this.weight = weight;
-        finalX = x2;
-        finalY = y2;
+        finalX = scale.getScaleX()*x2;
+        finalY = scale.getScaleY()*y2;
         startY = pos.y;
         startX = pos.x;
         incX = 0;
@@ -48,6 +44,12 @@ public class Line extends VObject {
     public void setFinal(float x, float y) {
         finalX = x;
         finalY = y;
+    }
+
+
+    @Override
+    public boolean scale(float... obj) {
+        return false;
     }
 
     public void setStrokeCap(int WHAT){

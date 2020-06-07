@@ -2,11 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16440c7b-6ffb-46a2-aefd-e357a36e7ec9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/coverImages/projectstructure.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/library.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/misc/Scale.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vectoranim.iml" beforeDir="false" afterPath="$PROJECT_DIR$/vectoranim.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/Directions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/Directions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/mfunc/Arrow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/mfunc/Arrow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/mfunc/CartesianPlane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/mfunc/Easing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/mfunc/Easing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/planar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/planar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/root/VObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/root/VObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Circle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/ClosedShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/ClosedShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/DoubleLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/DoubleLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Ellipse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Ellipse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Line.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/TextVObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/TextVObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/Arrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/mfunc/Arrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/CartesianPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/Planes/CartesianPlane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/Easing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/mfunc/Easing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/planar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/root/VObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/VObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Line.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/TextVObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/TextVObject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,10 +103,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591199868304" />
-    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1591048891026">
+    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1591381121198">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1591048891026" />
+    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1591381121198" />
     <state x="689" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1585016676016">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -99,26 +119,26 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591200197307" />
-    <state width="938" height="161" key="GridCell.Tab.0.bottom" timestamp="1591142187775">
+    <state width="1877" height="198" key="GridCell.Tab.0.bottom" timestamp="1591466380560">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.bottom/0.0.1600.900@0.0.1600.900" timestamp="1589407580865" />
-    <state width="938" height="161" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591142187775" />
-    <state width="938" height="161" key="GridCell.Tab.0.center" timestamp="1591142187775">
+    <state width="1877" height="198" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1591466380560" />
+    <state width="1877" height="198" key="GridCell.Tab.0.center" timestamp="1591466380560">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.center/0.0.1600.900@0.0.1600.900" timestamp="1589407580864" />
-    <state width="938" height="161" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591142187775" />
-    <state width="938" height="161" key="GridCell.Tab.0.left" timestamp="1591142187775">
+    <state width="1877" height="198" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1591466380560" />
+    <state width="1877" height="198" key="GridCell.Tab.0.left" timestamp="1591466380560">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.left/0.0.1600.900@0.0.1600.900" timestamp="1589407580864" />
-    <state width="938" height="161" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591142187775" />
-    <state width="938" height="161" key="GridCell.Tab.0.right" timestamp="1591142187775">
+    <state width="1877" height="198" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1591466380560" />
+    <state width="1877" height="198" key="GridCell.Tab.0.right" timestamp="1591466380560">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.right/0.0.1600.900@0.0.1600.900" timestamp="1589407580864" />
-    <state width="938" height="161" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591142187775" />
+    <state width="1877" height="198" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1591466380560" />
     <state width="1877" height="362" key="GridCell.Tab.1.bottom" timestamp="1590549361856">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

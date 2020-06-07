@@ -2,24 +2,22 @@ package vanim.shapes;
 
 import processing.core.*;
 import vanim.misc.Mapper;
-import vanim.misc.Useful;
+import vanim.misc.Scale;
+import vanim.planar;
 
 import static processing.core.PApplet.*;
 import static vanim.planar.*;
 
 public class Ellipse extends ClosedShape { // Make ellipse inherit from Closed Shape later
 
-    public Ellipse(PGraphics c, float x, float y, float xAxis, float yAxis, int speed) {
-        super(c, x, y, xAxis, yAxis);
-        this.speed = speed;
-        distance = (plane.sY * yAxis + plane.sX * xAxis) * 0.9f;
+    public Ellipse(PGraphics c, float x, float y, float xAxis, float yAxis, int speed, int delVal, Scale scale) {
+        super(c, x, y, xAxis, yAxis,speed,delVal,scale);
+        distance = (absScale.getScaleY() * yAxis + absScale.getScaleX() * xAxis) * 0.9f;
         //300*0.9 = 270 which IS the distance
-        delVal = 100; //Change default later using formula!
     }
 
-    public Ellipse(PGraphics c, float x, float y, float xAxis, float yAxis, int speed, int delVal) {
-        this(c, x, y, xAxis, yAxis, speed);
-        this.delVal = delVal;
+    public Ellipse(PGraphics c, float x, float y, float xAxis, float yAxis, int speed, int delVal) { // find formula for delVal soon!
+        this(c, x, y, xAxis, yAxis, speed,delVal,absScale);
     }
 
     public void addPoint() {
@@ -41,11 +39,11 @@ public class Ellipse extends ClosedShape { // Make ellipse inherit from Closed S
         if (newDist > distance)
             newDist = distance;
 
-        float common = newDist / (2 * sqrt((float) (1 + (Math.pow(height, 4) * plane.sX * x * plane.sX * x) / (Math.pow(width, 4) * plane.sY * y * plane.sY * y))));
-        float x1 = common + (x * plane.sX); //+
-        float y1 = (-x * height * height) / (y * width * width) * common + (y * plane.sY); //+
-        float x2 = -common + (x * plane.sX); //-
-        float y2 = (x * height * height) / (y * width * width) * common + (y * plane.sY); //-
+        float common = newDist / (2 * sqrt((float) (1 + (Math.pow(height, 4) * absScale.getScaleX() * x * absScale.getScaleX() * x) / (Math.pow(width, 4) * absScale.getScaleY() * y * absScale.getScaleY() * y))));
+        float x1 = common + (x * absScale.getScaleX()); //+
+        float y1 = (-x * height * height) / (y * width * width) * common + (y * absScale.getScaleY()); //+
+        float x2 = -common + (x * absScale.getScaleX()); //-
+        float y2 = (x * height * height) / (y * width * width) * common + (y * absScale.getScaleY()); //-
         //PGraphics c, float x1, float y1, float x2, float y2, float weight, float colHue
         canvas.strokeWeight(5);
         canvas.stroke(30, 255, 255);
@@ -63,7 +61,7 @@ public class Ellipse extends ClosedShape { // Make ellipse inherit from Closed S
     @Override
     public boolean scale(float... obj) { //Instant scaling!, is Absolute! Not relative!
         super.scale(obj);
-        distance = Math.min((width / scale[0] + height / scale[1]), (width + height) * 0.9f);
+        distance = Math.min((width / absScale.getScaleX() + height / absScale.getScaleY()), (width + height) * 0.9f);
         return true;
     }
 

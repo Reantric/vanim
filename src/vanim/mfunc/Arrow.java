@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Arrow extends VObject {
-    PVector vector;
-    boolean follow;
-    float triangleSize;
-    double xVal;
-    List<float[]> coords;
-    int coordsSize;
-    int optimalDelVal;
+    public PVector vector;
+    public boolean follow;
+    public float triangleSize;
+    public double xVal;
+    public List<float[]> coords;
+    public int coordsSize;
+    public int optimalDelVal;
 
     public Arrow(PGraphics c, float x, float y){
         super(c,x,y,new Color(0));

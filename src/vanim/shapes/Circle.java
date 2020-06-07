@@ -6,16 +6,23 @@ import java.util.*;
 import processing.core.*;
 
 
-
-
 public class Circle extends Ellipse{
+
     public Circle(PGraphics c, float x, float y, float radius,int speed){
-        super(c,x,y,radius,radius,speed,floor(TAU * 100/speed + 2));
+        this(c,x,y,radius,speed,floor(TAU * 100/speed + 2),absScale);
+    }
+
+    public Circle(PGraphics c, float x, float y, float radius,int speed, int delVal, Scale scale){
+        super(c,x,y,radius,radius,speed,delVal,scale);
+    }
+
+    public Circle(PGraphics c, float x, float y, float radius,int speed, int delVal){
+        this(c,x,y,radius,speed,delVal,absScale);
     }
 
     public float getRadius(){
         //width and height are same in Circle, depends on sX and sY
-        return this.width/plane.sX;
+        return this.width/absScale.getScaleX();
     }
     //Specific to circle!
     /* public boolean drawTangentLine(float x, float y){

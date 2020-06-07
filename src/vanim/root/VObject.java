@@ -3,6 +3,8 @@ import static vanim.planar.*;
 import static processing.core.PApplet.*;
 import processing.core.*;
 import vanim.misc.Color;
+import vanim.misc.Scale;
+import vanim.planar;
 
 import java.util.*;
 
@@ -20,39 +22,42 @@ public abstract class VObject {
     protected List<float[]> original = new ArrayList<>();
     protected List<float[]> coords = new ArrayList<>(); //[x,y]
     protected int coordsSize = 0;
-    protected float[] scale = {1,1,1}; //cant hurt to do this amiright?
+    protected Scale relScale = new Scale(1,1,1); //cant hurt to do this amiright?
 
     //add mapper and points[] ?
 
     public VObject(PGraphics c, float x, float y, float w, float h, Color color){
-        this(null,c,x,y,w,h,color);
+        this(null,c,x,y,w,h,color,absScale);
     }
 
-    public VObject(PApplet p, PGraphics c, float x, float y, float w, float h, Color color){
+    public VObject(PApplet p, PGraphics c, float x, float y, float w, float h, Color color, Scale scale){
         //println("IS NULL? " + p);
         processing = p;
         canvas = c;
-        pos = new PVector(x,y);
-        width = w;
-        height = h;
+        pos = new PVector(scale.getScaleX()*x,scale.getScaleY()*y); //just PVec(x,y) works!
+        width = scale.getScaleX()*w;
+        height = scale.getScaleY()*h;
         this.color = color;
     }
 
-
     public VObject(PGraphics c, float x, float y, Color color){
-        this(null,c,x,y,0,0,color);
+        this(null,c,x,y,0,0,color,absScale);
+    }
+
+    public VObject(PGraphics c, float x, float y, Color color, Scale scale){
+        this(null,c,x,y,0,0,color,scale);
     }
 
     public VObject(PApplet p,PGraphics c,float x, float y,float s, Color color) {
-        this(null,c,x,y,s,s,color);
+        this(null,c,x,y,s,s,color,absScale);
     }
 
     public VObject(PApplet p, PGraphics c, float x, float y, float w, float h) {
-        this(p,c,x,y,w,h,new Color());
+        this(p,c,x,y,w,h,new Color(),absScale);
     }
 
     public VObject(PGraphics c, float x, float y, float size, Color color) {
-        this(null,c,x,y,size,size,color);
+        this(null,c,x,y,size,size,color,absScale);
     }
 
     public void setWidth(float nw){

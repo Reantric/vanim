@@ -4,6 +4,7 @@ import static vanim.misc.Mapper.*;
 import static vanim.planar.*;
 import processing.core.*;
 import vanim.misc.Color;
+import vanim.misc.Scale;
 import vanim.root.VObject;
 
 public class TextVObject extends VObject {
@@ -14,7 +15,7 @@ public class TextVObject extends VObject {
     boolean displayRect = true;
 
     public TextVObject(PGraphics c, String s, float x, float y, float size, Color color){
-        super(c,x,y,color);
+        super(c,x,y,color,new Scale(1,1));
         c.textSize(size);
         width = c.textWidth(s);
         height = size;

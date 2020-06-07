@@ -3,10 +3,10 @@ import vanim.planar;
 import static vanim.planar.*;
 
 public class Easing {
-    float easing;
-    float incrementor;
-    float change; //finalRotation in CP case
-    float easeMultiplier = 1;
+    public float easing;
+    public float incrementor;
+    public float change; //finalRotation in CP case
+    public float easeMultiplier = 1;
 
     public Easing(float c, float i, float e) { // Add incrementor constructor as well (for non 0 start!)
         change = c;

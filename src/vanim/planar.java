@@ -1,6 +1,7 @@
 package vanim;
+import vanim.Planes.CartesianPlane;
 import vanim.mfunc.*;
-import vanim.misc.*;
+import vanim.misc.Scale;
 import vanim.shapes.*;
 
 import static vanim.Directions.*;
@@ -9,7 +10,6 @@ import processing.core.*;
 import processing.event.*;
 import java.text.DecimalFormat;
 import java.lang.*;
-import java.util.*;
 
 public class planar extends PApplet {
 
@@ -30,7 +30,6 @@ public class planar extends PApplet {
         myFont = createFont("vanim\\data\\cmunbmr.ttf", 150, true);
         italics = createFont("vanim\\data\\cmunbmo.ttf ", 150, true);
         textFont(myFont, 64);
-        canvas = createGraphics(1920, 1080, P2D);
         plane = new CartesianPlane(this, canvas, 1, 1);
         b = new Circle(canvas, 0, 0, 1, 4);
         n = new Narrator(canvas);
@@ -46,7 +45,7 @@ public class planar extends PApplet {
             case 'v' -> angle = PI / 2;
             case 'c' -> angle = 0;
             case 'd' -> plane.restrictDomain(-PI / 2, PI / 2);
-            case 's' -> plane.sY *= 1.1f;
+            case 's' -> absScale.multiplyScaleY(1.1f);
             case 'x' -> startSavingFrames = true;//frameRate(2);
         }
     }
