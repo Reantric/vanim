@@ -1,9 +1,9 @@
 package vanim.shapes;
 
-import vanim.misc.*;
 import static vanim.planar.*;
-import java.util.*;
+
 import processing.core.*;
+import vanim.storage.Scale;
 
 
 public class Circle extends Ellipse{

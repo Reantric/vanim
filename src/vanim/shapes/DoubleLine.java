@@ -3,7 +3,7 @@ package vanim.shapes;
 import processing.core.PApplet;
 import processing.core.PGraphics;
 import vanim.misc.Color;
-import vanim.misc.Scale;
+import vanim.storage.Scale;
 import vanim.planar;
 
 public class DoubleLine extends Line{

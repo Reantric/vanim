@@ -2,11 +2,9 @@ package vanim.shapes;
 
 import processing.core.*;
 import vanim.misc.Mapper;
-import vanim.misc.Scale;
-import vanim.planar;
+import vanim.storage.Scale;
 
 import static processing.core.PApplet.*;
-import static vanim.planar.*;
 
 public class Ellipse extends ClosedShape { // Make ellipse inherit from Closed Shape later
 

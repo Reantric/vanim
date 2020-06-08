@@ -1,110 +1,87 @@
 package vanim.Planes;
 import static vanim.planar.*;
 
-import vanim.mfunc.Arrow;
-import vanim.mfunc.Easing;
-import vanim.mfunc.Plane;
-import vanim.mfunc.Scaling;
 import vanim.misc.*;
-import vanim.planar;
+import vanim.storage.Vector;
 import vanim.root.VObject;
 import vanim.shapes.*;
 import processing.core.*;
-
 import java.util.*;
-
-
 import java.lang.*;
 
-import java.util.ArrayList;
 
-
-public class CartesianPlane extends VObject implements Plane { // Work on mouseDrag after!
-    public float xValue, yValue;
-    public float transparency = 255;
-    public Scale relScale = planar.absScale;
-    float startingX, startingY;
-    float rescaleX, rescaleY;
+public class CartesianPlane extends Plane { // Work on mouseDrag after!
+    
+    Vector<Float> startingValues;
+    Vector<Float> rescale;
     float scaleFactor;
     float max; //counter
     float currentColor = 0;
     boolean restrictDomain = false;
     boolean gridDrawn, textDrawn = false;
     float restrictedDomainX1, restrictedDomainX2;
+    Vector<Float> restrictedDomain;
     List<Double> randArr = new ArrayList<Double>();
-    float finalValue;
-    PGraphics canvas;
     float aspectRatio;
-    public int delVal;
 
     /* Object initializations */  // Create color object soon for animateVector();
     public VObject xAxis,yAxis;
     public VObject[] xLines, yLines;
     public TextVObject[] xText, yText;
     List<PVector> points = new ArrayList<PVector>();
-    Scaling scaler = new Scaling(0);
-    Scaling fadeGraph = new Scaling();
-    Easing slowRotate = new Easing(0);
-    Easing animVector = new Easing(0); // change later
-    Easing originTriangle = new Easing(0,12);
-    // Arrow traceGraphF = new Arrow(12,true,xValue);
-    // Arrow traceGraphG = new Arrow(12,true,xValue);
     /* Object initializations */
-
 
     /**
      *
-     * @param xSpace Distance between x ticks
-     * @param ySpace Distance between y ticks
+     * @param p Reference to the processing instance created.
+     * @param pos Vector holding the position (x,y,z) of the plane.
+     * @param dimensions Vector holding the dimensions (x,y,z) of the plane in resolution pixels.
      */
-    public CartesianPlane(PApplet p, PGraphics c, float xSpace, float ySpace){
-        super(p,c,0,0,p.width,p.height,new Color(),absScale);
-        xValue = xSpace;
-        yValue = ySpace;
-        //canvas = c;
-        canvas = processing.createGraphics(1920, 1080, P2D);
-        rescaleX = (float) canvas.width/WIDTH;
-        rescaleY = (float) canvas.height/HEIGHT;
-        relScale.setScaleX(300/xValue * rescaleX); // 200 def
-        relScale.setScaleY(300/yValue * rescaleY); // 200 def
-        scaleFactor = 6/5.0f * xValue/100.0f;
+    public CartesianPlane(PApplet p, Vector<Float> pos, Vector<Integer> dimensions, Vector<Float> ticks){
+        super(p,pos,dimensions,ticks);
+        rescale.setXY((float) canvas.width/WIDTH,(float) canvas.height/HEIGHT);
+        relScale.setScaleX(300/ticks.getX() * rescale.getX()); // 200 def
+        relScale.setScaleY(300/ticks.getY() * rescale.getY()); // 200 def
+        scaleFactor = 6/5.0f * ticks.getX()/100.0f;
         scaleFactor = 0.06f; // debug
-        startingX = (float) Useful.floorAny(-canvas.width/(2*relScale.getScaleX()),xValue); // <---- Issues here when resizing canvas
-        startingY = (float) Useful.floorAny(-canvas.height/(2*relScale.getScaleY()),yValue); // <---- Issues here when resizing canvas
-        max = startingX - xValue/5; // should start at 25
-        aspectRatio = (WIDTH/1080.0f)/(rescaleX/rescaleY);
-        //canvas.line(-relScale.getScaleX()*startingX,0,relScale.getScaleX()*startingX,0);
-        xAxis = new DoubleLine(canvas,startingX,0,-startingX,0,4,new Color(255,0,255));
-        yAxis = new DoubleLine(canvas,0,startingY,0,-startingY,4,new Color(255,0,255));
+        startingValues.setX((float) Useful.floorAny(-canvas.width/(2*relScale.getScaleX()),ticks.getX())); // <---- Issues here when resizing canvas
+        startingValues.setY((float) Useful.floorAny(-canvas.height/(2*relScale.getScaleY()),ticks.getY())); // <---- Issues here when resizing canvas
+        max = startingValues.getX() - ticks.getX()/5; // should start at 25
+        aspectRatio = (WIDTH/1080.0f)/(rescale.getX()/rescale.getY());
+        //canvas.line(-relScale.getScaleX()*startingValues.getX(),0,relScale.getScaleX()*startingValues.getX(),0);
+        xAxis = new DoubleLine(canvas,startingValues.getX(),0,-startingValues.getX(),0,4,new Color(255,0,255));
+        yAxis = new DoubleLine(canvas,0,startingValues.getY(),0,-startingValues.getY(),4,new Color(255,0,255));
         frameCountInit = processing.frameCount;
         frameCountBuffer = 15;
+
         /* VObject[] inits */
-        xLines = new VObject[(int) (-4*startingX/xValue)];
-        yLines = new VObject[(int) (-4*startingY/yValue)];
+        xLines = new VObject[(int) (-4*startingValues.getX()/ticks.getX())];
+        yLines = new VObject[(int) (-4*startingValues.getY()/ticks.getY())];
         xText = new TextVObject[xLines.length/2]; // skip over 0
         yText = new TextVObject[yLines.length/2]; // skip over 0
         println("xLength: " + xText.length + " yLength: " + yText.length); //9, 5 or 8, 4 :(
         // Assuming xLines.length > yLines.length
+
         canvas.textSize(42);
 
         for (int i = 0; i < xLines.length; i++){
 
             if (i != yLines.length/2 && i < yLines.length) { // Assumption takes place here
-                if ((startingY + yValue * i / 2) % yValue == 0) {
-                    yLines[i] = new DoubleLine(canvas, startingX, startingY + yValue * i / 2, -startingX, startingY + yValue * i / 2, 4, new Color(150, 200, 255));
-                    yText[i / 2] = new TextVObject(canvas, df.format(-startingY - yValue * i / 2), -12, relScale.getScaleY() * (startingY + yValue * i / 2) - 12, new Color(255, 0, 255));
+                if ((startingValues.getY() + ticks.getY() * i / 2) % ticks.getY() == 0) {
+                    yLines[i] = new DoubleLine(canvas, startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2, -startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2, 4, new Color(150, 200, 255));
+                    yText[i / 2] = new TextVObject(canvas, df.format(-startingValues.getY() - ticks.getY() * i / 2), -12, relScale.getScaleY() * (startingValues.getY() + ticks.getY() * i / 2) - 12, new Color(255, 0, 255));
                     yText[i / 2].setTextAlign(RIGHT);
                     yText[i / 2].setDisplayRect(false);
                 } else
-                    yLines[i] = new DoubleLine(canvas, startingX, startingY + yValue * i / 2, -startingX, startingY + yValue * i / 2, 1.5f, new Color(150, 200, 255));
+                    yLines[i] = new DoubleLine(canvas, startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2, -startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2, 1.5f, new Color(150, 200, 255));
             }
 
             if (i != xLines.length/2) {
-                if ((startingX + xValue * i / 2) % xValue == 0) {
-                    xLines[i] = new DoubleLine(canvas, startingX + xValue * i / 2, startingY, startingX + xValue * i / 2, -startingY,4,new Color(150,200,255));
-                    xText[i / 2] = new TextVObject(canvas, df.format(startingX + xValue * i / 2), startingX + xValue * i / 2 > 0 ? relScale.getScaleX() * (startingX + xValue * i / 2) : relScale.getScaleX() * (startingX + xValue * i / 2) - 8, 44, new Color(255, 0, 255));
+                if ((startingValues.getX() + ticks.getX() * i / 2) % ticks.getX() == 0) {
+                    xLines[i] = new DoubleLine(canvas, startingValues.getX() + ticks.getX() * i / 2, startingValues.getY(), startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY(),4,new Color(150,200,255));
+                    xText[i / 2] = new TextVObject(canvas, df.format(startingValues.getX() + ticks.getX() * i / 2), startingValues.getX() + ticks.getX() * i / 2 > 0 ? relScale.getScaleX() * (startingValues.getX() + ticks.getX() * i / 2) : relScale.getScaleX() * (startingValues.getX() + ticks.getX() * i / 2) - 8, 44, new Color(255, 0, 255));
                 } else
-                    xLines[i] = new DoubleLine(canvas, startingX + xValue * i / 2, startingY, startingX + xValue * i / 2, -startingY,1.5f,new Color(150,200,255));
+                    xLines[i] = new DoubleLine(canvas, startingValues.getX() + ticks.getX() * i / 2, startingValues.getY(), startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY(),1.5f,new Color(150,200,255));
             }
         }
 
@@ -118,7 +95,7 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
      */
     public boolean generatePlane(){
         gridDrawn = true;
-        currentColor = Useful.getColor(max,startingX,-startingX);
+        currentColor = Useful.getColor(max,startingValues.getX(),-startingValues.getX());
         canvas.beginDraw();
         canvas.translate(canvas.width/2.0f,canvas.height/2.0f);
         canvas.background(0);
@@ -131,7 +108,7 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
         canvas.strokeWeight(4);
 
         //  pushMatrix();
-        canvas.rotate(slowRotate.incrementor); //-processing.PI/2
+        //canvas.rotate(slowRotate.incrementor); //-processing.PI/2
        // incrementor = 0;
 
         for (int j = 0; j < yLines.length; j++){
@@ -171,7 +148,7 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
         canvas.textSize(42);
         canvas.textAlign(CENTER);
         canvas.rectMode(CENTER);
-        for (float x = startingX; x < -startingX; x += xValue){ //-width/(2*relScale.getScaleX()) - xValue/5 + xValue, starting 0,0 at width/2, height/2
+        for (float x = startingValues.getX(); x < -startingValues.getX(); x += ticks.getX()){ //-width/(2*relScale.getScaleX()) - ticks.getX()/5 + ticks.getX(), starting 0,0 at width/2, height/2
 
             if (x == 0) continue;
 
@@ -188,7 +165,7 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
         }
 
         canvas.textAlign(RIGHT);
-        for (float y = startingY; y < -startingY; y += yValue){
+        for (float y = startingValues.getY(); y < -startingValues.getY(); y += ticks.getY()){
             if (y == 0) continue;
             canvas.text(df.format(-y),-12,relScale.getScaleY()*y-12);
         }
@@ -222,7 +199,6 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
         // popMatrix();
     }
 
-
     /**
      * Graph any function
      */
@@ -232,7 +208,7 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
             sMax = restrictedDomainX1;
             endG = restrictedDomainX2;
         } else {
-            sMax = startingX;
+            sMax = startingValues.getX();
             endG = max;
         }
 
@@ -243,18 +219,18 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
 
         canvas.strokeWeight(5);
         canvas.strokeCap(processing.ROUND);
-        for (float i = startingX; i < max; i+=scaleFactor){
+        for (float i = startingValues.getX(); i < max; i+=scaleFactor){
             if (i < sMax || i > endG){
                 canvas.stroke(125,255,255,fadeGraph.fadeOut(0.01f));
             } else
-                canvas.stroke(Useful.getColor(i,startingX,-startingX),255,255);
+                canvas.stroke(Useful.getColor(i,startingValues.getX(),-startingValues.getX()),255,255);
 
             /* Optimize graph, only use if no autoscale! */
 
         /*
-        for (int t = 0; t < 5 && f(i) > -startingY; t++){
+        for (int t = 0; t < 5 && f(i) > -startingValues.getY(); t++){
           float jumpDistance = 5*scaleFactor;
-          if (f(i+jumpDistance) < -startingY){
+          if (f(i+jumpDistance) < -startingValues.getY()){
             finalValue = jumpDistance;
           }
         }
@@ -269,7 +245,7 @@ public class CartesianPlane extends VObject implements Plane { // Work on mouseD
 
         }
 
-        if (max < -startingX) max+=scaleFactor;
+        if (max < -startingValues.getX()) max+=scaleFactor;
 
 
 

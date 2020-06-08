@@ -3,9 +3,11 @@ package vanim.shapes;
 import static vanim.misc.Mapper.*;
 import static vanim.planar.*;
 import processing.core.*;
+import vanim.Planes.Plane;
 import vanim.misc.Color;
-import vanim.misc.Scale;
+import vanim.storage.Scale;
 import vanim.root.VObject;
+import vanim.storage.Vector;
 
 public class TextVObject extends VObject {
     public String str;
@@ -14,17 +16,16 @@ public class TextVObject extends VObject {
     int align = CENTER;
     boolean displayRect = true;
 
-    public TextVObject(PGraphics c, String s, float x, float y, float size, Color color){
-        super(c,x,y,color,new Scale(1,1));
-        c.textSize(size);
-        width = c.textWidth(s);
-        height = size;
-        tSize = size;
+    public TextVObject(Plane p, String s, Vector<Float> pos, float tSize, Color color){
+        super(p,pos,color);
         str = s;
+        this.tSize = tSize;
+        canvas.textSize(this.tSize);
+        dimensions.setXY(canvas.textWidth(str),this.tSize);
     }
 
-    public TextVObject(PGraphics c, String s, float x, float y, Color color){
-        this(c,s,x,y,c.textSize,color);
+    public TextVObject(Plane p, String s, Vector<Float> pos, Color color){
+        this(p,s,pos,p.getCanvas().textSize,color);
     }
 
     public void setTextAlign(int ALIGN) {
@@ -40,6 +41,7 @@ public class TextVObject extends VObject {
         return false;
     }
 
+    @Override
     public boolean display(Object... obj){
         if (displayRect)
             this.backgroundRect();
@@ -50,7 +52,7 @@ public class TextVObject extends VObject {
         if (canvas.textAlign != align)
             canvas.textAlign(align);
 
-        canvas.text(str,pos.x,pos.y);
+        canvas.text(str,pos.getX(),pos.getY());
         if (transp < 255)
             transp += 4;
 

@@ -1,76 +1,48 @@
 package vanim.root;
 import static vanim.planar.*;
-import static processing.core.PApplet.*;
-import processing.core.*;
+
+import vanim.Planes.Plane;
 import vanim.misc.Color;
-import vanim.misc.Scale;
-import vanim.planar;
+import vanim.storage.Vector;
 
-import java.util.*;
+public abstract class VObject extends CanvasObject{
 
-public abstract class VObject {
-    public int frameCountInit;
-    public int frameCountBuffer;
-    protected PVector pos;
-    protected float width;
-    protected float height;
-    protected PGraphics canvas;
     protected Color color;
-    public PApplet processing;
     protected long incrementor = 0;
     protected float mapPower = 1;
-    protected List<float[]> original = new ArrayList<>();
-    protected List<float[]> coords = new ArrayList<>(); //[x,y]
     protected int coordsSize = 0;
-    protected Scale relScale = new Scale(1,1,1); //cant hurt to do this amiright?
 
     //add mapper and points[] ?
-
-    public VObject(PGraphics c, float x, float y, float w, float h, Color color){
-        this(null,c,x,y,w,h,color,absScale);
-    }
-
-    public VObject(PApplet p, PGraphics c, float x, float y, float w, float h, Color color, Scale scale){
-        //println("IS NULL? " + p);
-        processing = p;
-        canvas = c;
-        pos = new PVector(scale.getScaleX()*x,scale.getScaleY()*y); //just PVec(x,y) works!
-        width = scale.getScaleX()*w;
-        height = scale.getScaleY()*h;
+    public VObject(Plane p, Vector<Float> pos, Vector<Float> dimensions, Color color){ // Plane constructor!
+        super(p.getProcessingInstance(),p.getCanvas(),pos,dimensions);
+        pos.multiplyAll(relScale.getScaleX(),relScale.getScaleY()); //just PVec(x,y) works!
+        dimensions.multiplyAll(relScale.getScaleX(),relScale.getScaleY());
         this.color = color;
     }
 
-    public VObject(PGraphics c, float x, float y, Color color){
-        this(null,c,x,y,0,0,color,absScale);
+    public VObject(Plane p, Vector<Float> pos, Color color){
+        this(p,pos, new Vector<>(),color);
     }
 
-    public VObject(PGraphics c, float x, float y, Color color, Scale scale){
-        this(null,c,x,y,0,0,color,scale);
+    public VObject(Plane p, Vector<Float> pos,float s, Color color) {
+        this(p,pos,new Vector<>(s,s,s),color);
     }
 
-    public VObject(PApplet p,PGraphics c,float x, float y,float s, Color color) {
-        this(null,c,x,y,s,s,color,absScale);
-    }
-
-    public VObject(PApplet p, PGraphics c, float x, float y, float w, float h) {
-        this(p,c,x,y,w,h,new Color(),absScale);
-    }
-
-    public VObject(PGraphics c, float x, float y, float size, Color color) {
-        this(null,c,x,y,size,size,color,absScale);
+    public VObject(Plane p, Vector<Float> pos, Vector<Float> dimensions) {
+        this(p,pos,dimensions,new Color());
     }
 
     public void setWidth(float nw){
-        width = nw;
+        dimensions.setX(nw);
     }
 
     public void setHeight(float nh){
-        height = nh;
+        dimensions.setY(nh);
     }
 
     public void setWidthHeight(float nw, float nh){
-        width = nw;
-        height = nh;
+        dimensions.setX(nw);
+        dimensions.setY(nh);
     }
 
     public void backgroundRect(){ // work on this tom it is now tom
@@ -78,16 +50,15 @@ public abstract class VObject {
         canvas.fill(0,0,0,125); //125
         if (canvas.textAlign == LEFT){
             canvas.rectMode(CORNER);
-            canvas.rect(pos.x,pos.y-height + 14,width,height);
+            canvas.rect(pos.getX(),pos.getY()-dimensions.getY() + 14,dimensions.getX(),dimensions.getY());
         }
         else {
             canvas.rectMode(CENTER);
-            canvas.rect(pos.x,pos.y - 14,width,height);
+            canvas.rect(pos.getX(),pos.getY() - 14,dimensions.getX(),dimensions.getY());
         }
 
     }
 
     //rotate, translate, move, a lot more!
     public abstract boolean scale(float... obj); // Scale up the VObject
-    public abstract boolean display(Object... obj); // Display the VObject
 }

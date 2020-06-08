@@ -1,7 +1,6 @@
 package vanim;
 import vanim.Planes.CartesianPlane;
 import vanim.mfunc.*;
-import vanim.misc.Scale;
 import vanim.shapes.*;
 
 import static vanim.Directions.*;

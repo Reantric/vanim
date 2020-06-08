@@ -1,6 +1,6 @@
-package vanim.misc;
+package vanim.storage;
 
-public class Scale {
+public class Scale extends Vector<Float> {
     float scaleX, scaleY, scaleZ;
     public Scale(float x, float y, float z){
         scaleX = x;

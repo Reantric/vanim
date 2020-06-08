@@ -1,24 +1,27 @@
 package vanim.shapes;
 
-import processing.core.PGraphics;
+import vanim.Planes.Plane;
 import vanim.misc.Color;
-import vanim.misc.Scale;
 import vanim.misc.Useful;
-import vanim.planar;
 import vanim.root.VObject;
+import vanim.storage.Vector;
+
+import java.util.*;
 
 public class ClosedShape extends VObject { // Maybe in the far far future when i add 3D call this ClosedShape2D
     protected int delVal, optimalDelVal;
     protected float incrementTangentLine = 0;
     protected int speed;
     protected float distance;
+    protected List<float[]> original = new ArrayList<>();
+    protected List<float[]> coords = new ArrayList<>(); //[x,y]
 
    // public ClosedShape(PGraphics c, float x, float y, float xAxis, float yAxis) {
      //   this(c,x,y,xAxis,yAxis,1,100,planar.scale);
     //}
 
-    public ClosedShape(PGraphics c, float x, float y, float xAxis, float yAxis, int speed, int delVal, Scale scale) {
-        super(null,c, x, y, xAxis, yAxis, new Color(0),scale);
+    public ClosedShape(Plane p, Vector<Float> pos, Vector<Float> dimensions, int speed, int delVal) {
+        super(p, pos,dimensions, new Color(0)); // For now, it does not utilize a color
         this.speed = speed;
         this.delVal = delVal;
     }

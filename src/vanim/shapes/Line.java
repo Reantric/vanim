@@ -1,7 +1,7 @@
 package vanim.shapes;
 import processing.core.*;
 import vanim.misc.Color;
-import vanim.misc.Scale;
+import vanim.storage.Scale;
 import vanim.planar;
 import vanim.root.VObject;
 
