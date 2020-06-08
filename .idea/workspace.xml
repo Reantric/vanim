@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16440c7b-6ffb-46a2-aefd-e357a36e7ec9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vanim/storage/Vector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/guava_29_0_jre.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/Planes/CartesianPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/Planes/CartesianPlane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/Arrow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/Easing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/Planes/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/Scaling.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/misc/Scale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Scale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/Planes/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/Planes/Plane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/planar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/root/VObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/VObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Line.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/TextVObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/TextVObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Scale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Scale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vectoranim.iml" beforeDir="false" afterPath="$PROJECT_DIR$/vectoranim.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +49,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/library" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../guava-29.0-jre.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.proportion" value="0.5" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -91,10 +93,10 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591199868304">
+    <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591649648027">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591199868304" />
+    <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591649648027" />
     <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1591570595696">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -111,10 +113,14 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="718" y="410" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080@0.0.1920.1080" timestamp="1589145863833" />
-    <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl" timestamp="1591200197307">
+    <state x="1065" y="421" key="DetectedRootsChooserDialog" timestamp="1591649607500">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591200197307" />
+    <state x="1065" y="421" key="DetectedRootsChooserDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591649607500" />
+    <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl" timestamp="1591649936388">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1591649936388" />
     <state width="1877" height="198" key="GridCell.Tab.0.bottom" timestamp="1591466380560">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -151,14 +157,18 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="362" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1590549361856" />
-    <state x="748" y="125" key="SettingsEditor" timestamp="1591200242928">
+    <state x="748" y="125" key="SettingsEditor" timestamp="1591649954221">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="748" y="125" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591200242928" />
+    <state x="748" y="125" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591649954221" />
     <state x="750" y="374" key="com.intellij.ide.util.TipDialog" timestamp="1586894851302">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="750" y="374" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586894851302" />
+    <state x="972" y="442" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1591649592011">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="972" y="442" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1080@0.0.1920.1080" timestamp="1591649592011" />
     <state x="591" y="237" width="807" height="606" key="find.popup" timestamp="1584995910251">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -171,10 +181,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="755" y="287" key="refactoring.ChangeSignatureDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591570602014" />
-    <state x="616" y="250" key="run.anything.popup" timestamp="1584991091931">
+    <state x="616" y="250" width="672" height="677" key="run.anything.popup" timestamp="1591636397675">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="616" y="250" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1584991091931" />
+    <state x="616" y="250" width="672" height="677" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1591636397675" />
     <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1591047977828">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

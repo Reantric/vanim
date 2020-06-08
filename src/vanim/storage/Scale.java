@@ -1,65 +1,34 @@
 package vanim.storage;
 
+/**
+ * protonlaser91
+ */
 public class Scale extends Vector<Float> {
-    float scaleX, scaleY, scaleZ;
+
+    /**
+     *
+     * @param x Storing the x scaling value
+     * @param y Storing the y scaling value
+     * @param z Storing the z scaling value
+     */
     public Scale(float x, float y, float z){
-        scaleX = x;
-        scaleY = y;
-        scaleZ = z;
+        super(x,y,z);
+
     }
 
     public Scale(float x, float y) {
-        scaleX = x;
-        scaleY = y;
-        scaleZ = 1;
+        super(x,y,1f);
+
     }
 
-    public void setScaleAll(float scaleAll){
-        this.scaleX = scaleAll;
-        this.scaleY = scaleAll;
-        this.scaleZ = scaleAll;
-    }
-
-    public void multiplyScaleAll(float scaleAll){
-        this.scaleX *= scaleAll;
-        this.scaleY *= scaleAll;
-        this.scaleZ *= scaleAll;
-    }
-
-    public float getScaleX() {
-        return scaleX;
-    }
-
-    public void setScaleX(float scaleX) {
-        this.scaleX = scaleX;
-    }
-
-    public void multiplyScaleX(float scaleX){
-        this.scaleX *= scaleX;
-    }
-
-    public float getScaleZ() {
-        return scaleZ;
-    }
-
-    public void setScaleZ(float scaleZ) {
-        this.scaleZ = scaleZ;
-    }
-
-    public void multiplyScaleZ(float scaleZ){
-        this.scaleZ *= scaleZ;
-    }
-
-    public float getScaleY() {
-        return scaleY;
-    }
-
-    public void setScaleY(float scaleY) {
-        this.scaleY = scaleY;
-    }
-
-    public void multiplyScaleY(float scaleY){
-        this.scaleY *= scaleY;
+    /**
+     *
+     * @param scaleAll Set all scale variables to this parameter.
+     */
+    public void setAll(float scaleAll){
+        this.x = scaleAll;
+        this.y = scaleAll;
+        this.z = scaleAll;
     }
 
 }

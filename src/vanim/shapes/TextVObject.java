@@ -9,6 +9,9 @@ import vanim.storage.Scale;
 import vanim.root.VObject;
 import vanim.storage.Vector;
 
+/**
+ * @author protonlaser91
+ */
 public class TextVObject extends VObject {
     public String str;
     float tSize;
@@ -16,6 +19,14 @@ public class TextVObject extends VObject {
     int align = CENTER;
     boolean displayRect = true;
 
+    /**
+     *
+     * @param p Plane that is to be drawn on
+     * @param s String to be displayed
+     * @param pos The position of the object on the canvas (in absolute coordinates)
+     * @param tSize The size of the text (can be omitted)
+     * @param color The color of the object, in HSB
+     */
     public TextVObject(Plane p, String s, Vector<Float> pos, float tSize, Color color){
         super(p,pos,color);
         str = s;
@@ -28,19 +39,32 @@ public class TextVObject extends VObject {
         this(p,s,pos,p.getCanvas().textSize,color);
     }
 
+    /**
+     *
+     * @param ALIGN Set alignment of text using Processing's textAlign modes
+     */
     public void setTextAlign(int ALIGN) {
         align = ALIGN;
     }
 
+    /**
+     * gonna be honest i really dont know what this does, hence the parameter name
+     * @param tf
+     */
     public void setDisplayRect(boolean tf){
         displayRect = tf;
     }
 
     @Override
-    public boolean scale(float... obj) {
+    public boolean scale(Scale s) {
         return false;
     }
 
+    /**
+     * Display the text along with a background rectangle to allow the text to be seen more easily
+     * @param obj Varargs to display the object at coordinates
+     * @return When the text is fully visible (transparency > 255)
+     */
     @Override
     public boolean display(Object... obj){
         if (displayRect)
