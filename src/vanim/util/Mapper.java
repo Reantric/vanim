@@ -1,4 +1,4 @@
-package vanim.misc;
+package vanim.util;
 import static processing.core.PApplet.*;
 
 public class Mapper {

@@ -1,5 +1,7 @@
-package vanim.Planes;
+package vanim.planes;
 
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
 import processing.core.*;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
@@ -14,6 +16,7 @@ public abstract class Plane extends CanvasObject {
     protected Vector<Float> ticks;
     protected int frameCountInit;
     protected int frameCountBuffer;
+    private static final Multiset<Plane> allObjects = HashMultiset.create();
 
     /**
      *
@@ -25,6 +28,17 @@ public abstract class Plane extends CanvasObject {
     public Plane(PApplet p, Vector<Float> pos, Vector<Integer> dimensions, Vector<Float> ticks) {
         super(p, p.createGraphics(dimensions.getX(),dimensions.getY(),P2D), pos, new Vector<>(dimensions));
         this.ticks = ticks;
+        allObjects.add(this);
+    }
+
+    /**
+     *
+     * @return An immutable list of all objects that have been created and are Planes
+     *          or a subclass of Plane
+     */
+    @Override
+    public Multiset<? extends Plane> getAllObjects(){
+        return allObjects;
     }
 
     /**

@@ -1,4 +1,4 @@
-package vanim.misc;
+package vanim.util;
 
 public class Color {
     float hue, saturation, brightness;

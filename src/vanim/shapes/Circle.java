@@ -2,15 +2,17 @@ package vanim.shapes;
 
 import static vanim.planar.*;
 
-import processing.core.*;
-import vanim.Planes.Plane;
-import vanim.storage.Scale;
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
+import vanim.planes.Plane;
 import vanim.storage.Vector;
 
 /**
  * @author protonlaser91
  */
 public class Circle extends Ellipse {
+
+    private static final Multiset<Circle> allObjects = HashMultiset.create();
 
     /**
      *
@@ -23,6 +25,7 @@ public class Circle extends Ellipse {
      */
     public Circle(Plane p, Vector<Float> pos, float radius, int speed, int delVal) {
         super(p, pos, new Vector<>(radius, radius), speed, delVal);
+        allObjects.add(this);
     }
 
     public Circle(Plane p, Vector<Float> pos, float radius, int speed) {
@@ -36,6 +39,16 @@ public class Circle extends Ellipse {
     public float getRadius() {
         //width and height are same in Circle, depends on sX and sY
         return dimensions.getX() / scale.getX();
+    }
+
+    /**
+     *
+     * @return An immutable list of all objects that have been created and are Circle
+     *          or a subclass of Circle
+     */
+    @Override
+    public Multiset<? extends Circle> getAllObjects(){
+        return allObjects;
     }
 }
 

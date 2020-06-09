@@ -1,7 +1,9 @@
-package vanim.Planes;
+package vanim.planes;
 import static vanim.planar.*;
 
-import vanim.misc.*;
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
+import vanim.util.*;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
 import vanim.root.VObject;
@@ -30,6 +32,7 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
     public VObject[] xLines, yLines;
     public TextVObject[] xText, yText;
     List<PVector> points = new ArrayList<PVector>();
+    private static final Multiset<CartesianPlane> allObjects = HashMultiset.create();
     /* Object initializations */
 
     /**
@@ -86,7 +89,7 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
             }
         }
 
-
+        allObjects.add(this);
     }
 
     /**

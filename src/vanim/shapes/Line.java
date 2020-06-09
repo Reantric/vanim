@@ -1,11 +1,11 @@
 package vanim.shapes;
 import processing.core.*;
-import vanim.misc.Color;
+import vanim.util.Color;
 import vanim.storage.Scale;
 import vanim.planar;
 import vanim.root.VObject;
 
-import static vanim.misc.Mapper.*;
+import static vanim.util.Mapper.*;
 
 public class Line extends VObject {
 

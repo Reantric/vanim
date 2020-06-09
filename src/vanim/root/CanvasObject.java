@@ -1,20 +1,24 @@
 package vanim.root;
 
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
 import processing.core.PApplet;
 import processing.core.PGraphics;
+import vanim.shapes.TextVObject;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
 
 /**
  * @author protonlaser91
  */
-public abstract class CanvasObject {
+public abstract class CanvasObject implements GeneralObject{
 
     protected PGraphics canvas;
     protected Scale scale = new Scale(1,1);
     protected Vector<Float> pos;
     protected Vector<Float> dimensions; //width height
     public PApplet processing;
+    private static final Multiset<CanvasObject> allObjects = HashMultiset.create();
 
     /**
      *
@@ -28,10 +32,21 @@ public abstract class CanvasObject {
         canvas = c;
         this.pos = pos;
         this.dimensions = dimensions;
+        allObjects.add(this);
     }
 
     protected CanvasObject(PGraphics c, Vector<Float> xy, Vector<Float> dimensions){
         this(null,c,xy,dimensions);
+    }
+
+    /**
+     *
+     * @return An immutable list of all objects that have been created and are CanvasObjects
+     *          or a subclass of CanvasObjects
+     */
+    @Override
+    public Multiset<? extends CanvasObject> getAllObjects(){
+        return allObjects;
     }
 
     /**

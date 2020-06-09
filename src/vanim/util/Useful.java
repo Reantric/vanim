@@ -1,6 +1,5 @@
-package vanim.misc;
+package vanim.util;
 import processing.core.*;
-import static vanim.planar.*;
 
 public class Useful {
     

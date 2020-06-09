@@ -1,8 +1,8 @@
 package vanim;
 
 import processing.core.PApplet;
-import vanim.misc.Mapper;
-import vanim.misc.Useful;
+import vanim.util.Mapper;
+import vanim.util.Useful;
 
 import java.util.Arrays;
 import java.util.List;

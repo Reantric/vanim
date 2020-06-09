@@ -1,4 +1,4 @@
-package vanim.misc;
+package vanim.util;
 
 import java.util.Random;
 

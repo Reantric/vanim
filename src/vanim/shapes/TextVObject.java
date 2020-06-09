@@ -1,10 +1,12 @@
 package vanim.shapes;
 
-import static vanim.misc.Mapper.*;
+import static vanim.util.Mapper.*;
 import static vanim.planar.*;
-import processing.core.*;
-import vanim.Planes.Plane;
-import vanim.misc.Color;
+
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
+import vanim.planes.Plane;
+import vanim.util.Color;
 import vanim.storage.Scale;
 import vanim.root.VObject;
 import vanim.storage.Vector;
@@ -18,6 +20,7 @@ public class TextVObject extends VObject {
     float transp = 0;
     int align = CENTER;
     boolean displayRect = true;
+    private static final Multiset<TextVObject> allObjects = HashMultiset.create();
 
     /**
      *
@@ -33,6 +36,7 @@ public class TextVObject extends VObject {
         this.tSize = tSize;
         canvas.textSize(this.tSize);
         dimensions.setXY(canvas.textWidth(str),this.tSize);
+        allObjects.add(this);
     }
 
     public TextVObject(Plane p, String s, Vector<Float> pos, Color color){
@@ -53,6 +57,16 @@ public class TextVObject extends VObject {
      */
     public void setDisplayRect(boolean tf){
         displayRect = tf;
+    }
+
+    /**
+     *
+     * @return An immutable list of all objects that have been created and are TextVObjects
+     *          or a subclass of TextVObject
+     */
+    @Override
+    public Multiset<? extends TextVObject> getAllObjects(){
+        return allObjects;
     }
 
     @Override

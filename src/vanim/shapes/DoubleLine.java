@@ -2,7 +2,7 @@ package vanim.shapes;
 
 import processing.core.PApplet;
 import processing.core.PGraphics;
-import vanim.misc.Color;
+import vanim.util.Color;
 import vanim.storage.Scale;
 import vanim.planar;
 

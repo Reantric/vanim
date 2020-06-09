@@ -3,8 +3,8 @@ import static vanim.planar.*;
 
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
-import vanim.Planes.Plane;
-import vanim.misc.Color;
+import vanim.planes.Plane;
+import vanim.util.Color;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
 
@@ -18,7 +18,7 @@ public abstract class VObject extends CanvasObject{
     protected float mapPower = 1;
     protected int coordsSize = 0;
     protected Scale absScale;
-    protected static Multiset<VObject> allVObjects = HashMultiset.create(); //Hold all VObjects here
+    private static final Multiset<VObject> allObjects = HashMultiset.create(); //Hold all VObjects here
 
     /**
      *
@@ -33,6 +33,7 @@ public abstract class VObject extends CanvasObject{
         pos.multiplyAll(scale.getX(),scale.getY()); //just PVec(x,y) works!
         dimensions.multiplyAll(scale.getX(),scale.getY()); // Starting dimensions!
         this.color = color;
+        allObjects.add(this);
     }
 
     public VObject(Plane p, Vector<Float> pos, Color color){
@@ -101,5 +102,15 @@ public abstract class VObject extends CanvasObject{
     public boolean scale(Scale s) {
         this.scale = s;
         return true;
+    }
+
+    /**
+     *
+     * @return An immutable list of all objects that have been created and are VObjects
+     *          or a subclass of VObject
+     */
+    @Override
+    public Multiset<? extends VObject> getAllObjects(){
+        return allObjects;
     }
 }

@@ -2,20 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16440c7b-6ffb-46a2-aefd-e357a36e7ec9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/guava_29_0_jre.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/root/GeneralObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/Planes/CartesianPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/Planes/CartesianPlane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/Planes/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/Planes/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/Directions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/Directions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/Planes/CartesianPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/Planes/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planes/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/Narrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/mfunc/Narrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/misc/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/util/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/misc/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/util/Mapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/misc/RandomDebug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/util/RandomDebug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/misc/Useful.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/util/Useful.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/planar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/root/VObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/VObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Line.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/TextVObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/TextVObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Scale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Scale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Vector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vectoranim.iml" beforeDir="false" afterPath="$PROJECT_DIR$/vectoranim.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +31,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>

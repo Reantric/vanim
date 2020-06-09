@@ -1,7 +1,6 @@
 package vanim.mfunc;
 
-import vanim.misc.Color;
-import vanim.planar;
+import vanim.util.Color;
 import vanim.shapes.*;
 import processing.core.*;
 import java.util.*;

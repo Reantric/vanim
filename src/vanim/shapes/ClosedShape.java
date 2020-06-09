@@ -1,27 +1,25 @@
 package vanim.shapes;
 
-import processing.core.PVector;
-import vanim.Planes.Plane;
-import vanim.misc.Color;
-import vanim.misc.Useful;
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
+import vanim.planes.Plane;
+import vanim.util.Color;
+import vanim.util.Useful;
 import vanim.root.VObject;
-import vanim.storage.Scale;
 import vanim.storage.Vector;
-
 import java.util.*;
-
-import static processing.core.PApplet.cos;
-import static processing.core.PApplet.sin;
 
 /**
  * @author protonlaser91
  */
 public class ClosedShape extends VObject { // Maybe in the far far future when i add 3D call this ClosedShape2D
+
     protected int delVal, optimalDelVal;
     protected float incrementTangentLine = 0;
     protected int speed;
     protected float distance;
     protected List<float[]> coords = new ArrayList<>(); //[x,y]
+    private static final Multiset<ClosedShape> allObjects = HashMultiset.create();
 
     /**
      *
@@ -36,6 +34,7 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
         super(p, pos,dimensions, new Color(0)); // For now, it does not utilize a color
         this.speed = speed;
         this.delVal = delVal;
+        allObjects.add(this);
     }
 
     /**
@@ -77,6 +76,16 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
         }
 
         return coordsSize == delVal;
+    }
+
+    /**
+     *
+     * @return An immutable list of all objects that have been created and are ClosedShapes
+     *          or a subclass of ClosedShape
+     */
+    @Override
+    public Multiset<? extends ClosedShape> getAllObjects(){
+        return allObjects;
     }
 
     /**

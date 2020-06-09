@@ -1,5 +1,5 @@
 package vanim;
-import vanim.Planes.CartesianPlane;
+import vanim.planes.CartesianPlane;
 import vanim.mfunc.*;
 import vanim.shapes.*;
 
