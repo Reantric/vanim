@@ -5,6 +5,7 @@ import static vanim.planar.*;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 import vanim.planes.Plane;
+import vanim.storage.FVector;
 import vanim.storage.Vector;
 
 /**
@@ -23,12 +24,12 @@ public class Circle extends Ellipse {
      * @param delVal How fast the circle should be colored in per tick. After delVal ticks, the color wheel will
      *               have reached the beginning.
      */
-    public Circle(Plane p, Vector<Float> pos, float radius, int speed, int delVal) {
-        super(p, pos, new Vector<>(radius, radius), speed, delVal);
+    public Circle(Plane p, FVector pos, float radius, int speed, int delVal) {
+        super(p, pos, new FVector(radius, radius), speed, delVal);
         allObjects.add(this);
     }
 
-    public Circle(Plane p, Vector<Float> pos, float radius, int speed) {
+    public Circle(Plane p, FVector pos, float radius, int speed) {
         this(p, pos, radius, speed, floor(TAU * 100 / speed + 2));
     }
 

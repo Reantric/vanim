@@ -14,7 +14,7 @@ import vanim.storage.Vector;
 public abstract class CanvasObject implements GeneralObject{
 
     protected PGraphics canvas;
-    protected Scale scale = new Scale(1,1);
+    protected Scale scale = new Scale(1,1,1);
     protected Vector<Float> pos;
     protected Vector<Float> dimensions; //width height
     public PApplet processing;

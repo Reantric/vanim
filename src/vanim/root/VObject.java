@@ -4,6 +4,7 @@ import static vanim.planar.*;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 import vanim.planes.Plane;
+import vanim.storage.FVector;
 import vanim.util.Color;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
@@ -27,7 +28,7 @@ public abstract class VObject extends CanvasObject{
      * @param dimensions The width, height (and depth) of the object (in scaled coordinates, not absolute)
      * @param color The color of the object, in HSB
      */
-    public VObject(Plane p, Vector<Float> pos, Vector<Float> dimensions, Color color){ // Plane constructor!
+    public VObject(Plane p, FVector pos, FVector dimensions, Color color){ // Plane constructor!
         super(p.getProcessingInstance(),p.getCanvas(),pos,dimensions);
         absScale = p.getScale();
         pos.multiplyAll(scale.getX(),scale.getY()); //just PVec(x,y) works!
@@ -36,15 +37,15 @@ public abstract class VObject extends CanvasObject{
         allObjects.add(this);
     }
 
-    public VObject(Plane p, Vector<Float> pos, Color color){
-        this(p,pos, new Vector<>(),color);
+    public VObject(Plane p, FVector pos, Color color){
+        this(p,pos, null,color);
     }
 
-    public VObject(Plane p, Vector<Float> pos,float s, Color color) {
-        this(p,pos,new Vector<>(s,s,s),color);
+    public VObject(Plane p, FVector pos,float s, Color color) {
+        this(p,pos,new FVector(s,s,s),color);
     }
 
-    public VObject(Plane p, Vector<Float> pos, Vector<Float> dimensions) {
+    public VObject(Plane p, FVector pos, FVector dimensions) {
         this(p,pos,dimensions,new Color());
     }
 

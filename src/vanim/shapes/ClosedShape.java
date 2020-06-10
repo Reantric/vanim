@@ -3,6 +3,7 @@ package vanim.shapes;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 import vanim.planes.Plane;
+import vanim.storage.FVector;
 import vanim.util.Color;
 import vanim.util.Useful;
 import vanim.root.VObject;
@@ -30,7 +31,7 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
      * @param delVal How fast the circle should be colored in per tick. After delVal ticks, the color wheel will
      *               have reached the beginning.
      */
-    public ClosedShape(Plane p, Vector<Float> pos, Vector<Float> dimensions, int speed, int delVal) {
+    public ClosedShape(Plane p, FVector pos, FVector dimensions, int speed, int delVal) {
         super(p, pos,dimensions, new Color(0)); // For now, it does not utilize a color
         this.speed = speed;
         this.delVal = delVal;

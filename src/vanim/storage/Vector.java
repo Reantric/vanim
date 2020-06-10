@@ -70,36 +70,4 @@ public class Vector<T> {
         return size;
     }
 
-    public void multiplyX(float scaleX){
-        multiplyAll(scaleX,1,1);
-    }
-
-    public void multiplyY(float scaleY){
-        multiplyAll(1,scaleY,1);
-    }
-
-    public void multiplyZ(float scaleZ){
-        multiplyAll(1,1,scaleZ);
-    }
-
-    public void multiplyAll(float... scale){
-        Vector<Float> v = new Vector<>(this);
-        int len = scale.length;
-        switch (len) {
-            case 1 -> {
-                v.setX(v.getX() * scale[0]);
-                v.setY(v.getX() * scale[0]);
-                v.setZ(v.getX() * scale[0]);
-            }
-            case 2 -> {
-                v.setX(v.getX() * scale[0]);
-                v.setY(v.getX() * scale[1]);
-            }
-            case 3 -> {
-                v.setX(v.getX() * scale[0]);
-                v.setY(v.getX() * scale[1]);
-                v.setZ(v.getX() * scale[2]);
-            }
-        }
-    }
 }

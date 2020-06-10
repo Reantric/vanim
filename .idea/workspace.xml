@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16440c7b-6ffb-46a2-aefd-e357a36e7ec9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/vanim/root/GeneralObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/directions/Scene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/directions/Scene1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/storage/FVector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/storage/IVector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/Directions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/Directions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/Planes/CartesianPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/Planes/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planes/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/Narrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/mfunc/Narrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/misc/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/util/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/misc/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/util/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/misc/RandomDebug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/util/RandomDebug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/misc/Useful.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/util/Useful.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/planar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/root/VObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/VObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" afterDir="false" />
@@ -20,7 +16,7 @@
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Line.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/TextVObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/TextVObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Vector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -67,7 +63,7 @@
     <property name="project.structure.proportion" value="0.5" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RunManager">
     <configuration name="Special" type="Application" factoryName="Application">
@@ -103,10 +99,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591649648027" />
-    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1591570595696">
+    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1591811205460">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1591570595696" />
+    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1591811205460" />
     <state x="689" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1585016676016">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -163,10 +159,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="362" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1590549361856" />
-    <state x="748" y="125" key="SettingsEditor" timestamp="1591649954221">
+    <state x="748" y="125" key="SettingsEditor" timestamp="1591753839553">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="748" y="125" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591649954221" />
+    <state x="748" y="125" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591753839553" />
     <state x="750" y="374" key="com.intellij.ide.util.TipDialog" timestamp="1586894851302">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

@@ -3,6 +3,7 @@ import static vanim.planar.*;
 
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
+import vanim.storage.*;
 import vanim.util.*;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
@@ -41,7 +42,7 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
      * @param pos Vector holding the position (x,y,z) of the plane.
      * @param dimensions Vector holding the dimensions (x,y,z) of the plane in resolution pixels.
      */
-    public CartesianPlane(PApplet p, Vector<Float> pos, Vector<Integer> dimensions, Vector<Float> ticks){
+    public CartesianPlane(PApplet p, FVector pos, IVector dimensions, FVector ticks){
         super(p,pos,dimensions,ticks);
         rescale.setXY((float) canvas.width/WIDTH,(float) canvas.height/HEIGHT);
         scale.setX(300/ticks.getX() * rescale.getX()); // 200 def

@@ -3,6 +3,7 @@ package vanim.shapes;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 import vanim.planes.Plane;
+import vanim.storage.FVector;
 import vanim.util.Mapper;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
@@ -25,7 +26,7 @@ public class Ellipse extends ClosedShape {
      * @param delVal How fast the circle should be colored in per tick. After delVal ticks, the color wheel will
      *               have reached the beginning.
      */
-    public Ellipse(Plane p, Vector<Float> pos, Vector<Float> dimensions, int speed, int delVal) {
+    public Ellipse(Plane p, FVector pos, FVector dimensions, int speed, int delVal) {
         super(p,pos,dimensions,speed,delVal);
         distance = (scale.getY() * dimensions.getY() + scale.getX() * dimensions.getX()) * 0.9f;
         //300*0.9 = 270 which IS the distance
