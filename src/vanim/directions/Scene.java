@@ -11,7 +11,7 @@ import static vanim.planar.b;
 import static vanim.planar.canvas;
 
 public abstract class Scene{
-    PApplet window;
+    protected PApplet window;
 
     public Scene(PApplet window){
         this.window = window;

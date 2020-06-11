@@ -2,14 +2,14 @@ package vanim.shapes;
 
 import static vanim.util.Mapper.*;
 import static vanim.planar.*;
-
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.Multiset;
 import vanim.planes.Plane;
+import vanim.storage.FVector;
 import vanim.util.Color;
 import vanim.storage.Scale;
 import vanim.root.VObject;
 import vanim.storage.Vector;
+
+import java.util.*;
 
 /**
  * @author protonlaser91
@@ -20,7 +20,7 @@ public class TextVObject extends VObject {
     float transp = 0;
     int align = CENTER;
     boolean displayRect = true;
-    private static final Multiset<TextVObject> allObjects = HashMultiset.create();
+    private static final List<TextVObject> allObjects = new ArrayList<>();
 
     /**
      *
@@ -30,7 +30,7 @@ public class TextVObject extends VObject {
      * @param tSize The size of the text (can be omitted)
      * @param color The color of the object, in HSB
      */
-    public TextVObject(Plane p, String s, Vector<Float> pos, float tSize, Color color){
+    public TextVObject(Plane p, String s, FVector pos, float tSize, Color color){
         super(p,pos,color);
         str = s;
         this.tSize = tSize;
@@ -39,7 +39,7 @@ public class TextVObject extends VObject {
         allObjects.add(this);
     }
 
-    public TextVObject(Plane p, String s, Vector<Float> pos, Color color){
+    public TextVObject(Plane p, String s,FVector pos, Color color){
         this(p,s,pos,p.getCanvas().textSize,color);
     }
 
@@ -65,7 +65,7 @@ public class TextVObject extends VObject {
      *          or a subclass of TextVObject
      */
     @Override
-    public Multiset<? extends TextVObject> getAllObjects(){
+    public List<? extends TextVObject> getAllObjects(){
         return allObjects;
     }
 

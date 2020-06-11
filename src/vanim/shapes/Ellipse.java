@@ -1,12 +1,12 @@
 package vanim.shapes;
 
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.Multiset;
 import vanim.planes.Plane;
 import vanim.storage.FVector;
 import vanim.util.Mapper;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
+
+import java.util.*;
 
 import static processing.core.PApplet.*;
 
@@ -15,7 +15,7 @@ import static processing.core.PApplet.*;
  */
 public class Ellipse extends ClosedShape {
 
-    private static final Multiset<Ellipse> allObjects = HashMultiset.create();
+    private static final List<Ellipse> allObjects = new ArrayList<>();
 
     /**
      *
@@ -72,7 +72,7 @@ public class Ellipse extends ClosedShape {
      *          or a subclass of Ellipse
      */
     @Override
-    public Multiset<? extends Ellipse> getAllObjects(){
+    public List<? extends Ellipse> getAllObjects(){
         return allObjects;
     }
 

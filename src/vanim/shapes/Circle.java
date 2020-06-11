@@ -2,18 +2,17 @@ package vanim.shapes;
 
 import static vanim.planar.*;
 
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.Multiset;
 import vanim.planes.Plane;
 import vanim.storage.FVector;
 import vanim.storage.Vector;
+import java.util.*;
 
 /**
  * @author protonlaser91
  */
 public class Circle extends Ellipse {
 
-    private static final Multiset<Circle> allObjects = HashMultiset.create();
+    private static final List<Circle> allObjects = new ArrayList<>();
 
     /**
      *
@@ -48,7 +47,7 @@ public class Circle extends Ellipse {
      *          or a subclass of Circle
      */
     @Override
-    public Multiset<? extends Circle> getAllObjects(){
+    public List<? extends Circle> getAllObjects(){
         return allObjects;
     }
 }

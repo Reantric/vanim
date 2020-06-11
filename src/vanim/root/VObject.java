@@ -1,13 +1,12 @@
 package vanim.root;
 import static vanim.planar.*;
 
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.Multiset;
 import vanim.planes.Plane;
 import vanim.storage.FVector;
 import vanim.util.Color;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
+import java.util.*;
 
 /**
  * @author protonlaser91
@@ -19,7 +18,7 @@ public abstract class VObject extends CanvasObject{
     protected float mapPower = 1;
     protected int coordsSize = 0;
     protected Scale absScale;
-    private static final Multiset<VObject> allObjects = HashMultiset.create(); //Hold all VObjects here
+    private static final List<VObject> allObjects = new ArrayList<>(); //Hold all VObjects here
 
     /**
      *
@@ -110,8 +109,8 @@ public abstract class VObject extends CanvasObject{
      * @return An immutable list of all objects that have been created and are VObjects
      *          or a subclass of VObject
      */
-    @Override
-    public Multiset<? extends VObject> getAllObjects(){
+
+    public static List<? extends VObject> getAllObjects(){
         return allObjects;
     }
 }

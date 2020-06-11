@@ -7,6 +7,7 @@ import processing.core.PGraphics;
 import vanim.shapes.TextVObject;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
+import java.util.*;
 
 /**
  * @author protonlaser91
@@ -18,7 +19,7 @@ public abstract class CanvasObject implements GeneralObject{
     protected Vector<Float> pos;
     protected Vector<Float> dimensions; //width height
     public PApplet processing;
-    private static final Multiset<CanvasObject> allObjects = HashMultiset.create();
+    private static final List<CanvasObject> allObjects = new ArrayList<>();
 
     /**
      *
@@ -44,8 +45,8 @@ public abstract class CanvasObject implements GeneralObject{
      * @return An immutable list of all objects that have been created and are CanvasObjects
      *          or a subclass of CanvasObjects
      */
-    @Override
-    public Multiset<? extends CanvasObject> getAllObjects(){
+
+    public static List<? extends CanvasObject> getAllObjects(){
         return allObjects;
     }
 

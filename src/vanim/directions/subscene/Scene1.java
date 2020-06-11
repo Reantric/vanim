@@ -1,6 +1,8 @@
-package vanim.directions;
+package vanim.directions.subscene;
 
 import processing.core.PApplet;
+import vanim.directions.Scene;
+import vanim.root.CanvasObject;
 import vanim.util.Mapper;
 import vanim.util.Useful;
 
@@ -8,7 +10,7 @@ import static processing.core.PApplet.*;
 import static vanim.Directions.*;
 import static vanim.planar.*;
 
-public class Scene1 extends Scene{
+public class Scene1 extends Scene {
 
     public Scene1(PApplet window) {
         super(window);
@@ -18,7 +20,7 @@ public class Scene1 extends Scene{
     public boolean scene() {
         //plane.rotatePlane(angle);
         // arr.setVector(cos(inc),sin(inc));
-
+        CanvasObject.getAllObjects();
 
 
         /* Maybe think about a MObject[] or ArrayList<MObject> where display can be called on everyone */

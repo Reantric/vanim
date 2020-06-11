@@ -27,10 +27,6 @@ public class DoubleLine extends Line{
         this(p,start,end,weight,new Color());
     }
 
-    // public DoubleLine(PGraphics canvas, float v, float v1, float v2, float v3, float v4, int i, int i1) {
- //       super();
-   // }
-
     @Override
     public boolean display(Object... obj){
         canvas.stroke(color.getHue(),color.getSaturation(),color.getBrightness());
@@ -41,9 +37,9 @@ public class DoubleLine extends Line{
             canvas.strokeWeight(weight);
 
 
-        canvas.line(xAverage,yAverage,pos.x,pos.y);
-        canvas.line(xAverage,yAverage,2*xAverage - pos.x,2*yAverage - pos.y);
+        canvas.line(average.getX(),average.getY(),pos.getX(),pos.getY());
+        canvas.line(average.getX(),average.getY(),2*average.getX() - pos.getX(),2*average.getY() - pos.getY());
 
-        return pos.x == finalX && pos.y == finalY;
+        return pos.getX().equals(end.getX()) && pos.getY().equals(end.getY());
     }
 }

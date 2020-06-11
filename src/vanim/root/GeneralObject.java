@@ -1,8 +1,10 @@
 package vanim.root;
-
-import com.google.common.collect.Multiset;
+import java.util.List;
 
 public interface GeneralObject {
-    Multiset<? extends CanvasObject> getAllObjects(); // An immutable list of all objects that have been created
+ //   static List<? extends CanvasObject> getAllObjects() // An immutable list of all objects that have been created
+   // {
+  //      return null;
+  //  }
     // and are of class ? or a subclass of ? that must extend CanvasObject
 }

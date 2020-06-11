@@ -1,14 +1,16 @@
 package vanim.mfunc;
 
+import vanim.root.CanvasObject;
 import vanim.util.Color;
 import vanim.shapes.*;
 import processing.core.*;
 import java.util.*;
 import static vanim.planar.*;
 
-public class Narrator {
+public class Narrator extends CanvasObject {
     PGraphics canvas;
     List<TextVObject> allText = new ArrayList<>();
+
     public Narrator(PGraphics c){
         canvas = c;
         setupNarrator();
@@ -46,5 +48,14 @@ public class Narrator {
 
     public void test() {
         println("I exist!");
+    }
+
+    /**
+     * @param obj Varargs to display the object at coordinates
+     * @return If the operation was a success
+     */
+    @Override
+    public boolean display(Object... obj) {
+        return false;
     }
 }

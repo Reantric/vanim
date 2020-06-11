@@ -1,7 +1,5 @@
 package vanim.shapes;
 
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.Multiset;
 import vanim.planes.Plane;
 import vanim.storage.FVector;
 import vanim.util.Color;
@@ -20,7 +18,7 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
     protected int speed;
     protected float distance;
     protected List<float[]> coords = new ArrayList<>(); //[x,y]
-    private static final Multiset<ClosedShape> allObjects = HashMultiset.create();
+    private static final List<ClosedShape> allObjects = new ArrayList<>();
 
     /**
      *
@@ -84,8 +82,8 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
      * @return An immutable list of all objects that have been created and are ClosedShapes
      *          or a subclass of ClosedShape
      */
-    @Override
-    public Multiset<? extends ClosedShape> getAllObjects(){
+
+    public static List<? extends ClosedShape> getAllObjects(){
         return allObjects;
     }
 
