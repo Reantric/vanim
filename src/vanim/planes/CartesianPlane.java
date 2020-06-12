@@ -1,15 +1,22 @@
 package vanim.planes;
-import static vanim.planar.*;
 
-import vanim.storage.*;
-import vanim.util.*;
+import processing.core.PApplet;
+import processing.core.PGraphics;
+import processing.core.PVector;
+import vanim.root.VObject;
+import vanim.shapes.DoubleLine;
+import vanim.shapes.TextVObject;
+import vanim.storage.FVector;
+import vanim.storage.IVector;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
-import vanim.root.VObject;
-import vanim.shapes.*;
-import processing.core.*;
-import java.util.*;
-import java.lang.*;
+import vanim.util.Color;
+import vanim.util.Useful;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static vanim.planar.*;
 
 
 public class CartesianPlane extends Plane { // Work on mouseDrag after!
@@ -31,7 +38,6 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
     public VObject[] xLines, yLines;
     public TextVObject[] xText, yText;
     List<PVector> points = new ArrayList<PVector>();
-    private static final List<CartesianPlane> allObjects = new ArrayList<>();
     /* Object initializations */
 
     /**
@@ -87,8 +93,6 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
                     xLines[i] = new DoubleLine(canvas, startingValues.getX() + ticks.getX() * i / 2, startingValues.getY(), startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY(),1.5f,new Color(150,200,255));
             }
         }
-
-        allObjects.add(this);
     }
 
     /**
@@ -175,11 +179,6 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
 
         return true;
 
-    }
-
-    @Override
-    public List<? extends CartesianPlane> getAllObjects(){
-        return allObjects;
     }
 
     @Override

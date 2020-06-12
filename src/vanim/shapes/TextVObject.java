@@ -1,15 +1,13 @@
 package vanim.shapes;
 
-import static vanim.util.Mapper.*;
-import static vanim.planar.*;
 import vanim.planes.Plane;
-import vanim.storage.FVector;
-import vanim.util.Color;
-import vanim.storage.Scale;
 import vanim.root.VObject;
-import vanim.storage.Vector;
+import vanim.storage.FVector;
+import vanim.storage.Scale;
+import vanim.util.Color;
 
-import java.util.*;
+import static vanim.planar.CENTER;
+import static vanim.util.Mapper.*;
 
 /**
  * @author protonlaser91
@@ -20,7 +18,6 @@ public class TextVObject extends VObject {
     float transp = 0;
     int align = CENTER;
     boolean displayRect = true;
-    private static final List<TextVObject> allObjects = new ArrayList<>();
 
     /**
      *
@@ -36,7 +33,6 @@ public class TextVObject extends VObject {
         this.tSize = tSize;
         canvas.textSize(this.tSize);
         dimensions.setXY(canvas.textWidth(str),this.tSize);
-        allObjects.add(this);
     }
 
     public TextVObject(Plane p, String s,FVector pos, Color color){
@@ -57,16 +53,6 @@ public class TextVObject extends VObject {
      */
     public void setDisplayRect(boolean tf){
         displayRect = tf;
-    }
-
-    /**
-     *
-     * @return An immutable list of all objects that have been created and are TextVObjects
-     *          or a subclass of TextVObject
-     */
-    @Override
-    public List<? extends TextVObject> getAllObjects(){
-        return allObjects;
     }
 
     @Override

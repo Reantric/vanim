@@ -1,12 +1,11 @@
 package vanim.root;
-import static vanim.planar.*;
 
 import vanim.planes.Plane;
 import vanim.storage.FVector;
-import vanim.util.Color;
 import vanim.storage.Scale;
-import vanim.storage.Vector;
-import java.util.*;
+import vanim.util.Color;
+
+import static vanim.planar.*;
 
 /**
  * @author protonlaser91
@@ -18,7 +17,6 @@ public abstract class VObject extends CanvasObject{
     protected float mapPower = 1;
     protected int coordsSize = 0;
     protected Scale absScale;
-    private static final List<VObject> allObjects = new ArrayList<>(); //Hold all VObjects here
 
     /**
      *
@@ -33,7 +31,6 @@ public abstract class VObject extends CanvasObject{
         pos.multiplyAll(scale.getX(),scale.getY()); //just PVec(x,y) works!
         dimensions.multiplyAll(scale.getX(),scale.getY()); // Starting dimensions!
         this.color = color;
-        allObjects.add(this);
     }
 
     public VObject(Plane p, FVector pos, Color color){
@@ -104,13 +101,4 @@ public abstract class VObject extends CanvasObject{
         return true;
     }
 
-    /**
-     *
-     * @return An immutable list of all objects that have been created and are VObjects
-     *          or a subclass of VObject
-     */
-
-    public static List<? extends VObject> getAllObjects(){
-        return allObjects;
-    }
 }

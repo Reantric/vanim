@@ -1,18 +1,15 @@
 package vanim.shapes;
 
-import static vanim.planar.*;
-
 import vanim.planes.Plane;
 import vanim.storage.FVector;
-import vanim.storage.Vector;
-import java.util.*;
+
+import static vanim.planar.TAU;
+import static vanim.planar.floor;
 
 /**
  * @author protonlaser91
  */
 public class Circle extends Ellipse {
-
-    private static final List<Circle> allObjects = new ArrayList<>();
 
     /**
      *
@@ -25,7 +22,6 @@ public class Circle extends Ellipse {
      */
     public Circle(Plane p, FVector pos, float radius, int speed, int delVal) {
         super(p, pos, new FVector(radius, radius), speed, delVal);
-        allObjects.add(this);
     }
 
     public Circle(Plane p, FVector pos, float radius, int speed) {
@@ -39,16 +35,6 @@ public class Circle extends Ellipse {
     public float getRadius() {
         //width and height are same in Circle, depends on sX and sY
         return dimensions.getX() / scale.getX();
-    }
-
-    /**
-     *
-     * @return An immutable list of all objects that have been created and are Circle
-     *          or a subclass of Circle
-     */
-    @Override
-    public List<? extends Circle> getAllObjects(){
-        return allObjects;
     }
 }
 

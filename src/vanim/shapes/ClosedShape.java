@@ -1,12 +1,13 @@
 package vanim.shapes;
 
 import vanim.planes.Plane;
+import vanim.root.VObject;
 import vanim.storage.FVector;
 import vanim.util.Color;
 import vanim.util.Useful;
-import vanim.root.VObject;
-import vanim.storage.Vector;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author protonlaser91
@@ -18,7 +19,6 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
     protected int speed;
     protected float distance;
     protected List<float[]> coords = new ArrayList<>(); //[x,y]
-    private static final List<ClosedShape> allObjects = new ArrayList<>();
 
     /**
      *
@@ -33,7 +33,6 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
         super(p, pos,dimensions, new Color(0)); // For now, it does not utilize a color
         this.speed = speed;
         this.delVal = delVal;
-        allObjects.add(this);
     }
 
     /**
@@ -75,16 +74,6 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
         }
 
         return coordsSize == delVal;
-    }
-
-    /**
-     *
-     * @return An immutable list of all objects that have been created and are ClosedShapes
-     *          or a subclass of ClosedShape
-     */
-
-    public static List<? extends ClosedShape> getAllObjects(){
-        return allObjects;
     }
 
     /**

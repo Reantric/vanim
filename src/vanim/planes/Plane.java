@@ -1,13 +1,14 @@
 package vanim.planes;
 
 
-import processing.core.*;
+import processing.core.PApplet;
+import processing.core.PGraphics;
+import processing.core.PVector;
+import vanim.root.CanvasObject;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
-import vanim.root.CanvasObject;
-import java.util.*;
 
-import static processing.core.PApplet.*;
+import static processing.core.PApplet.P2D;
 
 /**
  * @author protonlaser91
@@ -17,7 +18,6 @@ public abstract class Plane extends CanvasObject {
     protected Vector<Float> ticks;
     protected int frameCountInit;
     protected int frameCountBuffer;
-    private static final List<Plane> allObjects = new ArrayList<>();
 
     /**
      *
@@ -29,17 +29,6 @@ public abstract class Plane extends CanvasObject {
     public Plane(PApplet p, Vector<Float> pos, Vector<Integer> dimensions, Vector<Float> ticks) {
         super(p, p.createGraphics(dimensions.getX(),dimensions.getY(),P2D), pos, new Vector<>(dimensions));
         this.ticks = ticks;
-        allObjects.add(this);
-    }
-
-    /**
-     *
-     * @return An immutable list of all objects that have been created and are Planes
-     *          or a subclass of Plane
-     */
-    @Override
-    public List<? extends Plane> getAllObjects(){
-        return allObjects;
     }
 
     /**

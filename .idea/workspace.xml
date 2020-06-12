@@ -3,18 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="16440c7b-6ffb-46a2-aefd-e357a36e7ec9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/directions/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/directions/Scene1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/Narrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/mfunc/Narrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/planes/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planes/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/root/GeneralObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/GeneralObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/root/VObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/VObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/TextVObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/TextVObject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +19,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="protonlaser91 &lt;44213272+protonlaser91@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -85,13 +79,26 @@
       <option name="presentableId" value="Default" />
       <updated>1584986750116</updated>
     </task>
+    <task id="LOCAL-00001" summary="Changed allObjects in each class to a permanent mapping in the base class, CanvasObject, where it can be called via CanvasObject.allObjects(Class &lt;T&gt; type) and it will return a list of all objects that are Type &lt;T&gt; or a subclass of &lt;T&gt;.">
+      <created>1591997534097</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591997534097</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/Vanim" />
     </ignored-roots>
+    <MESSAGE value="Changed allObjects in each class to a permanent mapping in the base class, CanvasObject, where it can be called via CanvasObject.allObjects(Class &lt;T&gt; type) and it will return a list of all objects that are Type &lt;T&gt; or a subclass of &lt;T&gt;." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed allObjects in each class to a permanent mapping in the base class, CanvasObject, where it can be called via CanvasObject.allObjects(Class &lt;T&gt; type) and it will return a list of all objects that are Type &lt;T&gt; or a subclass of &lt;T&gt;." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591649648027">
@@ -114,6 +121,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="718" y="410" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080@0.0.1920.1080" timestamp="1589145863833" />
+    <state x="587" y="105" key="CommitChangelistDialog2" timestamp="1591997532335">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="587" y="105" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1591997532335" />
     <state x="1065" y="421" key="DetectedRootsChooserDialog" timestamp="1591649607500">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -162,6 +173,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="748" y="125" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591753839553" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1591997593852">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1591997593852" />
     <state x="750" y="374" key="com.intellij.ide.util.TipDialog" timestamp="1586894851302">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

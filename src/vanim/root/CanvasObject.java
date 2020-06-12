@@ -1,25 +1,28 @@
 package vanim.root;
 
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.Multiset;
 import processing.core.PApplet;
 import processing.core.PGraphics;
-import vanim.shapes.TextVObject;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
-import java.util.*;
+
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author protonlaser91
  */
 public abstract class CanvasObject implements GeneralObject{
 
+    private static final Map<Class<? extends CanvasObject>, List<WeakReference<CanvasObject>>> allObjects = new HashMap<>();
     protected PGraphics canvas;
     protected Scale scale = new Scale(1,1,1);
     protected Vector<Float> pos;
     protected Vector<Float> dimensions; //width height
     public PApplet processing;
-    private static final List<CanvasObject> allObjects = new ArrayList<>();
 
     /**
      *
@@ -28,12 +31,21 @@ public abstract class CanvasObject implements GeneralObject{
      * @param pos The position of the object on that plane (in scaled coordinates, not absolute)
      * @param dimensions The width, height (and depth) of the object (in scaled coordinates, not absolute)
      */
-    protected CanvasObject(PApplet p, PGraphics c, Vector<Float> pos, Vector<Float> dimensions){
+    @SuppressWarnings("unchecked")
+    // Will work because the maximum superclass that will be reached is CanvasObject itself!
+    protected CanvasObject(PApplet p, PGraphics c, Vector<Float> pos, Vector<Float> dimensions) {
         processing = p;
         canvas = c;
         this.pos = pos;
         this.dimensions = dimensions;
-        allObjects.add(this);
+
+        Class<? extends CanvasObject> originalClass = getClass();
+        Class<? super CanvasObject> finalSuperclass = CanvasObject.class.getSuperclass();
+        while (!originalClass.equals(finalSuperclass)) {
+            allObjects.computeIfAbsent(originalClass,
+                    k -> new ArrayList<>()).add(new WeakReference<>(this));
+            originalClass = (Class<? extends CanvasObject>) originalClass.getSuperclass();
+        }
     }
 
     protected CanvasObject(PGraphics c, Vector<Float> xy, Vector<Float> dimensions){
@@ -41,13 +53,12 @@ public abstract class CanvasObject implements GeneralObject{
     }
 
     /**
-     *
-     * @return An immutable list of all objects that have been created and are CanvasObjects
-     *          or a subclass of CanvasObjects
+     * @param type The class (<T>) of objects of which to be returned
+     * @return An immutable list of all objects that have been created and are <T> Type
+     * or a subclass of <T>
      */
-
-    public static List<? extends CanvasObject> getAllObjects(){
-        return allObjects;
+    public static <T> List<T> getAllObjects(Class<T> type) {
+        return allObjects.get(type).stream().map(f -> type.cast(f.get())).collect(Collectors.toList());
     }
 
     /**

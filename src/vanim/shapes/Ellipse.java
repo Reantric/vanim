@@ -2,11 +2,8 @@ package vanim.shapes;
 
 import vanim.planes.Plane;
 import vanim.storage.FVector;
-import vanim.util.Mapper;
 import vanim.storage.Scale;
-import vanim.storage.Vector;
-
-import java.util.*;
+import vanim.util.Mapper;
 
 import static processing.core.PApplet.*;
 
@@ -14,8 +11,6 @@ import static processing.core.PApplet.*;
  * @author protonlaser91
  */
 public class Ellipse extends ClosedShape {
-
-    private static final List<Ellipse> allObjects = new ArrayList<>();
 
     /**
      *
@@ -30,7 +25,6 @@ public class Ellipse extends ClosedShape {
         super(p,pos,dimensions,speed,delVal);
         distance = (scale.getY() * dimensions.getY() + scale.getX() * dimensions.getX()) * 0.9f;
         //300*0.9 = 270 which IS the distance
-        allObjects.add(this);
     }
 
     /**
@@ -64,16 +58,6 @@ public class Ellipse extends ClosedShape {
 
     public boolean drawTangentLine(float x, float y) {
         return this.drawTangentLine(x, y, false);
-    }
-
-    /**
-     *
-     * @return An immutable list of all objects that have been created and are Ellipses
-     *          or a subclass of Ellipse
-     */
-    @Override
-    public List<? extends Ellipse> getAllObjects(){
-        return allObjects;
     }
 
     /**
