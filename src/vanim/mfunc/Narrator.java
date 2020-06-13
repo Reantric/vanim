@@ -1,10 +1,14 @@
 package vanim.mfunc;
 
+import processing.core.PGraphics;
 import vanim.root.CanvasObject;
+import vanim.shapes.TextVObject;
+import vanim.storage.FVector;
 import vanim.util.Color;
-import vanim.shapes.*;
-import processing.core.*;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static vanim.planar.*;
 
 public class Narrator extends CanvasObject {
@@ -12,13 +16,14 @@ public class Narrator extends CanvasObject {
     List<TextVObject> allText = new ArrayList<>();
 
     public Narrator(PGraphics c){
+        super(c, new FVector(0, 0), new FVector());
         canvas = c;
         setupNarrator();
     }
 
 
     public void setupNarrator(){
-        allText.add(new TextVObject(canvas,"But how do we find the slope of the tangent line?",-630,-480,80,new Color(30)));
+        allText.add(new TextVObject(plane, "But how do we find the slope of the tangent line?", new FVector(-630, -480), 80, new Color(30)));
       //  allText.add(new TextVObject(canvas,"Vanim",-660,-320,130,77));
     }
 

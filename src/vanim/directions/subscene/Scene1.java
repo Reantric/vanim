@@ -2,13 +2,14 @@ package vanim.directions.subscene;
 
 import processing.core.PApplet;
 import vanim.directions.Scene;
-import vanim.root.CanvasObject;
 import vanim.util.Mapper;
 import vanim.util.Useful;
 
-import static processing.core.PApplet.*;
+import static processing.core.PApplet.cos;
+import static processing.core.PApplet.sin;
 import static vanim.Directions.*;
-import static vanim.planar.*;
+import static vanim.planar.b;
+import static vanim.planar.canvas;
 
 public class Scene1 extends Scene {
 
@@ -20,7 +21,6 @@ public class Scene1 extends Scene {
     public boolean scene() {
         //plane.rotatePlane(angle);
         // arr.setVector(cos(inc),sin(inc));
-        CanvasObject.getAllObjects();
 
 
         /* Maybe think about a MObject[] or ArrayList<MObject> where display can be called on everyone */
@@ -30,7 +30,7 @@ public class Scene1 extends Scene {
         }
 
         if (step[1])
-            step[2] = b.drawTangentLine(sinus * cos(mapInc), sinus * sin(mapInc), true);
+            step[2] = b.drawTangentLine(sinus.getX() * cos(mapInc), sinus.getY() * sin(mapInc), true);
 
 
         if (step[2]) {
@@ -64,18 +64,18 @@ public class Scene1 extends Scene {
             }
 
             if (!step[4]) {
-                sinus = Mapper.map2(inc, incTrack, incTrack + 1.5f, 1f, 1.5f, Mapper.SINUSOIDAL, Mapper.EASE_IN_OUT);
-                step[4] = Math.abs(sinus - 1.5) < 0.01;
+                sinus.setAll(Mapper.map2(inc, incTrack, incTrack + 1.5f, 1f, 1.5f, Mapper.SINUSOIDAL, Mapper.EASE_IN_OUT));
+                step[4] = Math.abs(sinus.getX() - 1.5) < 0.01;
             }
         }
 
         if (!step[5] && step[4]) { // Stop running once step 5 is true
-            sinus = Mapper.map2(inc, incTrack - 0.5f, incTrack + 1.5f, 0.5f, 1.5f, Mapper.SINUSOIDAL, Mapper.EASE_IN_OUT);
-            step[5] = window.frameCount - frameCountTrack > 850 && Math.abs(sinus - 1) < 0.01;
+            sinus.setAll(Mapper.map2(inc, incTrack - 0.5f, incTrack + 1.5f, 0.5f, 1.5f, Mapper.SINUSOIDAL, Mapper.EASE_IN_OUT));
+            step[5] = window.frameCount - frameCountTrack > 850 && Math.abs(sinus.getX() - 1) < 0.01;
         }
 
         if (step[5]) {
-            sinus = 1;
+            sinus.setAll(1);
 
         }
         return step[6];

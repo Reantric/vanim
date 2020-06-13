@@ -1,14 +1,18 @@
 package vanim;
+
+import processing.core.PApplet;
+import processing.core.PFont;
+import processing.core.PGraphics;
+import processing.event.MouseEvent;
+import vanim.mfunc.Narrator;
 import vanim.planes.CartesianPlane;
-import vanim.mfunc.*;
-import vanim.shapes.*;
+import vanim.shapes.Circle;
+import vanim.storage.FVector;
+import vanim.storage.IVector;
+
+import java.text.DecimalFormat;
 
 import static vanim.Directions.*;
-
-import processing.core.*;
-import processing.event.*;
-import java.text.DecimalFormat;
-import java.lang.*;
 
 public class planar extends PApplet {
 
@@ -28,8 +32,8 @@ public class planar extends PApplet {
         myFont = createFont("vanim\\data\\cmunbmr.ttf", 150, true);
         italics = createFont("vanim\\data\\cmunbmo.ttf ", 150, true);
         textFont(myFont, 64);
-        plane = new CartesianPlane(this, canvas, 1, 1);
-        b = new Circle(canvas, 0, 0, 1, 4);
+        plane = new CartesianPlane(this, new FVector(), new IVector(1920, 1080), new FVector(1, 1));
+        b = new Circle(plane, new FVector(0, 0), 1, 4);
         n = new Narrator(canvas);
         System.out.println(destinationOnCircleLabel);
     }
@@ -43,7 +47,7 @@ public class planar extends PApplet {
             case 'v' -> angle = PI / 2;
             case 'c' -> angle = 0;
             case 'd' -> plane.restrictDomain(-PI / 2, PI / 2);
-            case 's' -> absScale.multiplyScaleY(1.1f);
+            case 's' -> plane.getScale().setXY(1.1f, 1.1f);
             case 'x' -> startSavingFrames = true;//frameRate(2);
         }
     }

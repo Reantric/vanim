@@ -1,28 +1,28 @@
 package vanim.storage;
 
-public class FVector extends Vector<Float>{
+public class FVector extends Vector<Float> { // Field Vector or Float Vector lmao
 
     public <E> FVector(Vector<E> v) {
         super(v);
     }
 
-    public FVector(Float x, Float y, Float z) {
-        super(x, y, z);
+    public FVector(float x, float y, float z) {
+        super(!Float.isNaN(x) ? x : null, !Float.isNaN(y) ? y : null, !Float.isNaN(z) ? z : null);
     }
 
-    public FVector(Float x, Float y) {
-        this(x,y,null);
+    public FVector(float x, float y) {
+        this(x, y, Float.NaN);
     }
 
-    public FVector(Float x) {
-        this(x,null,null);
+    public FVector(float x) {
+        this(x, Float.NaN, Float.NaN);
     }
 
     public FVector() {
-       this(null,null,null);
+        this(Float.NaN, Float.NaN, Float.NaN);
     }
 
-    public void addX(Vector<Float> v){
+    public void addX(Vector<Float> v) {
         this.x += v.getX();
     }
 

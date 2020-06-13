@@ -28,8 +28,9 @@ public abstract class VObject extends CanvasObject{
     public VObject(Plane p, FVector pos, FVector dimensions, Color color){ // Plane constructor!
         super(p.getProcessingInstance(),p.getCanvas(),pos,dimensions);
         absScale = p.getScale();
-        pos.multiplyAll(scale.getX(),scale.getY()); //just PVec(x,y) works!
-        dimensions.multiplyAll(scale.getX(),scale.getY()); // Starting dimensions!
+        pos.multiplyAll(scale.getX(), scale.getY()); //just PVec(x,y) works!
+        System.out.println(absScale);
+        dimensions.multiplyAll(scale.getX(), scale.getY()); // Starting dimensions!
         this.color = color;
     }
 

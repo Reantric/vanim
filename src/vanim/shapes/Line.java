@@ -1,25 +1,23 @@
 package vanim.shapes;
-import processing.core.*;
-import vanim.planes.Plane;
-import vanim.storage.FVector;
-import vanim.storage.Vector;
-import vanim.util.Color;
-import vanim.storage.Scale;
-import vanim.planar;
-import vanim.root.VObject;
 
-import static vanim.util.Mapper.*;
+import vanim.planes.Plane;
+import vanim.root.VObject;
+import vanim.storage.FVector;
+import vanim.util.Color;
+
+import static vanim.util.Mapper.EASE_IN_OUT;
+import static vanim.util.Mapper.map3;
 
 public class Line extends VObject {
 
     float weight;
-    FVector start,end, amtPush, inc = new FVector(0f,0f);
+    FVector start, end, amtPush, inc = new FVector(0, 0);
     int strokeNum;
 
     public Line(Plane p, FVector start, FVector end, float weight, Color color) { //p not used here...
-        super(p,start,null,color);
+        super(p, start, null, color);
         this.weight = weight;
-        this.end = new FVector(scale.getX()*end.getX(),scale.getY()*end.getY());
+        this.end = new FVector(scale.getX() * end.getX(), scale.getY() * end.getY());
         this.start = new FVector(pos);
         // println("BEGINNING: " + pos.getX());
     }
@@ -97,6 +95,6 @@ public class Line extends VObject {
 
         canvas.stroke(color.getHue(), color.hue255() ? 0 : 255, 255);
         canvas.line(start.getX(), start.getY(), pos.getX(), pos.getY());
-        return pos.getX() == end.getX() && pos.getY() == end.getY();
+        return pos.getX().equals(end.getX()) && pos.getY().equals(end.getY());
     }
 }

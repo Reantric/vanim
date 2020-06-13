@@ -1,17 +1,19 @@
 package vanim.util;
-import processing.core.*;
 
-public class Useful {
-    
-    public static double floorAny(double jjfanman, double val){ // can only sPApplet.PIt out integers... damn thsi!
-        return  val*Math.floor(jjfanman/val);
+import processing.core.PApplet;
+import processing.core.PGraphics;
+
+public final class Useful {
+
+    public static double floorAny(double jjfanman, double val) { // can only sPApplet.PIt out integers... damn thsi!
+        return val * Math.floor(jjfanman / val);
     }
 
-    public static double ceilAny(double jjfanman, double val){
-        return val*Math.ceil(jjfanman/val);
+    public static double ceilAny(double jjfanman, double val) {
+        return val * Math.ceil(jjfanman / val);
     }
 
-    public static String propFormat(float x){
+    public static String propFormat(float x) {
         double eps = PApplet.round(x) / x;
         if (eps > 0.9f && eps < 1.1f)
             return Integer.toString(PApplet.round(x));
@@ -62,8 +64,18 @@ public class Useful {
     /**
      * Get derivative given two values
      */
-    public static float derivative(float y1, float y2, float distX){
-        return (y2-y1)/distX;
+    public static float derivative(float y1, float y2, float distX) {
+        return (y2 - y1) / distX;
+    }
+
+    public static long factorial(int number) {
+        var result = 1;
+
+        for (int factor = 2; factor <= number; factor++) {
+            result *= factor;
+        }
+
+        return result;
     }
 
 }

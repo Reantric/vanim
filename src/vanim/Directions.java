@@ -1,18 +1,17 @@
 package vanim;
 
 import processing.core.PApplet;
+import vanim.storage.Scale;
 import vanim.util.Mapper;
-import vanim.util.Useful;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static vanim.planar.*;
+import static vanim.planar.PI;
 
 public class Directions {
     public static boolean[] step = new boolean[100];
-    public static float sinus = 1;
     public static int destinationInc = 1; // be consistent with mapInc initialization!
     // ^^ Also the reason that destinationInc-1 is used and not +1
     public static final Float[] destinationOnCircle = {-PI, 0f, PI / 4, PI / 2}; // A sad necessity
@@ -32,8 +31,9 @@ public class Directions {
                 case "-0.7" -> "-PI/4";
                 default -> String.valueOf(x).substring(0, 4);
             };
-        return String.valueOf(x);
-    }).collect(Collectors.toList());
+       return String.valueOf(x);
+   }).collect(Collectors.toList());
+    public static Scale sinus;
 
     public static void directions(PApplet window) {
 
