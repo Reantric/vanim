@@ -4,14 +4,13 @@ import processing.core.PApplet;
 import vanim.storage.Scale;
 import vanim.util.Mapper;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static vanim.planar.PI;
 
 public class Directions {
-    public static boolean[] step = new boolean[100];
+    public static boolean[] sceneStep = new boolean[100];
     public static int destinationInc = 1; // be consistent with mapInc initialization!
     // ^^ Also the reason that destinationInc-1 is used and not +1
     public static final Float[] destinationOnCircle = {-PI, 0f, PI / 4, PI / 2}; // A sad necessity
@@ -36,7 +35,7 @@ public class Directions {
     public static Scale sinus;
 
     public static void directions(PApplet window) {
-
+        //call the scenes here
 
     }
 }

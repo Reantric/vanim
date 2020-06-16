@@ -7,8 +7,12 @@ import processing.core.PVector;
 import vanim.root.CanvasObject;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
+import vanim.storage.vector.FVector;
+import vanim.storage.vector.IVector;
 
 import static processing.core.PApplet.P2D;
+import static processing.core.PConstants.CENTER;
+import static processing.core.PConstants.HSB;
 
 /**
  * @author protonlaser91
@@ -26,8 +30,8 @@ public abstract class Plane extends CanvasObject {
      * @param dimensions The width, height (and depth) of the object (in scaled coordinates, not absolute)
      * @param ticks The distance between each tick in vector form [x,y,(z)]
      */
-    public Plane(PApplet p, Vector<Float> pos, Vector<Integer> dimensions, Vector<Float> ticks) {
-        super(p, p.createGraphics(dimensions.getX(),dimensions.getY(),P2D), pos, new Vector<>(dimensions));
+    public Plane(PApplet p, FVector pos, IVector dimensions, Vector<Float> ticks) {
+        super(p, p.createGraphics(dimensions.getX(),dimensions.getY(),P2D), pos, new FVector(dimensions));
         this.ticks = ticks;
     }
 

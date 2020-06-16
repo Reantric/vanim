@@ -7,8 +7,8 @@ import processing.event.MouseEvent;
 import vanim.mfunc.Narrator;
 import vanim.planes.CartesianPlane;
 import vanim.shapes.Circle;
-import vanim.storage.FVector;
-import vanim.storage.IVector;
+import vanim.storage.vector.FVector;
+import vanim.storage.vector.IVector;
 
 import java.text.DecimalFormat;
 
@@ -29,8 +29,9 @@ public class planar extends PApplet {
     public static Narrator n;
 
     public void setup() {
-        myFont = createFont("vanim\\data\\cmunbmr.ttf", 150, true);
-        italics = createFont("vanim\\data\\cmunbmo.ttf ", 150, true);
+        String commonPath = "vanim\\data\\";
+        myFont = createFont(commonPath + "cmunbmr.ttf", 150, true);
+        italics = createFont(commonPath + "cmunbmo.ttf", 150, true);
         textFont(myFont, 64);
         plane = new CartesianPlane(this, new FVector(), new IVector(1920, 1080), new FVector(1, 1));
         b = new Circle(plane, new FVector(0, 0), 1, 4);
@@ -55,14 +56,9 @@ public class planar extends PApplet {
     public void draw() {
         background(0);
         scale(e);
-        plane.run(canvas);
-        step[0] = plane.generatePlane();
-        // plane.graph();
+        sceneStep[0] = plane.generatePlane();
         directions(this);
         plane.display();
-        /* debug space */
-        // bruv();
-        /* debug space */
         if (startSavingFrames)
             saveFrame("test/line-######.png");
         // directions();

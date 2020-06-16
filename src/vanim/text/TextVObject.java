@@ -1,23 +1,26 @@
-package vanim.shapes;
+package vanim.text;
 
 import vanim.planes.Plane;
-import vanim.root.VObject;
-import vanim.storage.FVector;
+import vanim.root.vobjects.AbsoluteVObject;
+import vanim.storage.vector.FVector;
 import vanim.storage.Scale;
-import vanim.util.Color;
+import vanim.storage.Color;
 
+import static processing.core.PConstants.CORNER;
+import static processing.core.PConstants.LEFT;
 import static vanim.planar.CENTER;
 import static vanim.util.Mapper.*;
 
 /**
  * @author protonlaser91
  */
-public class TextVObject extends VObject {
+public class TextVObject extends AbsoluteVObject {
     public String str;
     float tSize;
     float transp = 0;
     int align = CENTER;
     boolean displayRect = true;
+    protected Color color;
 
     /**
      *
@@ -29,6 +32,7 @@ public class TextVObject extends VObject {
      */
     public TextVObject(Plane p, String s, FVector pos, float tSize, Color color){
         super(p,pos,color);
+        this.color = color;
         str = s;
         this.tSize = tSize;
         canvas.textSize(this.tSize);
@@ -81,6 +85,24 @@ public class TextVObject extends VObject {
             transp += 4;
 
         return transp > 255;
+
+    }
+
+    /**
+     * Create background rectangle around VObject with 125 alpha
+     TODO: Add color options and alpha options
+     */
+    public void backgroundRect(){
+        canvas.noStroke();
+        canvas.fill(0,0,0,125); //125
+        if (canvas.textAlign == LEFT){
+            canvas.rectMode(CORNER);
+            canvas.rect(pos.getX(),pos.getY()-dimensions.getY() + 14,dimensions.getX(),dimensions.getY());
+        }
+        else {
+            canvas.rectMode(CENTER);
+            canvas.rect(pos.getX(),pos.getY() - 14,dimensions.getX(),dimensions.getY());
+        }
 
     }
 

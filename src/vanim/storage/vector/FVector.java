@@ -1,4 +1,6 @@
-package vanim.storage;
+package vanim.storage.vector;
+
+import vanim.storage.Vector;
 
 public class FVector extends Vector<Float> { // Field Vector or Float Vector lmao
 
@@ -7,19 +9,19 @@ public class FVector extends Vector<Float> { // Field Vector or Float Vector lma
     }
 
     public FVector(float x, float y, float z) {
-        super(!Float.isNaN(x) ? x : null, !Float.isNaN(y) ? y : null, !Float.isNaN(z) ? z : null);
+        super(x, y, z);
     }
 
     public FVector(float x, float y) {
-        this(x, y, Float.NaN);
+        this(x, y, 0);
     }
 
     public FVector(float x) {
-        this(x, Float.NaN, Float.NaN);
+        this(x, 0, 0);
     }
 
     public FVector() {
-        this(Float.NaN, Float.NaN, Float.NaN);
+        this(0, 0, 0);
     }
 
     public void addX(Vector<Float> v) {
@@ -75,6 +77,10 @@ public class FVector extends Vector<Float> { // Field Vector or Float Vector lma
                 this.z *= scale[2];
             }
         }
+    }
+
+    public IVector getIntVec(){
+        return new IVector(Math.round(x),Math.round(y),Math.round(z));
     }
 
 }

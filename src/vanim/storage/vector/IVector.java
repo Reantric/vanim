@@ -1,4 +1,6 @@
-package vanim.storage;
+package vanim.storage.vector;
+
+import vanim.storage.Vector;
 
 public class IVector extends Vector<Integer> {
 
@@ -11,15 +13,15 @@ public class IVector extends Vector<Integer> {
     }
 
     public IVector(Integer x, Integer y) {
-        this(x,y,null);
+        this(x,y,0);
     }
 
     public IVector(Integer x) {
-        this(x,null,null);
+        this(x,0,0);
     }
 
     public IVector() {
-        this(null,null,null);
+        this(0,0,0);
     }
 
     public void addX(Vector<Integer> v){
@@ -75,6 +77,10 @@ public class IVector extends Vector<Integer> {
                 this.z *= scale[2];
             }
         }
+    }
+
+    public FVector getFloatVec(){
+        return new FVector(x,y,z);
     }
 
 }

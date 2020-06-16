@@ -1,4 +1,6 @@
-package vanim.util;
+package vanim.storage;
+
+import vanim.util.Mapper;
 
 public class Color {
     float hue, saturation, brightness;

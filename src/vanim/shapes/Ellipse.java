@@ -1,7 +1,7 @@
 package vanim.shapes;
 
 import vanim.planes.Plane;
-import vanim.storage.FVector;
+import vanim.storage.vector.FVector;
 import vanim.storage.Scale;
 import vanim.util.Mapper;
 

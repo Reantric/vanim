@@ -2,9 +2,9 @@ package vanim.mfunc;
 
 import processing.core.PGraphics;
 import vanim.root.CanvasObject;
-import vanim.shapes.TextVObject;
-import vanim.storage.FVector;
-import vanim.util.Color;
+import vanim.text.TextVObject;
+import vanim.storage.vector.FVector;
+import vanim.storage.Color;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,13 +3,13 @@ package vanim.planes;
 import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.core.PVector;
-import vanim.root.VObject;
+import vanim.root.vobjects.VObject;
 import vanim.shapes.DoubleLine;
-import vanim.shapes.TextVObject;
-import vanim.storage.FVector;
-import vanim.storage.IVector;
+import vanim.text.TextVObject;
+import vanim.storage.vector.FVector;
+import vanim.storage.vector.IVector;
 import vanim.storage.Scale;
-import vanim.util.Color;
+import vanim.storage.Color;
 import vanim.util.Useful;
 
 import java.util.ArrayList;
@@ -45,20 +45,23 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
     public CartesianPlane(PApplet p, FVector pos, IVector dimensions, FVector ticks){
         super(p, pos, dimensions, ticks);
         rescale = new FVector((float) canvas.width / WIDTH, (float) canvas.height / HEIGHT);
+
         scale.setX(300 / ticks.getX() * rescale.getX()); // 200 def
         scale.setY(300 / ticks.getY() * rescale.getY()); // 200 def
-        scaleFactor = 6 / 5.0f * ticks.getX() / 100.0f;
-        scaleFactor = 0.06f; // debug
+
         startingValues.setX((float) Useful.floorAny(-canvas.width / (2 * scale.getX()), ticks.getX())); // <---- Issues here when resizing canvas
         startingValues.setY((float) Useful.floorAny(-canvas.height / (2 * scale.getY()), ticks.getY())); // <---- Issues here when resizing canvas
+
         max = startingValues.getX() - ticks.getX() / 5; // should start at 25
         aspectRatio = (WIDTH / 1080.0f) / (rescale.getX() / rescale.getY());
+
         xAxis = new DoubleLine(this, new FVector(startingValues.getX(), 0), new FVector(-startingValues.getX(), 0), 4, new Color(255, 0, 255));
         yAxis = new DoubleLine(this, new FVector(0, startingValues.getY()), new FVector(0, -startingValues.getY()), 4, new Color(255, 0, 255));
+
         frameCountInit = processing.frameCount;
         frameCountBuffer = 15;
 
-        /* VObject[] inits */
+        /* List<VObject> inits */
         xLines = new VObject[(int) (-4 * startingValues.getX() / ticks.getX())];
         yLines = new VObject[(int) (-4 * startingValues.getY() / ticks.getY())];
         xText = new TextVObject[xLines.length / 2]; // skip over 0
@@ -102,9 +105,9 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
         canvas.translate(canvas.width/2.0f,canvas.height/2.0f);
         canvas.background(0);
         canvas.textFont(myFont);
+        canvas.textSize(38);
         canvas.textAlign(CENTER);
         canvas.rectMode(CENTER);
-        canvas.textSize(38);
         canvas.colorMode(HSB);
         canvas.stroke(150,200,255);
         canvas.strokeWeight(4);
@@ -114,20 +117,20 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
        // incrementor = 0;
 
         for (int j = 0; j < yLines.length; j++){
-            if (j != yLines.length/2 && !yLines[j].display())
-                gridDrawn = false;
+            if (j != yLines.length/2)
+                yLines[j].display();
         }
+
         //Cant make this loop more efficient because of line below...
         if (processing.frameCount < frameCountInit + frameCountBuffer) return false;
 
         for (int i = 0; i < xLines.length; i++){
-
-            if (i != xLines.length/2 && !xLines[i].display())
-                gridDrawn = false;
+            if (i != xLines.length/2)
+                xLines[i].display();
 
             if (i % 2 == 0) {
                 if (i != xText.length)
-                    xText[i/2].setWidthHeight(60 + (xText[i/2].str.length()-3)*10,56);
+                    xText[i / 2].setWidthHeight(60 + (xText[i / 2].str.length() - 3) * 10, 56);
                 if ((i != xText.length && !textDrawn && xText[i / 2].display()) | (i != yText.length && i < 2*yText.length && !textDrawn && yText[i / 2].display()))
                     textDrawn = true;
 
@@ -136,8 +139,6 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
 
         canvas.stroke(0,0,255);
         canvas.strokeWeight(4);
-
-        //>= optimalDelVal
 
         return textDrawn & xAxis.display() & yAxis.display();
         // return xAxisR.display() & yAxisU.display() & xAxisL.display() & yAxisD.display();

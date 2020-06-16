@@ -4,6 +4,7 @@ import processing.core.PApplet;
 import processing.core.PGraphics;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
+import vanim.storage.vector.FVector;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -11,6 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import static processing.core.PConstants.CENTER;
+import static processing.core.PConstants.HSB;
 
 /**
  * @author protonlaser91
@@ -20,8 +24,8 @@ public abstract class CanvasObject implements GeneralObject{
     private static final Map<Class<? extends CanvasObject>, List<WeakReference<CanvasObject>>> allObjects = new HashMap<>();
     protected PGraphics canvas;
     protected Scale scale = new Scale(1,1,1);
-    protected Vector<Float> pos;
-    protected Vector<Float> dimensions; //width height
+    protected FVector pos;
+    protected FVector dimensions; //width height
     public PApplet processing;
 
     /**
@@ -33,7 +37,7 @@ public abstract class CanvasObject implements GeneralObject{
      */
     @SuppressWarnings("unchecked")
     // Will work because the maximum superclass that will be reached is CanvasObject itself!
-    protected CanvasObject(PApplet p, PGraphics c, Vector<Float> pos, Vector<Float> dimensions) {
+    protected CanvasObject(PApplet p, PGraphics c, FVector pos, FVector dimensions) {
         processing = p;
         canvas = c;
         this.pos = pos;
@@ -48,8 +52,8 @@ public abstract class CanvasObject implements GeneralObject{
         }
     }
 
-    protected CanvasObject(PGraphics c, Vector<Float> xy, Vector<Float> dimensions){
-        this(null,c,xy,dimensions);
+    protected CanvasObject(PGraphics c, FVector pos, FVector dimensions){
+        this(null,c,pos,dimensions);
     }
 
     /**

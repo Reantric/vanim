@@ -10,8 +10,9 @@ import static vanim.Directions.*;
 import static vanim.planar.b;
 import static vanim.planar.canvas;
 
-public abstract class Scene{
+public abstract class Scene {
     protected PApplet window;
+    public boolean[] step = new boolean[100];
 
     public Scene(PApplet window){
         this.window = window;

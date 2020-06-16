@@ -1,10 +1,15 @@
 package vanim.storage;
 
-public class Vector<T> {
-    T x,y,z;
-    int size = 0;
+import org.jetbrains.annotations.NotNull;
 
-    public <E> Vector(Vector<E> v){
+import java.util.Objects;
+
+public class Vector<T> {
+    protected T x,y,z;
+    protected int size = 0;
+
+    @SuppressWarnings("unchecked")
+    public <E> Vector(@NotNull Vector<E> v){
         try {
             x = (T) v.getX();
             y = (T) v.getY();
@@ -70,4 +75,24 @@ public class Vector<T> {
         return size;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Vector)) return false;
+        Vector<?> vector = (Vector<?>) o;
+        return getSize() == vector.getSize() &&
+                Objects.equals(getX(), vector.getX()) &&
+                Objects.equals(getY(), vector.getY()) &&
+                Objects.equals(getZ(), vector.getZ());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getX(), getY(), getZ(), getSize());
+    }
+
+    @Override
+    public String toString(){
+        return String.format("[ %s , %s , %s ]",x,y,z);
+    }
 }

@@ -1,16 +1,15 @@
-package vanim.root;
+package vanim.root.vobjects;
 
 import vanim.planes.Plane;
-import vanim.storage.FVector;
+import vanim.root.CanvasObject;
+import vanim.storage.vector.FVector;
 import vanim.storage.Scale;
-import vanim.util.Color;
-
-import static vanim.planar.*;
+import vanim.storage.Color;
 
 /**
  * @author protonlaser91
  */
-public abstract class VObject extends CanvasObject{
+public abstract class AbsoluteVObject extends CanvasObject {
 
     protected Color color;
     protected long incrementor = 0;
@@ -25,24 +24,21 @@ public abstract class VObject extends CanvasObject{
      * @param dimensions The width, height (and depth) of the object (in scaled coordinates, not absolute)
      * @param color The color of the object, in HSB
      */
-    public VObject(Plane p, FVector pos, FVector dimensions, Color color){ // Plane constructor!
+    public AbsoluteVObject(Plane p, FVector pos, FVector dimensions, Color color){ // Plane constructor!
         super(p.getProcessingInstance(),p.getCanvas(),pos,dimensions);
         absScale = p.getScale();
-        pos.multiplyAll(scale.getX(), scale.getY()); //just PVec(x,y) works!
-        System.out.println(absScale);
-        dimensions.multiplyAll(scale.getX(), scale.getY()); // Starting dimensions!
         this.color = color;
     }
 
-    public VObject(Plane p, FVector pos, Color color){
-        this(p,pos, null,color);
+    public AbsoluteVObject(Plane p, FVector pos, Color color){
+        this(p,pos, new FVector(),color);
     }
 
-    public VObject(Plane p, FVector pos,float s, Color color) {
+    public AbsoluteVObject(Plane p, FVector pos,float s, Color color) {
         this(p,pos,new FVector(s,s,s),color);
     }
 
-    public VObject(Plane p, FVector pos, FVector dimensions) {
+    public AbsoluteVObject(Plane p, FVector pos, FVector dimensions) {
         this(p,pos,dimensions,new Color());
     }
 
@@ -70,26 +66,7 @@ public abstract class VObject extends CanvasObject{
      * If the VObject has been displayed, this may cause errors.
      */
     public void setWidthHeight(float newWidth, float newHeight){
-        dimensions.setX(newWidth);
-        dimensions.setY(newHeight);
-    }
-
-    /**
-     * Create background rectangle around VObject with 125 alpha
-     TODO: Add color options and alpha options
-     */
-    public void backgroundRect(){
-        canvas.noStroke();
-        canvas.fill(0,0,0,125); //125
-        if (canvas.textAlign == LEFT){
-            canvas.rectMode(CORNER);
-            canvas.rect(pos.getX(),pos.getY()-dimensions.getY() + 14,dimensions.getX(),dimensions.getY());
-        }
-        else {
-            canvas.rectMode(CENTER);
-            canvas.rect(pos.getX(),pos.getY() - 14,dimensions.getX(),dimensions.getY());
-        }
-
+        dimensions.setXY(newWidth,newHeight);
     }
 
     /**

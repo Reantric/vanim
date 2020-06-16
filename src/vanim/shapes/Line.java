@@ -1,9 +1,9 @@
 package vanim.shapes;
 
 import vanim.planes.Plane;
-import vanim.root.VObject;
-import vanim.storage.FVector;
-import vanim.util.Color;
+import vanim.root.vobjects.VObject;
+import vanim.storage.vector.FVector;
+import vanim.storage.Color;
 
 import static vanim.util.Mapper.EASE_IN_OUT;
 import static vanim.util.Mapper.map3;
@@ -11,15 +11,14 @@ import static vanim.util.Mapper.map3;
 public class Line extends VObject {
 
     float weight;
-    FVector start, end, amtPush, inc = new FVector(0, 0);
+    FVector start, end, amtPush = new FVector(), inc = new FVector();
     int strokeNum;
 
     public Line(Plane p, FVector start, FVector end, float weight, Color color) { //p not used here...
-        super(p, start, null, color);
+        super(p, start, new FVector(), color);
         this.weight = weight;
-        this.end = new FVector(scale.getX() * end.getX(), scale.getY() * end.getY());
-        this.start = new FVector(pos);
-        // println("BEGINNING: " + pos.getX());
+        this.end = new FVector(absScale.getX() * end.getX(), absScale.getY() * end.getY());
+        this.start = new FVector(pos); // Copy constructor
     }
 
     public Line(Plane p, FVector start, FVector end){
@@ -27,7 +26,7 @@ public class Line extends VObject {
     }
 
     public void setEnd(float x, float y) {
-        end.setXY(x,y);
+        end.setXY(absScale.getX()*x,absScale.getY()*y);
     }
 
     public void setStrokeCap(int WHAT){
@@ -58,7 +57,7 @@ public class Line extends VObject {
 
         else {
             if (pos.getX() > end.getX()) {
-                inc.add(amtPush);
+                inc.addX(amtPush);
                 pos.setX(map3(inc.getX(), start.getX(), end.getX(), start.getX(), end.getX(), mapPower, EASE_IN_OUT));
             }
             if (pos.getX() < end.getX())
@@ -67,14 +66,14 @@ public class Line extends VObject {
 
         if (amtPush.getY() > 0){
             if (pos.getY() < end.getY()){
-                inc.setY(amtPush.getY());
+                inc.addY(amtPush);
                 pos.setY(map3(inc.getY(), start.getY(), end.getY(), start.getY(), end.getY(), mapPower, EASE_IN_OUT));
             }
             if (pos.getY() > end.getY())
                 pos.setY(end.getY());
         } else {
             if (pos.getY() > end.getY()){
-                inc.add(amtPush);
+                inc.addY(amtPush);
                 pos.setY(map3(inc.getY(), start.getY(), end.getY(), start.getY(), end.getY(), mapPower, EASE_IN_OUT));
             }
             if (pos.getY() < end.getY())
@@ -95,6 +94,6 @@ public class Line extends VObject {
 
         canvas.stroke(color.getHue(), color.hue255() ? 0 : 255, 255);
         canvas.line(start.getX(), start.getY(), pos.getX(), pos.getY());
-        return pos.getX().equals(end.getX()) && pos.getY().equals(end.getY());
+        return pos.equals(end);
     }
 }
