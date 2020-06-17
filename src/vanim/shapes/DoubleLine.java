@@ -1,36 +1,26 @@
 package vanim.shapes;
 
-import processing.core.PApplet;
-import processing.core.PGraphics;
-import vanim.misc.Color;
+import vanim.planes.Plane;
+import vanim.storage.vector.FVector;
+import vanim.storage.Color;
 
 public class DoubleLine extends Line{
 
-    float xAverage;
-    float yAverage;
+    FVector average;
 
-    public DoubleLine(PApplet p, PGraphics c, float x1, float y1, float x2, float y2, float weight,Color color) {
-            super(p, c, x1, y1, x2, y2,weight,color);
-            xAverage = (startX + finalX)/2.0f;
-            yAverage = (startY + finalY)/2.0f;
-        }
-
-
-    public DoubleLine(PGraphics c, float x1, float y1, float x2, float y2) {
-        this(null,c,x1,y1,x2,y2,4,new Color());
+    public DoubleLine(Plane p, FVector start, FVector end, float weight, Color color) {
+            super(p,start,end,weight,color);
+            end.multiplyAll(absScale.getX(),absScale.getY());
+            average = new FVector((start.getX() + end.getX())/2.0f,(start.getY() + end.getY())/2.0f);
     }
 
-    public DoubleLine(PGraphics c, float x1, float y1, float x2, float y2, float weight) {
-        this(null,c,x1,y1,x2,y2,weight,new Color());
+    public DoubleLine(Plane p, FVector start, FVector end) {
+        this(p,start,end,4,new Color());
     }
 
-    public DoubleLine(PGraphics canvas, float x1, float y1, float x2, float y2, float weight, Color color) {
-        this(null,canvas,x1,y1,x2,y2,weight,color);
+    public DoubleLine(Plane p, FVector start, FVector end, float weight) {
+        this(p,start,end,weight,new Color());
     }
-
-    // public DoubleLine(PGraphics canvas, float v, float v1, float v2, float v3, float v4, int i, int i1) {
- //       super();
-   // }
 
     @Override
     public boolean display(Object... obj){
@@ -42,9 +32,8 @@ public class DoubleLine extends Line{
             canvas.strokeWeight(weight);
 
 
-        canvas.line(xAverage,yAverage,pos.x,pos.y);
-        canvas.line(xAverage,yAverage,2*xAverage - pos.x,2*yAverage - pos.y);
-
-        return pos.x == finalX && pos.y == finalY;
+        canvas.line(average.getX(),average.getY(),pos.getX(),pos.getY());
+        canvas.line(average.getX(),average.getY(),2*average.getX() - pos.getX(),2*average.getY() - pos.getY());
+        return pos.equals(end);
     }
 }

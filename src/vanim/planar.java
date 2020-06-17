@@ -1,15 +1,18 @@
 package vanim;
-import vanim.mfunc.*;
-import vanim.misc.*;
-import vanim.shapes.*;
+
+import processing.core.PApplet;
+import processing.core.PFont;
+import processing.core.PGraphics;
+import processing.event.MouseEvent;
+import vanim.mfunc.Narrator;
+import vanim.planes.CartesianPlane;
+import vanim.shapes.Circle;
+import vanim.storage.vector.FVector;
+import vanim.storage.vector.IVector;
+
+import java.text.DecimalFormat;
 
 import static vanim.Directions.*;
-
-import processing.core.*;
-import processing.event.*;
-import java.text.DecimalFormat;
-import java.lang.*;
-import java.util.*;
 
 public class planar extends PApplet {
 
@@ -18,7 +21,6 @@ public class planar extends PApplet {
     public static float e = 1;
     public static float angle;
     public static PFont myFont, italics;
-    public static Arrow arr;
     public static final int WIDTH = 1920;
     public static final int HEIGHT = 1080;
     public static PGraphics canvas;
@@ -27,12 +29,12 @@ public class planar extends PApplet {
     public static Narrator n;
 
     public void setup() {
-        myFont = createFont("vanim\\data\\cmunbmr.ttf", 150, true);
-        italics = createFont("vanim\\data\\cmunbmo.ttf ", 150, true);
+        String commonPath = "vanim\\data\\";
+        myFont = createFont(commonPath + "cmunbmr.ttf", 150, true);
+        italics = createFont(commonPath + "cmunbmo.ttf", 150, true);
         textFont(myFont, 64);
-        canvas = createGraphics(1920, 1080, P2D);
-        plane = new CartesianPlane(this, canvas, 1, 1);
-        b = new Circle(canvas, 0, 0, 1, 4);
+        plane = new CartesianPlane(this, new FVector(), new IVector(1920, 1080), new FVector(1, 1));
+        b = new Circle(plane, new FVector(0, 0), 1, 4);
         n = new Narrator(canvas);
         System.out.println(destinationOnCircleLabel);
     }
@@ -46,7 +48,7 @@ public class planar extends PApplet {
             case 'v' -> angle = PI / 2;
             case 'c' -> angle = 0;
             case 'd' -> plane.restrictDomain(-PI / 2, PI / 2);
-            case 's' -> plane.sY *= 1.1f;
+            case 's' -> plane.getScale().setXY(1.1f, 1.1f);
             case 'x' -> startSavingFrames = true;//frameRate(2);
         }
     }
@@ -54,14 +56,9 @@ public class planar extends PApplet {
     public void draw() {
         background(0);
         scale(e);
-        plane.run(canvas);
-        step[0] = plane.generatePlane();
-        // plane.graph();
+        sceneStep[0] = plane.generatePlane();
         directions(this);
         plane.display();
-        /* debug space */
-        // bruv();
-        /* debug space */
         if (startSavingFrames)
             saveFrame("test/line-######.png");
         // directions();

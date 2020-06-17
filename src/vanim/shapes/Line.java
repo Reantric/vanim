@@ -1,53 +1,32 @@
 package vanim.shapes;
-import processing.core.*;
-import vanim.misc.Color;
-import vanim.root.VObject;
 
-import static vanim.misc.Mapper.*;
+import vanim.planes.Plane;
+import vanim.root.vobjects.VObject;
+import vanim.storage.vector.FVector;
+import vanim.storage.Color;
+
+import static vanim.util.Mapper.EASE_IN_OUT;
+import static vanim.util.Mapper.map3;
 
 public class Line extends VObject {
 
     float weight;
-    float finalX, finalY, amtPushX, amtPushY;
-    float startX, startY;
+    FVector start, end, amtPush = new FVector(), inc = new FVector();
     int strokeNum;
-    float incX, incY;
 
-    public Line(PApplet p, PGraphics c, float x1, float y1, float x2, float y2){
-        this(p,c, x1, y1, x2,y2,4,new Color());
-    }
-
-    @Override
-    public boolean scale(float... obj) {
-        return false;
-    }
-
-
-    public Line(PGraphics c, float x1, float y1, float x2, float y2){
-        this(null,c,x1,y1,x2,y2,4,new Color());
-    }
-
-    public Line(PGraphics c, float x1, float y1, float x2, float y2, float weight, float colHue){
-        this(null,c,x1,y1,x2,y2,weight,new Color(colHue));
-    }
-
-
-    public Line(PApplet p,PGraphics c, float x1, float y1, float x2, float y2, float weight, Color color) { //p not used here...
-        super(p,c, x1, y1, 0,color);
+    public Line(Plane p, FVector start, FVector end, float weight, Color color) { //p not used here...
+        super(p, start, new FVector(), color);
         this.weight = weight;
-        finalX = x2;
-        finalY = y2;
-        startY = pos.y;
-        startX = pos.x;
-        incX = 0;
-        incY = 0;
-       // println("BEGINNING: " + pos.x);
+        this.end = new FVector(absScale.getX() * end.getX(), absScale.getY() * end.getY());
+        this.start = new FVector(pos); // Copy constructor
     }
 
+    public Line(Plane p, FVector start, FVector end){
+        this(p, start, end,4,new Color());
+    }
 
-    public void setFinal(float x, float y) {
-        finalX = x;
-        finalY = y;
+    public void setEnd(float x, float y) {
+        end.setXY(absScale.getX()*x,absScale.getY()*y);
     }
 
     public void setStrokeCap(int WHAT){
@@ -57,53 +36,53 @@ public class Line extends VObject {
     public void setMapPower(float jj){
         mapPower = jj;
     }
+
     public void setStart(float x, float y) {
-        startX = x;
-        startY = y;
+        start.setXY(x,y);
     }
 
     //float value, float start1, float stop1, float start2, float stop2, int type, int when
     public void push(float dividend) {
-        amtPushX = (finalX - startX) / dividend;
-        amtPushY = (finalY - startY) / dividend;
+        amtPush.setX((end.getX() - start.getX()) / dividend);
+        amtPush.setY((end.getY() - start.getY()) / dividend);
 
-        if (amtPushX > 0) {
-            if (pos.x < finalX) {
-                incX += amtPushX;
-                pos.x = map3(incX, startX, finalX, startX, finalX, mapPower, EASE_IN_OUT);
+        if (amtPush.getX() > 0) {
+            if (pos.getX() < end.getX()) {
+                inc.addX(amtPush);
+                pos.setX(map3(inc.getX(), start.getX(), end.getX(), start.getX(), end.getX(), mapPower, EASE_IN_OUT));
             }
-            if (pos.x > finalX)
-                pos.x = finalX;
+            if (pos.getX() > end.getX())
+                pos.setX(end.getX());
         }
 
         else {
-            if (pos.x > finalX) {
-                incX += amtPushX;
-                pos.x = map3(incX, startX, finalX, startX, finalX, mapPower, EASE_IN_OUT);
+            if (pos.getX() > end.getX()) {
+                inc.addX(amtPush);
+                pos.setX(map3(inc.getX(), start.getX(), end.getX(), start.getX(), end.getX(), mapPower, EASE_IN_OUT));
             }
-            if (pos.x < finalX)
-                pos.x = finalX;
+            if (pos.getX() < end.getX())
+                pos.setX(end.getX());
         }
 
-        if (amtPushY > 0){
-            if (pos.y < finalY){
-                incY += amtPushY;
-                pos.y = map3(incY, startY, finalY, startY, finalY, mapPower, EASE_IN_OUT);
+        if (amtPush.getY() > 0){
+            if (pos.getY() < end.getY()){
+                inc.addY(amtPush);
+                pos.setY(map3(inc.getY(), start.getY(), end.getY(), start.getY(), end.getY(), mapPower, EASE_IN_OUT));
             }
-            if (pos.y > finalY)
-                pos.y = finalY;
+            if (pos.getY() > end.getY())
+                pos.setY(end.getY());
         } else {
-            if (pos.y > finalY){
-                incY += amtPushY;
-                pos.y = map3(incY, startY, finalY, startY, finalY, mapPower, EASE_IN_OUT);
+            if (pos.getY() > end.getY()){
+                inc.addY(amtPush);
+                pos.setY(map3(inc.getY(), start.getY(), end.getY(), start.getY(), end.getY(), mapPower, EASE_IN_OUT));
             }
-            if (pos.y < finalY)
-                pos.y = finalY;
+            if (pos.getY() < end.getY())
+                pos.setY(end.getY());
         }
 
 
-        //println("x1: " + pos.x + " y1: " + pos.y);
-       // println("x2: " + pos.x + " y2: " + pos.y);
+        //println("x1: " + pos.getX() + " y1: " + pos.getY());
+       // println("x2: " + pos.getX() + " y2: " + pos.getY());
     }
 
 
@@ -114,7 +93,7 @@ public class Line extends VObject {
             canvas.strokeWeight(weight);
 
         canvas.stroke(color.getHue(), color.hue255() ? 0 : 255, 255);
-        canvas.line(startX, startY, pos.x, pos.y);
-        return pos.x == finalX && pos.y == finalY;
+        canvas.line(start.getX(), start.getY(), pos.getX(), pos.getY());
+        return pos.equals(end);
     }
 }
