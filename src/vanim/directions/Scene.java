@@ -1,22 +1,31 @@
 package vanim.directions;
 
 import processing.core.PApplet;
-import vanim.util.Mapper;
-import vanim.util.Useful;
 
-import static processing.core.PApplet.cos;
-import static processing.core.PApplet.sin;
-import static vanim.Directions.*;
-import static vanim.planar.b;
-import static vanim.planar.canvas;
+import java.lang.ref.Reference;
+import java.lang.ref.WeakReference;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public abstract class Scene {
+
+    private static final Set<WeakReference<Scene>> allObjects = new HashSet<>();
     protected PApplet window;
     public boolean[] step = new boolean[100];
 
-    public Scene(PApplet window){
+    public Scene(PApplet window) {
         this.window = window;
+        allObjects.add(new WeakReference<>(this));
     }
 
-    public abstract boolean scene();
+    public abstract boolean execute();
+
+    /**
+     * @param
+     * @return
+     */
+    public static Set<Scene> getClasses() {
+        return allObjects.stream().map(Reference::get).collect(Collectors.toSet());
+    }
 }

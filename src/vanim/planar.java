@@ -10,9 +10,11 @@ import vanim.shapes.Circle;
 import vanim.storage.vector.FVector;
 import vanim.storage.vector.IVector;
 
+import java.lang.reflect.InvocationTargetException;
 import java.text.DecimalFormat;
 
-import static vanim.Directions.*;
+import static vanim.Directions.destinationOnCircleLabel;
+import static vanim.Directions.directions;
 
 public class planar extends PApplet {
 
@@ -36,6 +38,13 @@ public class planar extends PApplet {
         plane = new CartesianPlane(this, new FVector(), new IVector(1920, 1080), new FVector(1, 1));
         b = new Circle(plane, new FVector(0, 0), 1, 4);
         n = new Narrator(canvas);
+
+        try {
+            Directions.init(this);
+        } catch (ClassNotFoundException | InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException noSuchMethodException) {
+            noSuchMethodException.printStackTrace();
+        }
+
         System.out.println(destinationOnCircleLabel);
     }
 
@@ -56,8 +65,7 @@ public class planar extends PApplet {
     public void draw() {
         background(0);
         scale(e);
-        sceneStep[0] = plane.generatePlane();
-        directions(this);
+        directions();
         plane.display();
         if (startSavingFrames)
             saveFrame("test/line-######.png");

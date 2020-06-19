@@ -8,10 +8,9 @@ import vanim.util.Useful;
 import static processing.core.PApplet.cos;
 import static processing.core.PApplet.sin;
 import static vanim.Directions.*;
-import static vanim.planar.b;
-import static vanim.planar.canvas;
+import static vanim.planar.*;
 
-public class Scene1 extends Scene {
+public final class Scene1 extends Scene {
 
 
     public Scene1(PApplet window) {
@@ -19,12 +18,16 @@ public class Scene1 extends Scene {
     }
 
     @Override
-    public boolean scene() {
+    public boolean execute() {
         //plane.rotatePlane(angle);
         // arr.setVector(cos(inc),sin(inc));
 
 
         /* Maybe think about a MObject[] or ArrayList<MObject> where display can be called on everyone */
+        if (!step[0]) {
+            step[0] = plane.generatePlane();
+        }
+
         if (step[0]) {
             b.scale(sinus);
             step[1] = b.display();
@@ -80,5 +83,6 @@ public class Scene1 extends Scene {
 
         }
         return step[6];
+
     }
 }
