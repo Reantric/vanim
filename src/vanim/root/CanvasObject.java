@@ -3,25 +3,18 @@ package vanim.root;
 import processing.core.PApplet;
 import processing.core.PGraphics;
 import vanim.storage.Scale;
-import vanim.storage.Vector;
 import vanim.storage.vector.FVector;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
-
-import static processing.core.PConstants.CENTER;
-import static processing.core.PConstants.HSB;
 
 /**
  * @author protonlaser91
  */
 public abstract class CanvasObject implements GeneralObject{
 
-    private static final Map<Class<? extends CanvasObject>, List<WeakReference<CanvasObject>>> allObjects = new HashMap<>();
+    private static final Map<Class<? extends CanvasObject>, Set<WeakReference<CanvasObject>>> allObjects = new HashMap<>();
     protected PGraphics canvas;
     protected Scale scale = new Scale(1,1,1);
     protected FVector pos;
@@ -47,7 +40,7 @@ public abstract class CanvasObject implements GeneralObject{
         Class<? super CanvasObject> finalSuperclass = CanvasObject.class.getSuperclass();
         while (!originalClass.equals(finalSuperclass)) {
             allObjects.computeIfAbsent(originalClass,
-                    k -> new ArrayList<>()).add(new WeakReference<>(this));
+                    k -> new HashSet<>()).add(new WeakReference<>(this));
             originalClass = (Class<? extends CanvasObject>) originalClass.getSuperclass();
         }
     }
