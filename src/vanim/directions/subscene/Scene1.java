@@ -8,7 +8,8 @@ import vanim.util.Useful;
 import static processing.core.PApplet.cos;
 import static processing.core.PApplet.sin;
 import static vanim.Directions.*;
-import static vanim.planar.*;
+import static vanim.planar.b;
+import static vanim.planar.plane;
 
 public final class Scene1 extends Scene {
 
@@ -38,9 +39,9 @@ public final class Scene1 extends Scene {
 
 
         if (step[2]) {
-            canvas.text("Radius: " + b.getRadius(), 300, -330);
+            plane.getCanvas().text("Radius: " + b.getRadius(), 300, -330);
             inc += globalIncrementor;
-            canvas.textSize(40);
+            plane.getCanvas().textSize(40);
             /* Call to waste time
             int[] useless = RandomDebug.generateRandomIntArr(8);
             Arrays.sort(useless);

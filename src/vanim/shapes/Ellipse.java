@@ -1,8 +1,8 @@
 package vanim.shapes;
 
 import vanim.planes.Plane;
-import vanim.storage.vector.FVector;
 import vanim.storage.Scale;
+import vanim.storage.vector.FVector;
 import vanim.util.Mapper;
 
 import static processing.core.PApplet.*;
@@ -80,7 +80,7 @@ public class Ellipse extends ClosedShape {
      */
     @Override
     public boolean display(Object... obj) {
-        addPoint(cos(incrementor / 100f),sin(incrementor / 100f));
+        super.addPoint(cos(incrementor / 100f), sin(incrementor / 100f));
         incrementor += speed;
         return graph();
     }

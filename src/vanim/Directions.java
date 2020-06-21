@@ -8,16 +8,17 @@ import vanim.util.Useful;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static vanim.planar.PI;
 
 public class Directions {
     public static boolean[] sceneStep = new boolean[100];
-    public static List<Scene> allScenes = new ArrayList<>();
+    public static Set<Scene> allScenes = new HashSet<>();
     public static int destinationInc = 1; // be consistent with mapInc initialization!
     // ^^ Also the reason that destinationInc-1 is used and not +1
     public static final Float[] destinationOnCircle = {-PI, 0f, PI / 4, PI / 2}; // A sad necessity
@@ -53,9 +54,9 @@ public class Directions {
                 case "-0.7" -> "-PI/4";
                 default -> String.valueOf(x).substring(0, 4);
             };
-       return String.valueOf(x);
-   }).collect(Collectors.toList());
-    public static Scale sinus;
+        return String.valueOf(x);
+    }).collect(Collectors.toList());
+    public static Scale sinus = new Scale(1, 1);
 
     public static void directions() {
         //call the scenes here

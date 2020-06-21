@@ -2,8 +2,8 @@ package vanim.shapes;
 
 import vanim.planes.Plane;
 import vanim.root.vobjects.VObject;
-import vanim.storage.vector.FVector;
 import vanim.storage.Color;
+import vanim.storage.vector.FVector;
 import vanim.util.Useful;
 
 import java.util.ArrayList;

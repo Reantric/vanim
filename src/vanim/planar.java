@@ -2,7 +2,6 @@ package vanim;
 
 import processing.core.PApplet;
 import processing.core.PFont;
-import processing.core.PGraphics;
 import processing.event.MouseEvent;
 import vanim.mfunc.Narrator;
 import vanim.planes.CartesianPlane;
@@ -14,7 +13,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.text.DecimalFormat;
 
 import static vanim.Directions.destinationOnCircleLabel;
-import static vanim.Directions.directions;
 
 public class planar extends PApplet {
 
@@ -25,7 +23,6 @@ public class planar extends PApplet {
     public static PFont myFont, italics;
     public static final int WIDTH = 1920;
     public static final int HEIGHT = 1080;
-    public static PGraphics canvas;
     public static CartesianPlane plane;
     public static Circle b;
     public static Narrator n;
@@ -37,7 +34,7 @@ public class planar extends PApplet {
         textFont(myFont, 64);
         plane = new CartesianPlane(this, new FVector(), new IVector(1920, 1080), new FVector(1, 1));
         b = new Circle(plane, new FVector(0, 0), 1, 4);
-        n = new Narrator(canvas);
+        n = new Narrator(plane.getCanvas());
 
         try {
             Directions.init(this);
@@ -65,7 +62,9 @@ public class planar extends PApplet {
     public void draw() {
         background(0);
         scale(e);
-        directions();
+        // directions();
+        plane.generatePlane();
+        b.display();
         plane.display();
         if (startSavingFrames)
             saveFrame("test/line-######.png");
