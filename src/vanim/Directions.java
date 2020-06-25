@@ -2,7 +2,6 @@ package vanim;
 
 import processing.core.PApplet;
 import vanim.directions.Scene;
-import vanim.storage.Scale;
 import vanim.util.Mapper;
 import vanim.util.Useful;
 
@@ -56,7 +55,6 @@ public class Directions {
             };
         return String.valueOf(x);
     }).collect(Collectors.toList());
-    public static Scale sinus = new Scale(1, 1);
 
     public static void directions() {
         //call the scenes here

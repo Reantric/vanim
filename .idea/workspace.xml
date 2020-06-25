@@ -2,21 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16440c7b-6ffb-46a2-aefd-e357a36e7ec9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/vanim/storage/Subcolor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/Directions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/Directions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/directions/Scene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/directions/Scene.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/directions/subscene/Scene1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/directions/subscene/Scene1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/mfunc/Narrator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/mfunc/Narrator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/planar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/planar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/root/CanvasObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/root/CanvasObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/root/vobjects/AbsoluteVObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/root/vobjects/AbsoluteVObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Circle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/ClosedShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/ClosedShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/DoubleLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/DoubleLine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Ellipse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Ellipse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/util/Useful.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/util/Useful.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Line.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/storage/Color.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/storage/Color.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/text/TextVObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/text/TextVObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/Directions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/Directions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/directions/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/Narrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/mfunc/Narrator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/planar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/root/vobjects/AbsoluteVObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/vobjects/AbsoluteVObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Line.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/text/TextVObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/text/TextVObject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +76,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../vanim-26878eba69bb4e576e8ad056bdc0ccb3c6a865ad" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Other stuff/plugDev" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.5" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -113,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592536646110</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Testing Scene.execute() and ClosedShape.display().">
+      <created>1592704300359</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1592704300359</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -124,7 +143,8 @@
     </ignored-roots>
     <MESSAGE value="Changed allObjects in each class to a permanent mapping in the base class, CanvasObject, where it can be called via CanvasObject.allObjects(Class &lt;T&gt; type) and it will return a list of all objects that are Type &lt;T&gt; or a subclass of &lt;T&gt;." />
     <MESSAGE value="Added package scanner and all classes in 'subscene' will be added to the allScenes list. &#10;NullPointer occurring in Ellipse due to either FVec dimensions or Scale." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added package scanner and all classes in 'subscene' will be added to the allScenes list. &#10;NullPointer occurring in Ellipse due to either FVec dimensions or Scale." />
+    <MESSAGE value="Testing Scene.execute() and ClosedShape.display()." />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing Scene.execute() and ClosedShape.display()." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -137,10 +157,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592351810429" />
-    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1591847459223">
+    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1593034792407">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1591847459223" />
+    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1593034792407" />
     <state x="689" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1592351809886">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -153,38 +173,38 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="718" y="410" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080@0.0.1920.1080" timestamp="1589145863833" />
-    <state x="0" y="105" key="CommitChangelistDialog2" timestamp="1592536643743">
+    <state x="0" y="105" key="CommitChangelistDialog2" timestamp="1592704297766">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="0" y="105" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1592536643743" />
+    <state x="0" y="105" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1592704297766" />
     <state x="1065" y="421" key="DetectedRootsChooserDialog" timestamp="1592534749681">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1065" y="421" key="DetectedRootsChooserDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592534749681" />
-    <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl" timestamp="1592703588866">
+    <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl" timestamp="1592950801281">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1592703588866" />
-    <state width="1877" height="206" key="GridCell.Tab.0.bottom" timestamp="1592704129553">
+    <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1592950801281" />
+    <state width="1877" height="197" key="GridCell.Tab.0.bottom" timestamp="1593044160895">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.bottom/0.0.1600.900@0.0.1600.900" timestamp="1589407580865" />
-    <state width="1877" height="206" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592704129553" />
-    <state width="1877" height="206" key="GridCell.Tab.0.center" timestamp="1592704129553">
+    <state width="1877" height="197" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1593044160895" />
+    <state width="1877" height="197" key="GridCell.Tab.0.center" timestamp="1593044160895">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.center/0.0.1600.900@0.0.1600.900" timestamp="1589407580864" />
-    <state width="1877" height="206" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592704129553" />
-    <state width="1877" height="206" key="GridCell.Tab.0.left" timestamp="1592704129553">
+    <state width="1877" height="197" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1593044160895" />
+    <state width="1877" height="197" key="GridCell.Tab.0.left" timestamp="1593044160895">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.left/0.0.1600.900@0.0.1600.900" timestamp="1589407580864" />
-    <state width="1877" height="206" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592704129553" />
-    <state width="1877" height="206" key="GridCell.Tab.0.right" timestamp="1592704129553">
+    <state width="1877" height="197" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1593044160895" />
+    <state width="1877" height="197" key="GridCell.Tab.0.right" timestamp="1593044160895">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.right/0.0.1600.900@0.0.1600.900" timestamp="1589407580864" />
-    <state width="1877" height="206" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592704129553" />
+    <state width="1877" height="197" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1593044160895" />
     <state width="1877" height="362" key="GridCell.Tab.1.bottom" timestamp="1590549361856">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -205,10 +225,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="880" y="99" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1592536610969" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1592536651742">
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1592704319459">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592536651742" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592704319459" />
     <state x="750" y="374" key="com.intellij.ide.util.TipDialog" timestamp="1586894851302">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

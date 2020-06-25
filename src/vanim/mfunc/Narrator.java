@@ -2,14 +2,16 @@ package vanim.mfunc;
 
 import processing.core.PGraphics;
 import vanim.root.CanvasObject;
-import vanim.text.TextVObject;
-import vanim.storage.vector.FVector;
 import vanim.storage.Color;
+import vanim.storage.vector.FVector;
+import vanim.text.TextVObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static vanim.planar.*;
+import static vanim.directions.subscene.Scene1.plane;
+import static vanim.planar.LEFT;
+import static vanim.planar.println;
 
 public class Narrator extends CanvasObject {
     PGraphics canvas;

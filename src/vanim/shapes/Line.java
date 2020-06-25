@@ -1,9 +1,10 @@
 package vanim.shapes;
 
+import vanim.planes.CartesianPlane;
 import vanim.planes.Plane;
 import vanim.root.vobjects.VObject;
-import vanim.storage.vector.FVector;
 import vanim.storage.Color;
+import vanim.storage.vector.FVector;
 
 import static vanim.util.Mapper.EASE_IN_OUT;
 import static vanim.util.Mapper.map3;
@@ -21,19 +22,23 @@ public class Line extends VObject {
         this.start = new FVector(pos); // Copy constructor
     }
 
-    public Line(Plane p, FVector start, FVector end){
-        this(p, start, end,4,new Color());
+    public Line(Plane p, FVector start, FVector end) {
+        this(p, start, end, 4, new Color());
+    }
+
+    public Line(CartesianPlane plane, FVector start, FVector end, Color color) {
+        this(plane, start, end, 4, color);
     }
 
     public void setEnd(float x, float y) {
-        end.setXY(absScale.getX()*x,absScale.getY()*y);
+        end.setXY(absScale.getX() * x, absScale.getY() * y);
     }
 
-    public void setStrokeCap(int WHAT){
+    public void setStrokeCap(int WHAT) {
         strokeNum = WHAT;
     }
 
-    public void setMapPower(float jj){
+    public void setMapPower(float jj) {
         mapPower = jj;
     }
 
@@ -92,7 +97,9 @@ public class Line extends VObject {
         if (weight != 0)
             canvas.strokeWeight(weight);
 
-        canvas.stroke(color.getHue(), color.hue255() ? 0 : 255, 255);
+        canvas.stroke(color.getHue().getValue(), color.getHue().is255() ? 0 : color.getSaturation().getValue(),
+                color.getBrightness().getValue(), color.getAlpha().getValue());
+
         canvas.line(start.getX(), start.getY(), pos.getX(), pos.getY());
         return pos.equals(end);
     }

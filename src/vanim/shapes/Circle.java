@@ -34,7 +34,7 @@ public class Circle extends Ellipse {
      */
     public float getRadius() {
         //width and height are same in Circle, depends on sX and sY
-        return dimensions.getX() / scale.getX();
+        return dimensions.getX() * scale.getX() / absScale.getX();
     }
 }
 

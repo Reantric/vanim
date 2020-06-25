@@ -30,7 +30,7 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
      *               have reached the beginning.
      */
     public ClosedShape(Plane p, FVector pos, FVector dimensions, int speed, int delVal) {
-        super(p, pos,dimensions, new Color(0)); // For now, it does not utilize a color
+        super(p, pos, dimensions, new Color(0)); // For now, it does not utilize a color Hue (but does have sat and brightness!)
         this.speed = speed;
         this.delVal = delVal;
     }
@@ -68,9 +68,10 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
         float xMult = scale.getX(),yMult = scale.getY();
 
         for (int i = 0; i < coordsSize - 1; i++) {
-            canvas.stroke(Useful.getColor(i, 0, delVal), 255, 255);
+            canvas.stroke(Useful.getColor(i, 0, delVal), color.getSaturation().getValue(),
+                    color.getBrightness().getValue(), color.getAlpha().getValue());
             canvas.strokeWeight(5);
-            canvas.line(coords.get(i)[0]*xMult, coords.get(i)[1]*yMult, coords.get(i + 1)[0]*xMult, coords.get(i + 1)[1]*yMult);
+            canvas.line(coords.get(i)[0] * xMult, coords.get(i)[1] * yMult, coords.get(i + 1)[0] * xMult, coords.get(i + 1)[1] * yMult);
         }
 
         return coordsSize == delVal;

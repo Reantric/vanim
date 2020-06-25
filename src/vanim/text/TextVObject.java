@@ -2,9 +2,9 @@ package vanim.text;
 
 import vanim.planes.Plane;
 import vanim.root.vobjects.AbsoluteVObject;
-import vanim.storage.vector.FVector;
-import vanim.storage.Scale;
 import vanim.storage.Color;
+import vanim.storage.Scale;
+import vanim.storage.vector.FVector;
 
 import static processing.core.PConstants.CORNER;
 import static processing.core.PConstants.LEFT;
@@ -60,8 +60,8 @@ public class TextVObject extends AbsoluteVObject {
     }
 
     @Override
-    public boolean scale(Scale s) {
-        return false;
+    public void scale(Scale s) {
+
     }
 
     /**
@@ -75,7 +75,7 @@ public class TextVObject extends AbsoluteVObject {
             this.backgroundRect();
 
         canvas.textSize(tSize);
-        canvas.fill(color.getHue(),color.getSaturation(),color.getBrightness(),map2(transp,0,255,0,255,QUADRATIC,EASE_IN));
+        canvas.fill(color.getHue().getValue(), color.getSaturation().getValue(), color.getBrightness().getValue(), map2(transp, 0, 255, 0, 255, QUADRATIC, EASE_IN));
 
         if (canvas.textAlign != align)
             canvas.textAlign(align);

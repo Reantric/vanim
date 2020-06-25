@@ -5,11 +5,11 @@ import processing.core.PGraphics;
 import processing.core.PVector;
 import vanim.root.vobjects.VObject;
 import vanim.shapes.DoubleLine;
-import vanim.text.TextVObject;
+import vanim.storage.Color;
+import vanim.storage.Scale;
 import vanim.storage.vector.FVector;
 import vanim.storage.vector.IVector;
-import vanim.storage.Scale;
-import vanim.storage.Color;
+import vanim.text.TextVObject;
 import vanim.util.Useful;
 
 import java.util.ArrayList;
@@ -109,29 +109,34 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
         canvas.textAlign(CENTER);
         canvas.rectMode(CENTER);
         canvas.colorMode(HSB);
-        canvas.stroke(150,200,255);
+        canvas.stroke(150, 200, 255);
         canvas.strokeWeight(4);
 
         //  pushMatrix();
         //canvas.rotate(slowRotate.incrementor); //-processing.PI/2
-       // incrementor = 0;
+        // incrementor = 0;
 
-        for (int j = 0; j < yLines.length; j++){
-            if (j != yLines.length/2)
+        for (int j = 0; j < yLines.length; j++) {
+            if (j != yLines.length / 2) {
+                yLines[j].getColor().getHue().interp(yLines[j].getColor().getHue().is255() ? 0 : 255, 1);
                 yLines[j].display();
+            }
         }
 
         //Cant make this loop more efficient because of line below...
         if (processing.frameCount < frameCountInit + frameCountBuffer) return false;
 
-        for (int i = 0; i < xLines.length; i++){
-            if (i != xLines.length/2)
+        for (int i = 0; i < xLines.length; i++) {
+            if (i != xLines.length / 2) {
+                xLines[i].getColor().getHue().interp(xLines[i].getColor().getHue().is255() ? 0 : 255, 1);
+                System.out.println("Color: " + xLines[i].getColor().getHue().getValue());
                 xLines[i].display();
+            }
 
             if (i % 2 == 0) {
                 if (i != xText.length)
                     xText[i / 2].setWidthHeight(60 + (xText[i / 2].str.length() - 3) * 10, 56);
-                if ((i != xText.length && !textDrawn && xText[i / 2].display()) | (i != yText.length && i < 2*yText.length && !textDrawn && yText[i / 2].display()))
+                if ((i != xText.length && !textDrawn && xText[i / 2].display()) | (i != yText.length && i < 2 * yText.length && !textDrawn && yText[i / 2].display()))
                     textDrawn = true;
 
             }

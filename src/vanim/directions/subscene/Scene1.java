@@ -2,34 +2,47 @@ package vanim.directions.subscene;
 
 import processing.core.PApplet;
 import vanim.directions.Scene;
+import vanim.mfunc.Narrator;
+import vanim.planes.CartesianPlane;
+import vanim.shapes.Circle;
+import vanim.shapes.Line;
+import vanim.storage.Color;
+import vanim.storage.Scale;
+import vanim.storage.vector.FVector;
+import vanim.storage.vector.IVector;
 import vanim.util.Mapper;
 import vanim.util.Useful;
 
 import static processing.core.PApplet.cos;
 import static processing.core.PApplet.sin;
 import static vanim.Directions.*;
-import static vanim.planar.b;
-import static vanim.planar.plane;
 
 public final class Scene1 extends Scene {
 
+    public static Scale sinus = new Scale(1, 1);
+    public static CartesianPlane plane;
+    public static Circle b;
+    public static Narrator n;
+    public static Line l;
 
     public Scene1(PApplet window) {
         super(window);
+        plane = new CartesianPlane(window, new FVector(), new IVector(1920, 1080), new FVector(1, 1));
+        b = new Circle(plane, new FVector(0, 0), 1, 4);
+        n = new Narrator(plane.getCanvas());
+        l = new Line(plane, new FVector(), new FVector(1, 1), new Color(160, 255, 255));
     }
 
     @Override
     public boolean execute() {
-        //plane.rotatePlane(angle);
-        // arr.setVector(cos(inc),sin(inc));
 
+        step[0] = plane.generatePlane();
 
         /* Maybe think about a MObject[] or ArrayList<MObject> where display can be called on everyone */
-        if (!step[0]) {
-            step[0] = plane.generatePlane();
-        }
 
         if (step[0]) {
+            //  l.display();
+            //l.getColor().getHue().interp(0);
             b.scale(sinus);
             step[1] = b.display();
         }
@@ -49,13 +62,11 @@ public final class Scene1 extends Scene {
             Call to waste time */
             float min = destinationOnCircle[destinationInc == 0 ? destinationOnCircle.length - 1 : destinationInc - 1];
             float max = destinationOnCircle[destinationInc];
-            //System.out.println(window.frameCount - frameCountTrack);
             mapInc = Mapper.map2(inc % 2, 0f, 2f, -min, -max, Mapper.SINUSOIDAL, Mapper.EASE_IN_OUT);
 
             if (inc % 2 > 2 - globalIncrementor) {
                 destinationInc = (destinationInc + 1) % destinationOnCircle.length;
                 inc = (float) Useful.ceilAny(inc, globalIncrementor);
-                System.out.println("CHANGED!: " + destinationInc);
             }
 
             if (!step[3])
@@ -81,7 +92,6 @@ public final class Scene1 extends Scene {
 
         if (step[5]) {
             sinus.setAll(1);
-
         }
         return step[6];
 

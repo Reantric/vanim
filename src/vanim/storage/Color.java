@@ -1,57 +1,63 @@
 package vanim.storage;
 
-import vanim.util.Mapper;
-
 public class Color {
-    float hue, saturation, brightness;
-    float prevHue,prevSat,prevBright;
-    long incrementor = 0, prevIncrementor = 0;
-    boolean interpolation = false;
+    Subcolor hue, saturation, brightness, alpha;
 
-    public Color(float hue){
-        this(hue,255,255);
+    public Color(float hue) {
+        this(hue, 255, 255, 255);
     }
 
-    public Color(float hue, float saturation){
-        this(hue,saturation,255);
+    public Color(float hue, float saturation) {
+        this(hue, saturation, 255, 255);
 
     }
-    public Color(float hue, float saturation, float brightness){
-        this.hue = hue;
-        this.saturation = saturation;
-        this.brightness = brightness;
+
+    public Color(float hue, float saturation, float brightness) {
+        this(hue, saturation, brightness, 255);
+    }
+
+    public Color(float hue, float saturation, float brightness, float alpha) {
+        this.hue = new Subcolor(hue);
+        this.saturation = new Subcolor(saturation);
+        this.brightness = new Subcolor(brightness);
+        this.alpha = new Subcolor(alpha);
     }
 
     public Color() {
-        this(0,0,0);
+        this(0, 0, 0);
     }
 
-    public float getHue(){
+    public Subcolor getHue() {
         return hue;
     }
 
-    public float getSaturation() {
+    public Subcolor getSaturation() {
         return saturation;
     }
 
-    public float getBrightness() {
+    public Subcolor getBrightness() {
         return brightness;
     }
 
-    public void interpHue(float bound,int interpType){
-        if (!interpolation) {
-            prevHue = hue;
-            prevSat = saturation;
-            prevBright = brightness;
-            prevIncrementor = incrementor;
-        }
-        hue = Mapper.map2(incrementor++,0,250,prevIncrementor,bound,Mapper.QUADRATIC,Mapper.EASE_IN_OUT);
-        interpolation = Math.abs(bound-hue) < 0.01f;
+    public Subcolor getAlpha() {
+        return brightness;
+    }
 
+    public void setHue(float newHue) {
+        hue.setValue(newHue);
+    }
+
+    public void setSaturation(float newSat) {
+        saturation.setValue(newSat);
+    }
+
+    public void setBrightness(float newBri) {
+        brightness.setValue(newBri);
+    }
+
+    public void setAlpha(float newAlpha) {
+        alpha.setValue(newAlpha);
     }
 
 
-    public boolean hue255() {
-        return Math.abs(255-hue) < 0.01;
-    }
 }

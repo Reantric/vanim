@@ -3,16 +3,13 @@ package vanim;
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.event.MouseEvent;
-import vanim.mfunc.Narrator;
-import vanim.planes.CartesianPlane;
-import vanim.shapes.Circle;
-import vanim.storage.vector.FVector;
-import vanim.storage.vector.IVector;
 
 import java.lang.reflect.InvocationTargetException;
 import java.text.DecimalFormat;
 
 import static vanim.Directions.destinationOnCircleLabel;
+import static vanim.Directions.directions;
+import static vanim.directions.subscene.Scene1.plane;
 
 public class planar extends PApplet {
 
@@ -23,23 +20,18 @@ public class planar extends PApplet {
     public static PFont myFont, italics;
     public static final int WIDTH = 1920;
     public static final int HEIGHT = 1080;
-    public static CartesianPlane plane;
-    public static Circle b;
-    public static Narrator n;
 
     public void setup() {
         String commonPath = "vanim\\data\\";
         myFont = createFont(commonPath + "cmunbmr.ttf", 150, true);
         italics = createFont(commonPath + "cmunbmo.ttf", 150, true);
         textFont(myFont, 64);
-        plane = new CartesianPlane(this, new FVector(), new IVector(1920, 1080), new FVector(1, 1));
-        b = new Circle(plane, new FVector(0, 0), 1, 4);
-        n = new Narrator(plane.getCanvas());
 
         try {
             Directions.init(this);
         } catch (ClassNotFoundException | InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException noSuchMethodException) {
             noSuchMethodException.printStackTrace();
+            System.exit(1);
         }
 
         System.out.println(destinationOnCircleLabel);
@@ -62,13 +54,10 @@ public class planar extends PApplet {
     public void draw() {
         background(0);
         scale(e);
-        // directions();
-        plane.generatePlane();
-        b.display();
+        directions();
         plane.display();
         if (startSavingFrames)
             saveFrame("test/line-######.png");
-        // directions();
     }
 
     public void settings() {

@@ -39,11 +39,11 @@ public class Ellipse extends ClosedShape {
         if (newDist > distance)
             newDist = distance;
 
-        float common = newDist / (2 * sqrt((float) (1 + (Math.pow(dimensions.getY(), 4) * scale.getX() * x * scale.getX() * x) / (Math.pow(dimensions.getX(), 4) * scale.getY() * y * scale.getY() * y))));
-        float x1 = common + (x * scale.getX()); //+
-        float y1 = (-x * dimensions.getY() * dimensions.getY()) / (y * dimensions.getX() * dimensions.getX()) * common + (y * scale.getY()); //+
-        float x2 = -common + (x * scale.getX()); //-
-        float y2 = (x * dimensions.getY() * dimensions.getY()) / (y * dimensions.getX() * dimensions.getX()) * common + (y * scale.getY()); //-
+        float common = newDist / (2 * sqrt((float) (1 + (Math.pow(dimensions.getY(), 4) * absScale.getX() * x * absScale.getX() * x) / (Math.pow(dimensions.getX(), 4) * absScale.getY() * y * absScale.getY() * y))));
+        float x1 = common + (x * absScale.getX()); //+
+        float y1 = (-x * dimensions.getY() * dimensions.getY()) / (y * dimensions.getX() * dimensions.getX()) * common + (y * absScale.getY()); //+
+        float x2 = -common + (x * absScale.getX()); //-
+        float y2 = (x * dimensions.getY() * dimensions.getY()) / (y * dimensions.getX() * dimensions.getX()) * common + (y * absScale.getY()); //-
         canvas.strokeWeight(5);
         canvas.stroke(30, 255, 255);
         if (Float.isNaN(y1) || Float.isNaN(y2)) {
@@ -61,16 +61,13 @@ public class Ellipse extends ClosedShape {
     }
 
     /**
-     *
-     * @param s The new Scale object that will replace the original Scale object.
-     * @return If the operation is a success
-     * TODO: Might make these void, they serve no purpose
+     * @param s The new absScale object that will replace the original absScale object.
+     *          TODO: Might make these void, they serve no purpose
      */
     @Override
-    public boolean scale(Scale s) { //Instant scaling!, is Absolute! Not relative!
+    public void scale(Scale s) { //Instant scaling!, is Absolute! Not relative!
         super.scale(s);
         distance = Math.min((dimensions.getX() / scale.getX() + dimensions.getY() / scale.getY()), (dimensions.getX() + dimensions.getY()) * 0.9f);
-        return true;
     }
 
     /**
