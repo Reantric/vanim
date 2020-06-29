@@ -11,7 +11,6 @@ import vanim.storage.vector.FVector;
  */
 public abstract class AbsoluteVObject extends CanvasObject {
 
-    protected Color color;
     protected long incrementor = 0;
     protected float mapPower = 1;
     protected int coordsSize = 0;
@@ -25,9 +24,8 @@ public abstract class AbsoluteVObject extends CanvasObject {
      * @param color The color of the object, in HSB
      */
     public AbsoluteVObject(Plane p, FVector pos, FVector dimensions, Color color) { // Plane constructor!
-        super(p.getProcessingInstance(), p.getCanvas(), pos, dimensions);
+        super(p.getProcessingInstance(), p.getCanvas(), pos, dimensions, color);
         absScale = p.getScale();
-        this.color = color;
     }
 
     public AbsoluteVObject(Plane p, FVector pos, Color color) {
@@ -40,13 +38,6 @@ public abstract class AbsoluteVObject extends CanvasObject {
 
     public AbsoluteVObject(Plane p, FVector pos, FVector dimensions) {
         this(p, pos, dimensions, new Color());
-    }
-
-    /**
-     * @return Color object of the current VObject
-     */
-    public Color getColor() {
-        return this.color;
     }
 
     /**
@@ -82,10 +73,6 @@ public abstract class AbsoluteVObject extends CanvasObject {
      */
     public void scale(Scale s) {
         this.scale = s;
-    }
-
-    public boolean fadeOut() {
-        return color.getAlpha().interp(0);
     }
 
 }

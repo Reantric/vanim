@@ -18,14 +18,14 @@ import java.util.List;
 import static vanim.planar.*;
 
 
-public class CartesianPlane extends Plane { // Work on mouseDrag after!
+public final class CartesianPlane extends Plane { // Work on mouseDrag after!
 
     FVector startingValues = new FVector(), rescale, restrictedDomain;
     float scaleFactor;
     float max; //counter
     float currentColor = 0;
     boolean restrictDomain = false;
-    boolean gridDrawn, textDrawn = false;
+    boolean gridDrawn; // useless?
     List<Double> randArr = new ArrayList<Double>();
     float aspectRatio;
 
@@ -37,13 +37,12 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
     /* Object initializations */
 
     /**
-     *
-     * @param p Reference to the processing instance created.
-     * @param pos Vector holding the position (x,y,z) of the plane.
+     * @param p          Reference to the processing instance created.
+     * @param pos        Vector holding the position (x,y,z) of the plane.
      * @param dimensions Vector holding the dimensions (x,y,z) of the plane in resolution pixels.
      */
-    public CartesianPlane(PApplet p, FVector pos, IVector dimensions, FVector ticks){
-        super(p, pos, dimensions, ticks);
+    public CartesianPlane(PApplet p, FVector pos, IVector dimensions, FVector ticks, Color color) {
+        super(p, pos, dimensions, ticks, color);
         rescale = new FVector((float) canvas.width / WIDTH, (float) canvas.height / HEIGHT);
 
         scale.setX(300 / ticks.getX() * rescale.getX()); // 200 def
@@ -55,8 +54,8 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
         max = startingValues.getX() - ticks.getX() / 5; // should start at 25
         aspectRatio = (WIDTH / 1080.0f) / (rescale.getX() / rescale.getY());
 
-        xAxis = new DoubleLine(this, new FVector(startingValues.getX(), 0), new FVector(-startingValues.getX(), 0), 4, new Color(255, 0, 255));
-        yAxis = new DoubleLine(this, new FVector(0, startingValues.getY()), new FVector(0, -startingValues.getY()), 4, new Color(255, 0, 255));
+        xAxis = new DoubleLine(this, new FVector(startingValues.getX(), 0), new FVector(-startingValues.getX(), 0), 4, new Color(255, 0, color.getBrightness().getValue()));
+        yAxis = new DoubleLine(this, new FVector(0, startingValues.getY()), new FVector(0, -startingValues.getY()), 4, new Color(255, 0, color.getBrightness().getValue()));
 
         frameCountInit = processing.frameCount;
         frameCountBuffer = 15;
@@ -75,34 +74,38 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
 
             if (i != yLines.length/2 && i < yLines.length) { // Assumption takes place here
                 if ((startingValues.getY() + ticks.getY() * i / 2) % ticks.getY() == 0) {
-                    yLines[i] = new DoubleLine(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 4, new Color(150, 200, 255));
-                    yText[i / 2] = new TextVObject(this, df.format(-startingValues.getY() - ticks.getY() * i / 2), new FVector(-12, scale.getY() * (startingValues.getY() + ticks.getY() * i / 2) - 12), new Color(255, 0, 255));
+                    yLines[i] = new DoubleLine(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 4, color); // putting in the reference?
+                    yText[i / 2] = new TextVObject(this, df.format(-startingValues.getY() - ticks.getY() * i / 2), new FVector(-12, scale.getY() * (startingValues.getY() + ticks.getY() * i / 2) - 12), new Color(255, 0, color.getBrightness().getValue()));
                     yText[i / 2].setTextAlign(RIGHT);
                     yText[i / 2].setDisplayRect(false);
                 } else
-                    yLines[i] = new DoubleLine(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 1.5f, new Color(150, 200, 255));
+                    yLines[i] = new DoubleLine(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 1.5f, color);
             }
 
-            if (i != xLines.length/2) {
+            if (i != xLines.length / 2) {
                 if ((startingValues.getX() + ticks.getX() * i / 2) % ticks.getX() == 0) {
-                    xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 4, new Color(150, 200, 255));
-                    xText[i / 2] = new TextVObject(this, df.format(startingValues.getX() + ticks.getX() * i / 2), new FVector(startingValues.getX() + ticks.getX() * i / 2 > 0 ? scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) : scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) - 8, 44), new Color(255, 0, 255));
+                    xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 4, color);
+                    xText[i / 2] = new TextVObject(this, df.format(startingValues.getX() + ticks.getX() * i / 2), new FVector(startingValues.getX() + ticks.getX() * i / 2 > 0 ? scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) : scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) - 8, 44), new Color(255, 0, color.getBrightness().getValue()));
                 } else
-                    xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 1.5f, new Color(150, 200, 255));
+                    xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 1.5f, color);
             }
         }
     }
 
+    public CartesianPlane(PApplet p, FVector pos, IVector dimensions, FVector ticks) {
+        this(p, pos, dimensions, ticks, new Color(150, 200, 255));
+    }
+
     /**
-     *
      * Creates a 2D Cartesian Plane with an x axis and a y axis
+     *
      * @return
      */
-    public boolean generatePlane(){
+    public boolean generatePlane() {
         gridDrawn = true;
-        currentColor = Useful.getColor(max,startingValues.getX(),-startingValues.getX());
+        currentColor = Useful.getColor(max, startingValues.getX(), -startingValues.getX());
         canvas.beginDraw();
-        canvas.translate(canvas.width/2.0f,canvas.height/2.0f);
+        canvas.translate(canvas.width / 2.0f, canvas.height / 2.0f);
         canvas.background(0);
         canvas.textFont(myFont);
         canvas.textSize(38);
@@ -112,74 +115,42 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
         canvas.stroke(150, 200, 255);
         canvas.strokeWeight(4);
 
-        //  pushMatrix();
-        //canvas.rotate(slowRotate.incrementor); //-processing.PI/2
-        // incrementor = 0;
-
         for (int j = 0; j < yLines.length; j++) {
-            if (j != yLines.length / 2) {
-                yLines[j].getColor().getHue().interp(yLines[j].getColor().getHue().is255() ? 0 : 255, 1);
+            if (j != yLines.length / 2)
                 yLines[j].display();
-            }
+
         }
 
         //Cant make this loop more efficient because of line below...
         if (processing.frameCount < frameCountInit + frameCountBuffer) return false;
 
         for (int i = 0; i < xLines.length; i++) {
-            if (i != xLines.length / 2) {
-                xLines[i].getColor().getHue().interp(xLines[i].getColor().getHue().is255() ? 0 : 255, 1);
-                System.out.println("Color: " + xLines[i].getColor().getHue().getValue());
+            if (i != xLines.length / 2)
                 xLines[i].display();
-            }
-
-            if (i % 2 == 0) {
-                if (i != xText.length)
-                    xText[i / 2].setWidthHeight(60 + (xText[i / 2].str.length() - 3) * 10, 56);
-                if ((i != xText.length && !textDrawn && xText[i / 2].display()) | (i != yText.length && i < 2 * yText.length && !textDrawn && yText[i / 2].display()))
-                    textDrawn = true;
-
-            }
         }
 
         canvas.stroke(0,0,255);
         canvas.strokeWeight(4);
 
-        return textDrawn & xAxis.display() & yAxis.display();
+        return xAxis.display() & yAxis.display();
         // return xAxisR.display() & yAxisU.display() & xAxisL.display() & yAxisD.display();
     }
 
     /**
-     * Label all axes
+     * Label all axes of the CartesianPlane by instantiating TextVObjects
+     *
+     * @return When the TextVObjects have completed displaying
      */
-    public boolean labelAxes(){
-        canvas.textSize(42);
-        canvas.textAlign(CENTER);
-        canvas.rectMode(CENTER);
-        for (float x = startingValues.getX(); x < -startingValues.getX(); x += ticks.getX()){ //-width/(2*scale.getX()) - ticks.getX()/5 + ticks.getX(), starting 0,0 at width/2, height/2
+    public boolean labelAxes() {
+        for (int i = 0; i < xText.length; i += 2) {
+            xText[i].setWidthHeight(60 + (xText[i / 2].str.length() - 3) * 10, 56);
+            if (!xText[i / 2].display())
+                return false;
 
-            if (x == 0) continue;
-
-            String tX = df.format(x);
-            canvas.fill(0,0,0,125);
-            canvas.noStroke();
-            canvas.rect(scale.getX()*x,30,60 + (tX.length()-3)*10,56);
-            canvas.fill(255);
-
-            if (x > 0)
-                canvas.text(tX,scale.getX()*x,44);
-            else
-                canvas.text(tX,scale.getX()*x-8,44);
+            if (!yText[i / 2].display())
+                return false;
         }
-
-        canvas.textAlign(RIGHT);
-        for (float y = startingValues.getY(); y < -startingValues.getY(); y += ticks.getY()){
-            if (y == 0) continue;
-            canvas.text(df.format(-y),-12,scale.getY()*y-12);
-        }
-
         return true;
-
     }
 
     @Override
@@ -190,12 +161,7 @@ public class CartesianPlane extends Plane { // Work on mouseDrag after!
     @Override
     public boolean display(Object... obj){
         //Is Object... obj because it can be default called or with 2 position args.
-
-        if (textDrawn) {
-            gridDrawn = true;
-            labelAxes();
-        }
-
+        labelAxes();
         canvas.endDraw();
 
         processing.stroke(currentColor, 255, 255);

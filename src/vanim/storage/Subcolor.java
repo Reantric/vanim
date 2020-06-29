@@ -5,7 +5,8 @@ import vanim.util.Mapper;
 public class Subcolor {
     float value, prevVal;
     int incrementor;
-    boolean interpolationComplete;
+    boolean interpolationComplete = true;
+    final double EPSILON = 0.1;
 
     public Subcolor(float val) {
         this.value = val;
@@ -15,17 +16,19 @@ public class Subcolor {
         return value;
     }
 
-    public boolean interp(float bound, int interpType, float speed) {
-        if (!interpolationComplete) {
+    public boolean interp(float bound, int interpType, float time) {
+        if (interpolationComplete) {
             prevVal = value;
-        } else {
             incrementor = 0;
+        }
+        //start1 and stop1 just signify how fast the thing should happen!
+        value = Mapper.map2(incrementor++, 0, Math.abs(bound - prevVal) * time, prevVal, bound, interpType, Mapper.EASE_IN_OUT);
+        interpolationComplete = Math.abs(bound - value) < EPSILON;
+        System.out.println("Color: " + value + " prevval: " + prevVal + " INC: " + incrementor + " bound: " + bound);
+        if (interpolationComplete) {
             value = bound;
         }
 
-        //start1 and stop1 just signify how fast the thing should happen!
-        value = Mapper.map2(incrementor++, 0, 255 * speed, prevVal, bound, interpType, Mapper.EASE_IN_OUT);
-        interpolationComplete = Math.abs(bound - value) < 0.01f;
         return interpolationComplete;
     }
 
@@ -38,10 +41,14 @@ public class Subcolor {
     }
 
     public boolean is255() {
-        return Math.abs(255 - value) < 0.01;
+        return Math.abs(255 - value) < EPSILON;
     }
 
     public void setValue(float newValue) {
         this.value = newValue;
+    }
+
+    public boolean is0() {
+        return Math.abs(0 - value) < EPSILON;
     }
 }

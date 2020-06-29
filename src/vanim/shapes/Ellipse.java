@@ -35,6 +35,9 @@ public class Ellipse extends ClosedShape {
      * @return When the tangent line is fully created or true (isMoving)
      */
     public boolean drawTangentLine(float x, float y, boolean isMoving) {
+        x *= scale.getX();
+        y *= scale.getY();
+
         float newDist = Mapper.map2(incrementTangentLine, 0, distance, 0, distance, Mapper.QUADRATIC, Mapper.EASE_IN);
         if (newDist > distance)
             newDist = distance;

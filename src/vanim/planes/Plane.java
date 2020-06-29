@@ -2,17 +2,15 @@ package vanim.planes;
 
 
 import processing.core.PApplet;
-import processing.core.PGraphics;
 import processing.core.PVector;
 import vanim.root.CanvasObject;
+import vanim.storage.Color;
 import vanim.storage.Scale;
 import vanim.storage.Vector;
 import vanim.storage.vector.FVector;
 import vanim.storage.vector.IVector;
 
 import static processing.core.PApplet.P2D;
-import static processing.core.PConstants.CENTER;
-import static processing.core.PConstants.HSB;
 
 /**
  * @author protonlaser91
@@ -24,14 +22,13 @@ public abstract class Plane extends CanvasObject {
     protected int frameCountBuffer;
 
     /**
-     *
-     * @param p Processing instance that is to be used.
-     * @param pos The position of the object on that plane (in scaled coordinates, not absolute)
+     * @param p          Processing instance that is to be used.
+     * @param pos        The position of the object on that plane (in scaled coordinates, not absolute)
      * @param dimensions The width, height (and depth) of the object (in scaled coordinates, not absolute)
-     * @param ticks The distance between each tick in vector form [x,y,(z)]
+     * @param ticks      The distance between each tick in vector form [x,y,(z)]
      */
-    public Plane(PApplet p, FVector pos, IVector dimensions, Vector<Float> ticks) {
-        super(p, p.createGraphics(dimensions.getX(),dimensions.getY(),P2D), pos, new FVector(dimensions));
+    protected Plane(PApplet p, FVector pos, IVector dimensions, FVector ticks, Color color) {
+        super(p, p.createGraphics(dimensions.getX(), dimensions.getY(), P2D), pos, new FVector(dimensions), color);
         this.ticks = ticks;
     }
 
@@ -59,14 +56,6 @@ public abstract class Plane extends CanvasObject {
      * @param output
      */
     protected abstract void moveVector(PVector initial, PVector output);
-
-    /**
-     *
-     * @return The canvas the plane uses to draw on
-     */
-    public PGraphics getCanvas(){
-        return this.canvas;
-    }
 
     /**
      *
