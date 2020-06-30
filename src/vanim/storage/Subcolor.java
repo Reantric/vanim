@@ -12,6 +12,10 @@ public class Subcolor {
         this.value = val;
     }
 
+    public Subcolor() {
+        this(0);
+    }
+
     public float getValue() {
         return value;
     }
@@ -24,8 +28,8 @@ public class Subcolor {
         //start1 and stop1 just signify how fast the thing should happen!
         value = Mapper.map2(incrementor++, 0, Math.abs(bound - prevVal) * time, prevVal, bound, interpType, Mapper.EASE_IN_OUT);
         interpolationComplete = Math.abs(bound - value) < EPSILON;
-        System.out.println("Color: " + value + " prevval: " + prevVal + " INC: " + incrementor + " bound: " + bound);
-        if (interpolationComplete) {
+        //   System.out.println("Color: " + value + " prevval: " + prevVal + " INC: " + incrementor + " bound: " + bound);
+        if (interpolationComplete || Float.isNaN(value)) {
             value = bound;
         }
 
@@ -50,5 +54,9 @@ public class Subcolor {
 
     public boolean is0() {
         return Math.abs(0 - value) < EPSILON;
+    }
+
+    public String toString() {
+        return String.valueOf(value);
     }
 }

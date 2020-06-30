@@ -27,6 +27,13 @@ public class Color {
         this(0, 0, 0);
     }
 
+    public Color(Subcolor hue, Subcolor saturation, Subcolor brightness, Subcolor alpha) {
+        this.hue = hue;
+        this.saturation = saturation;
+        this.brightness = brightness;
+        this.alpha = alpha; // Storing reference
+    }
+
     public Subcolor getHue() {
         return hue;
     }
@@ -40,7 +47,7 @@ public class Color {
     }
 
     public Subcolor getAlpha() {
-        return brightness;
+        return alpha;
     }
 
     public void setHue(float newHue) {
@@ -59,5 +66,8 @@ public class Color {
         alpha.setValue(newAlpha);
     }
 
+    public String toString() {
+        return String.format("[ %s, %s, %s, %s ]", hue, saturation, brightness, alpha);
+    }
 
 }

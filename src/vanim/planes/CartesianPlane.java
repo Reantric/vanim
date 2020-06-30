@@ -7,6 +7,7 @@ import vanim.root.vobjects.VObject;
 import vanim.shapes.DoubleLine;
 import vanim.storage.Color;
 import vanim.storage.Scale;
+import vanim.storage.Subcolor;
 import vanim.storage.vector.FVector;
 import vanim.storage.vector.IVector;
 import vanim.text.TextVObject;
@@ -28,12 +29,12 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
     boolean gridDrawn; // useless?
     List<Double> randArr = new ArrayList<Double>();
     float aspectRatio;
-
     /* Object initializations */  // Create color object soon for animateVector();
+    Color textColor;
     public VObject xAxis, yAxis;
     public VObject[] xLines, yLines;
     public TextVObject[] xText, yText;
-    List<PVector> points = new ArrayList<PVector>();
+    //  List<PVector> points = new ArrayList<PVector>();
     /* Object initializations */
 
     /**
@@ -54,12 +55,13 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
         max = startingValues.getX() - ticks.getX() / 5; // should start at 25
         aspectRatio = (WIDTH / 1080.0f) / (rescale.getX() / rescale.getY());
 
-        xAxis = new DoubleLine(this, new FVector(startingValues.getX(), 0), new FVector(-startingValues.getX(), 0), 4, new Color(255, 0, color.getBrightness().getValue()));
-        yAxis = new DoubleLine(this, new FVector(0, startingValues.getY()), new FVector(0, -startingValues.getY()), 4, new Color(255, 0, color.getBrightness().getValue()));
+        xAxis = new DoubleLine(this, new FVector(startingValues.getX(), 0), new FVector(-startingValues.getX(), 0), 4, new Color(new Subcolor(255), new Subcolor(), new Subcolor(255), color.getAlpha()));
+        yAxis = new DoubleLine(this, new FVector(0, startingValues.getY()), new FVector(0, -startingValues.getY()), 4, new Color(new Subcolor(255), new Subcolor(), new Subcolor(255), color.getAlpha()));
 
         frameCountInit = processing.frameCount;
         frameCountBuffer = 15;
 
+        textColor = new Color(255, 0, 0); // start from black
         /* List<VObject> inits */
         xLines = new VObject[(int) (-4 * startingValues.getX() / ticks.getX())];
         yLines = new VObject[(int) (-4 * startingValues.getY() / ticks.getY())];
@@ -75,7 +77,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
             if (i != yLines.length/2 && i < yLines.length) { // Assumption takes place here
                 if ((startingValues.getY() + ticks.getY() * i / 2) % ticks.getY() == 0) {
                     yLines[i] = new DoubleLine(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 4, color); // putting in the reference?
-                    yText[i / 2] = new TextVObject(this, df.format(-startingValues.getY() - ticks.getY() * i / 2), new FVector(-12, scale.getY() * (startingValues.getY() + ticks.getY() * i / 2) - 12), new Color(255, 0, color.getBrightness().getValue()));
+                    yText[i / 2] = new TextVObject(this, df.format(-startingValues.getY() - ticks.getY() * i / 2), new FVector(-12, scale.getY() * (startingValues.getY() + ticks.getY() * i / 2) - 12), textColor);
                     yText[i / 2].setTextAlign(RIGHT);
                     yText[i / 2].setDisplayRect(false);
                 } else
@@ -85,7 +87,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
             if (i != xLines.length / 2) {
                 if ((startingValues.getX() + ticks.getX() * i / 2) % ticks.getX() == 0) {
                     xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 4, color);
-                    xText[i / 2] = new TextVObject(this, df.format(startingValues.getX() + ticks.getX() * i / 2), new FVector(startingValues.getX() + ticks.getX() * i / 2 > 0 ? scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) : scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) - 8, 44), new Color(255, 0, color.getBrightness().getValue()));
+                    xText[i / 2] = new TextVObject(this, df.format(startingValues.getX() + ticks.getX() * i / 2), new FVector(startingValues.getX() + ticks.getX() * i / 2 > 0 ? scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) : scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) - 8, 44), textColor);
                 } else
                     xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 1.5f, color);
             }
@@ -142,15 +144,17 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
      * @return When the TextVObjects have completed displaying
      */
     public boolean labelAxes() {
-        for (int i = 0; i < xText.length; i += 2) {
-            xText[i].setWidthHeight(60 + (xText[i / 2].str.length() - 3) * 10, 56);
-            if (!xText[i / 2].display())
-                return false;
+        boolean hasCompleted = true;
+        for (int i = 0; i < xText.length; i++) {
+            if (i != xText.length / 2 && !xText[i].display()) {
+                xText[i].setWidthHeight(60 + (xText[i].str.length() - 3) * 10, 56);
+                hasCompleted = false;
+            }
 
-            if (!yText[i / 2].display())
-                return false;
+            if (i < yText.length && i != yText.length / 2 && !yText[i].display())
+                hasCompleted = false;
         }
-        return true;
+        return hasCompleted;
     }
 
     @Override
@@ -161,6 +165,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
     @Override
     public boolean display(Object... obj){
         //Is Object... obj because it can be default called or with 2 position args.
+        System.out.println("Color: " + color);
         labelAxes();
         canvas.endDraw();
 
@@ -242,7 +247,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
      */
     public void createPoint(float x, float y) {
 
-        points.add(new PVector(x, y));
+        //points.add(new PVector(x, y));
 
         //   canvas.stroke(255,scaler.fadeIn(9));
         //  canvas.fill(255,scaler.getTransp());
