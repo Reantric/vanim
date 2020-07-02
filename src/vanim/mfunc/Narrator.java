@@ -1,6 +1,6 @@
 package vanim.mfunc;
 
-import processing.core.PGraphics;
+import vanim.core.Graphics2D;
 import vanim.root.CanvasObject;
 import vanim.storage.Color;
 import vanim.storage.vector.FVector;
@@ -14,12 +14,10 @@ import static vanim.planar.LEFT;
 import static vanim.planar.println;
 
 public class Narrator extends CanvasObject {
-    PGraphics canvas;
     List<TextVObject> allText = new ArrayList<>();
 
-    public Narrator(PGraphics c){
+    public Narrator(Graphics2D c) {
         super(c, new FVector(0, 0), new FVector());
-        canvas = c;
         setupNarrator();
     }
 

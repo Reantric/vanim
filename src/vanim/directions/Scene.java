@@ -1,13 +1,13 @@
 package vanim.directions;
 
-import processing.core.PApplet;
+import vanim.core.Applet;
 
 public abstract class Scene {
 
-    protected PApplet window;
+    protected Applet window;
     public boolean[] step = new boolean[100];
 
-    public Scene(PApplet window) {
+    public Scene(Applet window) {
         this.window = window;
     }
 

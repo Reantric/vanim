@@ -1,23 +1,20 @@
 package vanim.planes;
 
 
-import processing.core.PApplet;
 import processing.core.PVector;
+import vanim.core.Applet;
 import vanim.root.CanvasObject;
 import vanim.storage.Color;
 import vanim.storage.Scale;
-import vanim.storage.Vector;
 import vanim.storage.vector.FVector;
 import vanim.storage.vector.IVector;
-
-import static processing.core.PApplet.P2D;
 
 /**
  * @author protonlaser91
  */
 public abstract class Plane extends CanvasObject {
 
-    protected Vector<Float> ticks;
+    protected FVector ticks;
     protected int frameCountInit;
     protected int frameCountBuffer;
 
@@ -27,8 +24,8 @@ public abstract class Plane extends CanvasObject {
      * @param dimensions The width, height (and depth) of the object (in scaled coordinates, not absolute)
      * @param ticks      The distance between each tick in vector form [x,y,(z)]
      */
-    protected Plane(PApplet p, FVector pos, IVector dimensions, FVector ticks, Color color) {
-        super(p, p.createGraphics(dimensions.getX(), dimensions.getY(), P2D), pos, new FVector(dimensions), color);
+    protected Plane(Applet p, FVector pos, IVector dimensions, FVector ticks, Color color) {
+        super(p, p.createGraphics2D(dimensions.getX(), dimensions.getY()), pos, new FVector(dimensions), color);
         this.ticks = ticks;
     }
 
@@ -66,10 +63,9 @@ public abstract class Plane extends CanvasObject {
     }
 
     /**
-     *
      * @return The processing instance.
      */
-    public PApplet getProcessingInstance(){
+    public Applet getProcessingInstance() {
         return this.processing;
     }
 }

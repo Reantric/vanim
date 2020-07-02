@@ -1,8 +1,8 @@
 package vanim.planes;
 
-import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.core.PVector;
+import vanim.core.Applet;
 import vanim.root.vobjects.VObject;
 import vanim.shapes.DoubleLine;
 import vanim.storage.Color;
@@ -27,7 +27,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
     float currentColor = 0;
     boolean restrictDomain = false;
     boolean gridDrawn; // useless?
-    List<Double> randArr = new ArrayList<Double>();
+    List<Double> randArr = new ArrayList<>();
     float aspectRatio;
     /* Object initializations */  // Create color object soon for animateVector();
     Color textColor;
@@ -42,7 +42,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
      * @param pos        Vector holding the position (x,y,z) of the plane.
      * @param dimensions Vector holding the dimensions (x,y,z) of the plane in resolution pixels.
      */
-    public CartesianPlane(PApplet p, FVector pos, IVector dimensions, FVector ticks, Color color) {
+    public CartesianPlane(Applet p, FVector pos, IVector dimensions, FVector ticks, Color color) {
         super(p, pos, dimensions, ticks, color);
         rescale = new FVector((float) canvas.width / WIDTH, (float) canvas.height / HEIGHT);
 
@@ -94,14 +94,14 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
         }
     }
 
-    public CartesianPlane(PApplet p, FVector pos, IVector dimensions, FVector ticks) {
+    public CartesianPlane(Applet p, FVector pos, IVector dimensions, FVector ticks) {
         this(p, pos, dimensions, ticks, new Color(150, 200, 255));
     }
 
     /**
      * Creates a 2D Cartesian Plane with an x axis and a y axis
      *
-     * @return
+     * @return When the plane is fully generated
      */
     public boolean generatePlane() {
         gridDrawn = true;

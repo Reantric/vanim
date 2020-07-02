@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16440c7b-6ffb-46a2-aefd-e357a36e7ec9" name="Default Changelist" comment="">
+    <list default="true" id="16440c7b-6ffb-46a2-aefd-e357a36e7ec9" name="Default Changelist" comment="Successfully added wrapper classes to PApplet and PGraphics that allow further customization, such as the shortening of methods such as line(x1,y1,x2,y2) to line(FVector start, FVector end), and&#10;simply stroke(Color color) and fill(Color color).">
+      <change afterPath="$PROJECT_DIR$/src/vanim/core/Applet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/core/Graphics2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/planes/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/planes/Plane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/Directions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/Planes/CartesianPlane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/Planes/CartesianPlane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/Planes/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/Planes/Plane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/directions/Scene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/directions/Scene.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/directions/subscene/Scene1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/directions/subscene/Scene1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/mfunc/Narrator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/mfunc/Narrator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/planar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/planar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/root/CanvasObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/root/CanvasObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/root/vobjects/AbsoluteVObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/root/vobjects/AbsoluteVObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/ClosedShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/ClosedShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/DoubleLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/DoubleLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Ellipse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Ellipse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Line.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/text/TextVObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/text/TextVObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/Directions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/Directions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/directions/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/Narrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/mfunc/Narrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/planar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Subcolor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Subcolor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/planes/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planes/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Line.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +39,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -54,7 +77,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Other stuff/plugDev" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../processing/processing" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.5" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -138,7 +161,8 @@
     <MESSAGE value="Testing Scene.execute() and ClosedShape.display()." />
     <MESSAGE value="Improved color class and shifted planar static variables to Scene1, where they should be as they are used there only." />
     <MESSAGE value="Improved color interpolation, and now changing labelAxes() to replace static text with TextVObjects." />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved color interpolation, and now changing labelAxes() to replace static text with TextVObjects." />
+    <MESSAGE value="Successfully added wrapper classes to PApplet and PGraphics that allow further customization, such as the shortening of methods such as line(x1,y1,x2,y2) to line(FVector start, FVector end), and&#10;simply stroke(Color color) and fill(Color color)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Successfully added wrapper classes to PApplet and PGraphics that allow further customization, such as the shortening of methods such as line(x1,y1,x2,y2) to line(FVector start, FVector end), and&#10;simply stroke(Color color) and fill(Color color)." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -167,46 +191,48 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="718" y="410" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1080@0.0.1920.1080" timestamp="1589145863833" />
-    <state x="1920" y="105" key="CommitChangelistDialog2" timestamp="1593398784959">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="0" y="105" key="CommitChangelistDialog2" timestamp="1593710048656">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="105" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1593053770954" />
+    <state x="0" y="105" key="CommitChangelistDialog2/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593710048656" />
     <state x="1920" y="105" key="CommitChangelistDialog2/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1593398784959" />
     <state x="1065" y="421" key="DetectedRootsChooserDialog" timestamp="1592534749681">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1065" y="421" key="DetectedRootsChooserDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592534749681" />
-    <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl" timestamp="1592950801281">
+    <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl" timestamp="1593563098420">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1592950801281" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1593483283047">
+    <state x="666" y="282" key="FileChooserDialogImpl/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593563098420" />
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1593710048754">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.bottom/0.0.1600.900@0.0.1600.900" timestamp="1589407580865" />
     <state width="1877" height="362" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1593299512118" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593483283047" />
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593710048754" />
     <state width="1860" height="185" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1593471766822" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1593483283047">
+    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1593710048754">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.center/0.0.1600.900@0.0.1600.900" timestamp="1589407580864" />
     <state width="1877" height="362" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1593299512118" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593483283047" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593710048754" />
     <state width="1860" height="185" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1593471766821" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1593483283047">
+    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1593710048754">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.left/0.0.1600.900@0.0.1600.900" timestamp="1589407580864" />
     <state width="1877" height="362" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1593299512118" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593483283047" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593710048754" />
     <state width="1860" height="185" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1593471766821" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1593483283047">
+    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1593710048754">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.right/0.0.1600.900@0.0.1600.900" timestamp="1589407580864" />
     <state width="1877" height="362" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1593299512118" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593483283047" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593710048754" />
     <state width="1860" height="185" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1593471766822" />
     <state width="1877" height="362" key="GridCell.Tab.1.bottom" timestamp="1593299512118">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -244,10 +270,6 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="769" y="454" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1591997685911" />
-    <state x="591" y="237" width="807" height="606" key="find.popup" timestamp="1584995910251">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="591" y="237" width="807" height="606" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1584995910251" />
     <state x="342" y="161" key="new project wizard" timestamp="1593483281757">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

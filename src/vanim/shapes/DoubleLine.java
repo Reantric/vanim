@@ -24,8 +24,7 @@ public class DoubleLine extends Line{
 
     @Override
     public boolean display(Object... obj) {
-        canvas.stroke(color.getHue().getValue(), color.getSaturation().getValue(),
-                color.getBrightness().getValue(), color.getAlpha().getValue());
+        canvas.stroke(color);
         canvas.strokeCap(strokeNum);
         setMapPower(3);
         push(100);
@@ -33,7 +32,7 @@ public class DoubleLine extends Line{
             canvas.strokeWeight(weight);
 
 
-        canvas.line(average.getX(), average.getY(), pos.getX(), pos.getY());
+        canvas.line(average, pos);
         canvas.line(average.getX(), average.getY(), 2 * average.getX() - pos.getX(), 2 * average.getY() - pos.getY());
         return pos.equals(end);
     }

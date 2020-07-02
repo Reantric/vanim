@@ -3,15 +3,17 @@ package vanim;
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.event.MouseEvent;
+import vanim.core.Applet;
+import vanim.directions.Directions;
 
 import java.lang.reflect.InvocationTargetException;
 import java.text.DecimalFormat;
 
-import static vanim.Directions.destinationOnCircleLabel;
-import static vanim.Directions.directions;
+import static vanim.directions.Directions.destinationOnCircleLabel;
+import static vanim.directions.Directions.directions;
 import static vanim.directions.subscene.Scene1.plane;
 
-public class planar extends PApplet {
+public class planar extends Applet {
 
     public static boolean startSavingFrames = false;
     public static DecimalFormat df = new DecimalFormat("###.#");

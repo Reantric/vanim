@@ -4,6 +4,7 @@ import vanim.planes.CartesianPlane;
 import vanim.planes.Plane;
 import vanim.root.vobjects.VObject;
 import vanim.storage.Color;
+import vanim.storage.Subcolor;
 import vanim.storage.vector.FVector;
 
 import static vanim.util.Mapper.EASE_IN_OUT;
@@ -97,10 +98,12 @@ public class Line extends VObject {
         if (weight != 0)
             canvas.strokeWeight(weight);
 
-        canvas.stroke(color.getHue().getValue(), color.getHue().is255() ? 0 : color.getSaturation().getValue(),
-                color.getBrightness().getValue(), color.getAlpha().getValue());
+        if (color.getHue().is255())
+            canvas.stroke(color.getHue(), new Subcolor(), color.getBrightness(), color.getAlpha());
+        else
+            canvas.stroke(color);
 
-        canvas.line(start.getX(), start.getY(), pos.getX(), pos.getY());
+        canvas.line(start, pos);
         return pos.equals(end);
     }
 }

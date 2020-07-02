@@ -1,6 +1,6 @@
 package vanim.directions.subscene;
 
-import processing.core.PApplet;
+import vanim.core.Applet;
 import vanim.directions.Scene;
 import vanim.mfunc.Narrator;
 import vanim.planes.CartesianPlane;
@@ -15,7 +15,7 @@ import vanim.util.Useful;
 
 import static processing.core.PApplet.cos;
 import static processing.core.PApplet.sin;
-import static vanim.Directions.*;
+import static vanim.directions.Directions.*;
 import static vanim.util.Mapper.LINEAR;
 import static vanim.util.Mapper.SINUSOIDAL;
 
@@ -28,7 +28,7 @@ public final class Scene1 extends Scene {
     public static Line l;
     public static boolean changeHue = false;
 
-    public Scene1(PApplet window) {
+    public Scene1(Applet window) {
         super(window);
         plane = new CartesianPlane(window, new FVector(), new IVector(1920, 1080), new FVector(1, 1));
         b = new Circle(plane, new FVector(0, 0), 1, 4);

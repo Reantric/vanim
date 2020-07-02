@@ -1,7 +1,6 @@
-package vanim;
+package vanim.directions;
 
-import processing.core.PApplet;
-import vanim.directions.Scene;
+import vanim.core.Applet;
 import vanim.util.Mapper;
 import vanim.util.Useful;
 
@@ -28,7 +27,7 @@ public class Directions {
     // public static Line d = new Line(2);
     //Cosmetics
 
-    public static void init(PApplet window) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    public static void init(Applet window) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         File[] files = new File(".\\src\\vanim\\directions\\subscene").listFiles();
 
         if (files != null)
@@ -36,7 +35,7 @@ public class Directions {
                 if (file.isFile()) { // Assuming folders?
                     Class<?> c = Class.forName("vanim.directions.subscene." + Useful.removeExtension(file.getName()));
                     if (Scene.class.isAssignableFrom(c))
-                        allScenes.add((Scene) c.getDeclaredConstructor(PApplet.class).newInstance(window));
+                        allScenes.add((Scene) c.getDeclaredConstructor(Applet.class).newInstance(window));
                 }
             }
 

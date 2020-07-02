@@ -65,8 +65,10 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
             println("Optimal delVal: " + optimalDelVal); //<-- reenable
         } */
 
-        float xMult = scale.getX(),yMult = scale.getY();
+        float xMult = scale.getX(), yMult = scale.getY();
 
+        //TODO: Add color class to ClosedShape and its children and have Useful.getColor(i,0,delVal)
+        // be a change to the hue and canvas.stroke(color);
         for (int i = 0; i < coordsSize - 1; i++) {
             canvas.stroke(Useful.getColor(i, 0, delVal), color.getSaturation().getValue(),
                     color.getBrightness().getValue(), color.getAlpha().getValue());
@@ -78,9 +80,10 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
     }
 
     /**
-     * TODO
+     * TODO Fix this shit
+     *
      * @param obj Varargs to display the object at coordinates
-     * @return
+     * @return When the operation has completed showing
      */
     @Override
     public boolean display(Object... obj) {

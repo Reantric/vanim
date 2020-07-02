@@ -1,7 +1,7 @@
 package vanim.root;
 
-import processing.core.PApplet;
-import processing.core.PGraphics;
+import vanim.core.Applet;
+import vanim.core.Graphics2D;
 import vanim.root.modular.ColorCompatible;
 import vanim.storage.Color;
 import vanim.storage.Scale;
@@ -17,12 +17,12 @@ import java.util.stream.Collectors;
 public abstract class CanvasObject implements ColorCompatible {
 
     private static final Map<Class<? extends CanvasObject>, Set<WeakReference<CanvasObject>>> allObjects = new HashMap<>();
-    protected PGraphics canvas;
+    protected Graphics2D canvas;
     protected Color color;
     protected Scale scale = new Scale(1, 1, 1);
     protected FVector pos;
     protected FVector dimensions; //width height
-    public PApplet processing;
+    public Applet processing;
 
     /**
      * @param p          The processing instance that will be used to perform operations.
@@ -32,7 +32,7 @@ public abstract class CanvasObject implements ColorCompatible {
      */
     @SuppressWarnings("unchecked")
     // Will work because the maximum superclass that will be reached is CanvasObject itself!
-    protected CanvasObject(PApplet p, PGraphics c, FVector pos, FVector dimensions, Color color) {
+    protected CanvasObject(Applet p, Graphics2D c, FVector pos, FVector dimensions, Color color) {
         processing = p;
         canvas = c;
         this.pos = pos;
@@ -48,11 +48,11 @@ public abstract class CanvasObject implements ColorCompatible {
         }
     }
 
-    protected CanvasObject(PApplet p, PGraphics c, FVector pos, FVector dimensions) {
+    protected CanvasObject(Applet p, Graphics2D c, FVector pos, FVector dimensions) {
         this(p, c, pos, dimensions, new Color());
     }
 
-    protected CanvasObject(PGraphics c, FVector pos, FVector dimensions) {
+    protected CanvasObject(Graphics2D c, FVector pos, FVector dimensions) {
         this(null, c, pos, dimensions);
     }
 
@@ -80,7 +80,7 @@ public abstract class CanvasObject implements ColorCompatible {
     /**
      * @return The reference to the canvas the host plane uses to draw on
      */
-    public PGraphics getCanvas() {
+    public Graphics2D getCanvas() {
         return this.canvas;
     }
 
