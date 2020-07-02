@@ -1,6 +1,6 @@
 # Vanim
 ### It's manim, but worse
-A vector animation software that can be used for educational purposes and for vector art drawing.
+A vector animation software that can be used for educational purposes and for vector art drawing. Uses the latest version of Processing (in the library imports).
 
 ![VANIM](/coverImages/vanim.gif)
 
