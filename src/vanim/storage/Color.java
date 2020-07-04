@@ -1,6 +1,11 @@
 package vanim.storage;
 
-public class Color {
+import vanim.root.modular.Interpolatable;
+import vanim.util.MapConstant;
+
+import static vanim.util.MapConstant.QUADRATIC;
+
+public class Color implements Interpolatable<Color> {
     Subcolor hue, saturation, brightness, alpha;
 
     public Color(float hue) {
@@ -64,6 +69,19 @@ public class Color {
 
     public void setAlpha(float newAlpha) {
         alpha.setValue(newAlpha);
+    }
+
+    @Override
+    public boolean interpolate(Color color, MapConstant interpType, float speed) {
+        return this.getHue().interpolate(color.getHue().getValue(), interpType, speed) &
+                this.getSaturation().interpolate(color.getSaturation().getValue(), interpType, speed) &
+                this.getBrightness().interpolate(color.getBrightness().getValue(), interpType, speed) &
+                this.getAlpha().interpolate(color.getAlpha().getValue(), interpType, speed);
+
+    }
+
+    public boolean interpolate(Color color) {
+        return this.interpolate(color, QUADRATIC, 1);
     }
 
     public String toString() {

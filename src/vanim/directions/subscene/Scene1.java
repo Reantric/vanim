@@ -4,6 +4,7 @@ import vanim.core.Applet;
 import vanim.directions.Scene;
 import vanim.mfunc.Narrator;
 import vanim.planes.CartesianPlane;
+import vanim.root.CanvasObject;
 import vanim.shapes.Circle;
 import vanim.shapes.Line;
 import vanim.storage.Color;
@@ -16,8 +17,7 @@ import vanim.util.Useful;
 import static processing.core.PApplet.cos;
 import static processing.core.PApplet.sin;
 import static vanim.directions.Directions.*;
-import static vanim.util.Mapper.LINEAR;
-import static vanim.util.Mapper.SINUSOIDAL;
+import static vanim.util.MapConstant.*;
 
 public final class Scene1 extends Scene {
 
@@ -44,7 +44,7 @@ public final class Scene1 extends Scene {
         /* Maybe think about a MObject[] or ArrayList<MObject> where display can be called on everyone */
 
         if (step[0]) {
-            plane.getColor().getHue().interp(changeHue ? 0 : 255, LINEAR, 1);
+            plane.getColor().getHue().interpolate(changeHue ? 0 : 255, LINEAR, 1);
             if (plane.getColor().getHue().is255())
                 changeHue = true;
             else if (plane.getColor().getHue().is0())
@@ -69,7 +69,7 @@ public final class Scene1 extends Scene {
             Call to waste time */
             float min = destinationOnCircle[destinationInc == 0 ? destinationOnCircle.length - 1 : destinationInc - 1];
             float max = destinationOnCircle[destinationInc];
-            mapInc = Mapper.map2(inc % 2, 0f, 2f, -min, -max, SINUSOIDAL, Mapper.EASE_IN_OUT);
+            mapInc = Mapper.map2(inc % 2, 0f, 2f, -min, -max, SINUSOIDAL, EASE_IN_OUT);
 
             if (inc % 2 > 2 - globalIncrementor) {
                 destinationInc = (destinationInc + 1) % destinationOnCircle.length;
@@ -81,7 +81,7 @@ public final class Scene1 extends Scene {
         }
 
         if (step[3]) {
-            plane.fadeOut();
+            CanvasObject.getAllObjects(CanvasObject.class).forEach(k -> System.out.println(k.getClass().getName()));
 
             if (incTrack == 0) {
                 incTrack = inc;
@@ -89,13 +89,13 @@ public final class Scene1 extends Scene {
             }
 
             if (!step[4]) {
-                sinus.setAll(Mapper.map2(inc, incTrack, incTrack + 1.5f, 1f, 1.5f, SINUSOIDAL, Mapper.EASE_IN_OUT));
+                sinus.setAll(Mapper.map2(inc, incTrack, incTrack + 1.5f, 1f, 1.5f, SINUSOIDAL, EASE_IN_OUT));
                 step[4] = Math.abs(sinus.getX() - 1.5) < 0.01;
             }
         }
 
         if (!step[5] && step[4]) { // Stop running once step 5 is true
-            sinus.setAll(Mapper.map2(inc, incTrack - 0.5f, incTrack + 1.5f, 0.5f, 1.5f, SINUSOIDAL, Mapper.EASE_IN_OUT));
+            sinus.setAll(Mapper.map2(inc, incTrack - 0.5f, incTrack + 1.5f, 0.5f, 1.5f, SINUSOIDAL, EASE_IN_OUT));
             step[5] = window.frameCount - frameCountTrack > 850 && Math.abs(sinus.getX() - 1) < 0.01;
         }
 

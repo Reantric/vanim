@@ -44,4 +44,8 @@ public class Graphics2D extends PGraphics2D {
         this.fill(hue.getValue(), saturation.getValue(), brightness.getValue(), 255);
     }
 
+    public void text(String s, FVector pos) {
+        this.text(s, pos.getX(), pos.getY());
+    }
+
 }

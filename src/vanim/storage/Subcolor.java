@@ -1,8 +1,14 @@
 package vanim.storage;
 
+import vanim.root.modular.Interpolatable;
+import vanim.util.MapConstant;
 import vanim.util.Mapper;
 
-public class Subcolor {
+import static vanim.util.MapConstant.EASE_IN_OUT;
+import static vanim.util.MapConstant.QUADRATIC;
+
+
+public class Subcolor implements Interpolatable<Float> {
     float value, prevVal;
     int incrementor;
     boolean interpolationComplete = true;
@@ -20,13 +26,14 @@ public class Subcolor {
         return value;
     }
 
-    public boolean interp(float bound, int interpType, float time) {
+    @Override
+    public boolean interpolate(Float bound, MapConstant interpType, float time) {
         if (interpolationComplete) {
             prevVal = value;
             incrementor = 0;
         }
         //start1 and stop1 just signify how fast the thing should happen!
-        value = Mapper.map2(incrementor++, 0, Math.abs(bound - prevVal) * time, prevVal, bound, interpType, Mapper.EASE_IN_OUT);
+        value = Mapper.map2(incrementor++, 0, Math.abs(bound - prevVal) * time, prevVal, bound, interpType, EASE_IN_OUT);
         interpolationComplete = Math.abs(bound - value) < EPSILON;
         //   System.out.println("Color: " + value + " prevval: " + prevVal + " INC: " + incrementor + " bound: " + bound);
         if (interpolationComplete || Float.isNaN(value)) {
@@ -36,12 +43,16 @@ public class Subcolor {
         return interpolationComplete;
     }
 
-    public boolean interp(float bound) {
-        return this.interp(bound, Mapper.QUADRATIC, 1);
+    public boolean interpolate(int bound, MapConstant interpType, float time) {
+        return interpolate((float) bound, interpType, time);
     }
 
-    public boolean interp(float bound, float speed) {
-        return this.interp(bound, Mapper.QUADRATIC, speed);
+    public boolean interpolate(float bound) {
+        return this.interpolate(bound, QUADRATIC, 1);
+    }
+
+    public boolean interpolate(float bound, float speed) {
+        return this.interpolate(bound, QUADRATIC, speed);
     }
 
     public boolean is255() {

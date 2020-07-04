@@ -95,12 +95,12 @@ public abstract class CanvasObject implements ColorCompatible {
 
     /**
      * Interpolate alpha to 0 (fade to black)
-     *
      * @return When the operation has completed
      */
+
     @Override
     public boolean fadeOut() {
-        return color.getAlpha().interp(0);
+        return color.getAlpha().interpolate(0);
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class CanvasObject implements ColorCompatible {
      */
     @Override
     public boolean fadeIn() {
-        return color.getAlpha().interp(255);
+        return color.getAlpha().interpolate(255);
     }
 
     /**

@@ -13,6 +13,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static vanim.planar.PI;
+import static vanim.util.MapConstant.EASE_IN_OUT;
+import static vanim.util.MapConstant.SINUSOIDAL;
 
 public class Directions {
     public static boolean[] sceneStep = new boolean[100];
@@ -21,7 +23,7 @@ public class Directions {
     // ^^ Also the reason that destinationInc-1 is used and not +1
     public static final Float[] destinationOnCircle = {-PI, 0f, PI / 4, PI / 2}; // A sad necessity
     // ^^ See if this could become a circular linked list? Along with destinationOnCircleLabel
-    public static float incTrack = 0, inc = 0, mapInc = Mapper.map2(inc, 0f, 2f, -destinationOnCircle[0], -destinationOnCircle[1], Mapper.SINUSOIDAL, Mapper.EASE_IN_OUT);
+    public static float incTrack = 0, inc = 0, mapInc = Mapper.map2(inc, 0f, 2f, -destinationOnCircle[0], -destinationOnCircle[1], SINUSOIDAL, EASE_IN_OUT);
     public static float globalIncrementor = 0.01f;
     public static int frameCountTrack = 0;
     // public static Line d = new Line(2);

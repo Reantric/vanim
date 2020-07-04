@@ -9,7 +9,6 @@ import vanim.storage.vector.FVector;
 import static processing.core.PConstants.CORNER;
 import static processing.core.PConstants.LEFT;
 import static vanim.planar.CENTER;
-import static vanim.util.Mapper.*;
 
 /**
  * @author protonlaser91
@@ -17,9 +16,9 @@ import static vanim.util.Mapper.*;
 public class TextVObject extends AbsoluteVObject {
     public String str;
     float tSize;
-    float transp = 0;
     int align = CENTER;
     boolean displayRect = true;
+    boolean initializable = true;
     protected Color color;
 
     /**
@@ -44,7 +43,6 @@ public class TextVObject extends AbsoluteVObject {
     }
 
     /**
-     *
      * @param ALIGN Set alignment of text using Processing's textAlign modes
      */
     public void setTextAlign(int ALIGN) {
@@ -52,10 +50,18 @@ public class TextVObject extends AbsoluteVObject {
     }
 
     /**
-     * gonna be honest i really dont know what this does, hence the parameter name
+     * @param init If the TextVObject should fade into 255 alpha or not
+     */
+    public void setInit(boolean init) {
+        initializable = init;
+    }
+
+    /**
+     * oh, if you want to display the background rectange, true. else, false
+     *
      * @param tf
      */
-    public void setDisplayRect(boolean tf){
+    public void setDisplayRect(boolean tf) {
         displayRect = tf;
     }
 
@@ -71,21 +77,24 @@ public class TextVObject extends AbsoluteVObject {
      */
     @Override
     public boolean display(Object... obj){
+        if (initializable) { // Continuously run every time an instance of TextVObject
+            // is created and runs this method, which causes it to speed up (BAD).
+            color.getAlpha().interpolate(255);
+            initializable = !color.getAlpha().is255();
+        }
+
         if (displayRect)
             this.backgroundRect();
 
         canvas.textSize(tSize);
-        canvas.fill(color.getHue().getValue(), color.getSaturation().getValue(), color.getBrightness().getValue(), map2(transp, 0, 255, 0, 255, QUADRATIC, EASE_IN));
+        canvas.fill(color);
 
         if (canvas.textAlign != align)
             canvas.textAlign(align);
 
-        canvas.text(str,pos.getX(),pos.getY());
-        if (transp < 255)
-            transp += 4;
+        canvas.text(str, pos);
 
-        return transp > 255;
-
+        return !initializable;
     }
 
     /**

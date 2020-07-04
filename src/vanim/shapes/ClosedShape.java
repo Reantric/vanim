@@ -1,6 +1,7 @@
 package vanim.shapes;
 
 import vanim.planes.Plane;
+import vanim.root.modular.Graphable;
 import vanim.root.vobjects.VObject;
 import vanim.storage.Color;
 import vanim.storage.vector.FVector;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * @author protonlaser91
  */
-public class ClosedShape extends VObject { // Maybe in the far far future when i add 3D call this ClosedShape2D
+public class ClosedShape extends VObject implements Graphable { // Maybe in the far far future when i add 3D call this ClosedShape2D
 
     protected int delVal, optimalDelVal;
     protected float incrementTangentLine = 0;
@@ -41,6 +42,7 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
      * @param y Y-coordinate of the point to be added to the coordinates list
      * @return When the operation has successfully added the required number of points
      */
+    @Override
     public boolean addPoint(float x, float y) {
         if (coordsSize < delVal) {
             coords.add(new float[]{dimensions.getX() * x, -dimensions.getY() * y});
@@ -53,6 +55,7 @@ public class ClosedShape extends VObject { // Maybe in the far far future when i
      * Graph the points in the coordinate array via iteration
      * @return When the operation has completed
      */
+    @Override
     public boolean graph() {
 
         /* Works for all closed shapes

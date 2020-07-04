@@ -17,6 +17,8 @@ public abstract class Plane extends CanvasObject {
     protected FVector ticks;
     protected int frameCountInit;
     protected int frameCountBuffer;
+    protected boolean textInit = true;
+    protected Color textColor;
 
     /**
      * @param p          Processing instance that is to be used.
@@ -49,16 +51,23 @@ public abstract class Plane extends CanvasObject {
 
     /**
      * TODO
+     *
      * @param initial
      * @param output
      */
     protected abstract void moveVector(PVector initial, PVector output);
 
     /**
-     *
+     * @return The color of the text marking the axes
+     */
+    public Color getTextColor() {
+        return this.textColor;
+    }
+
+    /**
      * @return The scale the plane uses.
      */
-    public Scale getScale(){
+    public Scale getScale() {
         return this.scale;
     }
 
@@ -67,5 +76,16 @@ public abstract class Plane extends CanvasObject {
      */
     public Applet getProcessingInstance() {
         return this.processing;
+    }
+
+    /**
+     * Interpolate alpha to 0 (fade to black) for the text and the lines
+     *
+     * @return When the operation has completed
+     */
+
+    @Override
+    public boolean fadeOut() {
+        return textColor.getAlpha().interpolate(0) & super.fadeOut();
     }
 }

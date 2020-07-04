@@ -7,7 +7,7 @@ import vanim.storage.Color;
 import vanim.storage.Subcolor;
 import vanim.storage.vector.FVector;
 
-import static vanim.util.Mapper.EASE_IN_OUT;
+import static vanim.util.MapConstant.EASE_IN_OUT;
 import static vanim.util.Mapper.map3;
 
 public class Line extends VObject {

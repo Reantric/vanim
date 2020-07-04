@@ -2,9 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16440c7b-6ffb-46a2-aefd-e357a36e7ec9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/vanim/root/modular/Graphable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/root/modular/Interpolatable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/util/MapConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coverImages/processinglib.png" beforeDir="false" afterPath="$PROJECT_DIR$/coverImages/processinglib.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/planes/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/planes/Plane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverImages/addlibrary.png" beforeDir="false" afterPath="$PROJECT_DIR$/coverImages/addlibrary.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/Planes/CartesianPlane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/Planes/CartesianPlane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/Planes/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/Planes/Plane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/core/Applet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/core/Applet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/core/Graphics2D.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/core/Graphics2D.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/directions/Directions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/directions/Directions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/directions/subscene/Scene1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/directions/subscene/Scene1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/root/CanvasObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/root/CanvasObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/ClosedShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/ClosedShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Ellipse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Ellipse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/shapes/Line.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/storage/Color.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/storage/Color.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/storage/Subcolor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/storage/Subcolor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/text/TextVObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/text/TextVObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vectoranim/vanim/util/Mapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vectoranim/vanim/util/Mapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/core/Graphics2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/core/Graphics2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/directions/Directions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/Directions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/planes/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planes/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/root/modular/ColorCompatible.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/modular/ColorCompatible.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Line.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Subcolor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Subcolor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/text/TextVObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/text/TextVObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/util/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/util/Mapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +44,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -157,10 +187,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="414" y="196" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592351810429" />
-    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1593281006622">
+    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1593716611693">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1593281006622" />
+    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593716611693" />
     <state x="689" y="324" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1592351809886">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -188,33 +219,41 @@
     </state>
     <state x="666" y="282" width="588" height="498" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1592950801281" />
     <state x="666" y="282" key="FileChooserDialogImpl/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593563098420" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1593710048754">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1593830910437">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.bottom/0.0.1600.900@0.0.1600.900" timestamp="1589407580865" />
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593824747783" />
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593830910437" />
     <state width="1877" height="362" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1593299512118" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593710048754" />
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593745402271" />
     <state width="1860" height="185" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1593471766822" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1593710048754">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1593830910437">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.center/0.0.1600.900@0.0.1600.900" timestamp="1589407580864" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593824747783" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593830910437" />
     <state width="1877" height="362" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1593299512118" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593710048754" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593745402270" />
     <state width="1860" height="185" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1593471766821" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1593710048754">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1593830910437">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.left/0.0.1600.900@0.0.1600.900" timestamp="1589407580864" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593824747783" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593830910437" />
     <state width="1877" height="362" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1593299512118" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593710048754" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593745402270" />
     <state width="1860" height="185" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1593471766821" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1593710048754">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1593830910437">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1557" height="136" key="GridCell.Tab.0.right/0.0.1600.900@0.0.1600.900" timestamp="1589407580864" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1593824747783" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593830910437" />
     <state width="1877" height="362" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1593299512118" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593710048754" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1593745402270" />
     <state width="1860" height="185" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1593471766822" />
     <state width="1877" height="362" key="GridCell.Tab.1.bottom" timestamp="1593299512118">
       <screen x="0" y="0" width="1920" height="1080" />

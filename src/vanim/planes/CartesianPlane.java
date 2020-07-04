@@ -11,6 +11,7 @@ import vanim.storage.Subcolor;
 import vanim.storage.vector.FVector;
 import vanim.storage.vector.IVector;
 import vanim.text.TextVObject;
+import vanim.util.MapConstant;
 import vanim.util.Useful;
 
 import java.util.ArrayList;
@@ -22,15 +23,13 @@ import static vanim.planar.*;
 public final class CartesianPlane extends Plane { // Work on mouseDrag after!
 
     FVector startingValues = new FVector(), rescale, restrictedDomain;
-    float scaleFactor;
     float max; //counter
     float currentColor = 0;
     boolean restrictDomain = false;
-    boolean gridDrawn; // useless?
     List<Double> randArr = new ArrayList<>();
     float aspectRatio;
+    boolean frameWait;
     /* Object initializations */  // Create color object soon for animateVector();
-    Color textColor;
     public VObject xAxis, yAxis;
     public VObject[] xLines, yLines;
     public TextVObject[] xText, yText;
@@ -61,7 +60,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
         frameCountInit = processing.frameCount;
         frameCountBuffer = 15;
 
-        textColor = new Color(255, 0, 0); // start from black
+        textColor = new Color(255, 0, 255, 0); // start from black
         /* List<VObject> inits */
         xLines = new VObject[(int) (-4 * startingValues.getX() / ticks.getX())];
         yLines = new VObject[(int) (-4 * startingValues.getY() / ticks.getY())];
@@ -80,6 +79,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
                     yText[i / 2] = new TextVObject(this, df.format(-startingValues.getY() - ticks.getY() * i / 2), new FVector(-12, scale.getY() * (startingValues.getY() + ticks.getY() * i / 2) - 12), textColor);
                     yText[i / 2].setTextAlign(RIGHT);
                     yText[i / 2].setDisplayRect(false);
+                    yText[i / 2].setInit(false);
                 } else
                     yLines[i] = new DoubleLine(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 1.5f, color);
             }
@@ -88,6 +88,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
                 if ((startingValues.getX() + ticks.getX() * i / 2) % ticks.getX() == 0) {
                     xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 4, color);
                     xText[i / 2] = new TextVObject(this, df.format(startingValues.getX() + ticks.getX() * i / 2), new FVector(startingValues.getX() + ticks.getX() * i / 2 > 0 ? scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) : scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) - 8, 44), textColor);
+                    xText[i / 2].setInit(false);
                 } else
                     xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 1.5f, color);
             }
@@ -103,8 +104,10 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
      *
      * @return When the plane is fully generated
      */
+    @Override
     public boolean generatePlane() {
-        gridDrawn = true;
+        boolean gridInit = true;
+        frameWait = processing.frameCount > frameCountInit + frameCountBuffer;
         currentColor = Useful.getColor(max, startingValues.getX(), -startingValues.getX());
         canvas.beginDraw();
         canvas.translate(canvas.width / 2.0f, canvas.height / 2.0f);
@@ -118,23 +121,22 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
         canvas.strokeWeight(4);
 
         for (int j = 0; j < yLines.length; j++) {
-            if (j != yLines.length / 2)
-                yLines[j].display();
-
+            if (j != yLines.length / 2 && !yLines[j].display())
+                gridInit = false;
         }
 
         //Cant make this loop more efficient because of line below...
-        if (processing.frameCount < frameCountInit + frameCountBuffer) return false;
+        if (!frameWait) return false;
 
         for (int i = 0; i < xLines.length; i++) {
-            if (i != xLines.length / 2)
-                xLines[i].display();
+            if (i != xLines.length / 2 && !xLines[i].display())
+                gridInit = false;
         }
 
         canvas.stroke(0,0,255);
         canvas.strokeWeight(4);
 
-        return xAxis.display() & yAxis.display();
+        return gridInit & xAxis.display() & yAxis.display();
         // return xAxisR.display() & yAxisU.display() & xAxisL.display() & yAxisD.display();
     }
 
@@ -145,6 +147,12 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
      */
     public boolean labelAxes() {
         boolean hasCompleted = true;
+
+        if (textInit) {
+            textColor.getAlpha().interpolate(255, MapConstant.QUADRATIC, 0.3f);
+            textInit = !textColor.getAlpha().is255();
+        }
+
         for (int i = 0; i < xText.length; i++) {
             if (i != xText.length / 2 && !xText[i].display()) {
                 xText[i].setWidthHeight(60 + (xText[i].str.length() - 3) * 10, 56);
@@ -154,7 +162,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
             if (i < yText.length && i != yText.length / 2 && !yText[i].display())
                 hasCompleted = false;
         }
-        return hasCompleted;
+        return textInit & hasCompleted;
     }
 
     @Override
@@ -163,10 +171,11 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
     }
 
     @Override
-    public boolean display(Object... obj){
+    public boolean display(Object... obj) {
         //Is Object... obj because it can be default called or with 2 position args.
-        System.out.println("Color: " + color);
-        labelAxes();
+        // System.out.println("Color: " + color);
+        if (frameWait)
+            labelAxes();
         canvas.endDraw();
 
         processing.stroke(currentColor, 255, 255);

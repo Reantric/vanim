@@ -6,6 +6,8 @@ import vanim.storage.vector.FVector;
 import vanim.util.Mapper;
 
 import static processing.core.PApplet.*;
+import static vanim.util.MapConstant.EASE_IN;
+import static vanim.util.MapConstant.QUADRATIC;
 
 /**
  * @author protonlaser91
@@ -38,7 +40,7 @@ public class Ellipse extends ClosedShape {
         x *= scale.getX();
         y *= scale.getY();
 
-        float newDist = Mapper.map2(incrementTangentLine, 0, distance, 0, distance, Mapper.QUADRATIC, Mapper.EASE_IN);
+        float newDist = Mapper.map2(incrementTangentLine, 0, distance, 0, distance, QUADRATIC, EASE_IN);
         if (newDist > distance)
             newDist = distance;
 
