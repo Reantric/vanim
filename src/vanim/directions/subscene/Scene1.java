@@ -4,14 +4,18 @@ import vanim.core.Applet;
 import vanim.directions.Scene;
 import vanim.mfunc.Narrator;
 import vanim.planes.CartesianPlane;
+import vanim.planes.Plane;
 import vanim.root.CanvasObject;
+import vanim.root.vobjects.AbsoluteVObject;
 import vanim.shapes.Circle;
 import vanim.shapes.Line;
 import vanim.storage.Color;
 import vanim.storage.Scale;
 import vanim.storage.vector.FVector;
 import vanim.storage.vector.IVector;
+import vanim.text.LaTeX;
 import vanim.util.Mapper;
+import vanim.util.Reason;
 import vanim.util.Useful;
 
 import static processing.core.PApplet.cos;
@@ -27,6 +31,7 @@ public final class Scene1 extends Scene {
     public static Narrator n;
     public static Line l;
     public static boolean changeHue = false;
+    public static LaTeX bruh;
 
     public Scene1(Applet window) {
         super(window);
@@ -34,6 +39,8 @@ public final class Scene1 extends Scene {
         b = new Circle(plane, new FVector(0, 0), 1, 4);
         n = new Narrator(plane.getCanvas());
         l = new Line(plane, new FVector(), new FVector(1, 1), new Color(160, 255, 255));
+        bruh = new LaTeX(plane, "\\[ x^2 = sin(9x) \\]", new FVector(0, 0), 30, new Color(195, 255, 255)).scale(new Scale(4.6f, 4.6f));
+        System.out.println("welcome to the game!");
     }
 
     @Override
@@ -59,6 +66,7 @@ public final class Scene1 extends Scene {
 
 
         if (step[2]) {
+            bruh.display();
             plane.getCanvas().text("Radius: " + b.getRadius(), 300, -330);
             inc += globalIncrementor;
             plane.getCanvas().textSize(40);
@@ -81,7 +89,12 @@ public final class Scene1 extends Scene {
         }
 
         if (step[3]) {
-            CanvasObject.getAllObjects(CanvasObject.class).forEach(k -> System.out.println(k.getClass().getName()));
+            CanvasObject.getAllObjects(AbsoluteVObject.class).parallelStream()
+                    .filter(k -> k.getReasonCreated().equals(Reason.USER_CREATED))
+                    .forEach(CanvasObject::fadeOut);
+
+            CanvasObject.getAllObjects(Plane.class).parallelStream().forEach(CanvasObject::fadeOut);
+
 
             if (incTrack == 0) {
                 incTrack = inc;
@@ -102,6 +115,7 @@ public final class Scene1 extends Scene {
         if (step[5]) {
             sinus.setAll(1);
         }
+        plane.display();
         return step[6];
 
     }

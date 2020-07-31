@@ -57,7 +57,7 @@ public class planar extends Applet {
         background(0);
         scale(e);
         directions();
-        plane.display();
+      //  plane.display();
         if (startSavingFrames)
             saveFrame("test/line-######.png");
     }

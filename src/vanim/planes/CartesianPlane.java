@@ -3,15 +3,16 @@ package vanim.planes;
 import processing.core.PGraphics;
 import processing.core.PVector;
 import vanim.core.Applet;
-import vanim.root.vobjects.VObject;
 import vanim.shapes.DoubleLine;
+import vanim.shapes.Line;
 import vanim.storage.Color;
 import vanim.storage.Scale;
 import vanim.storage.Subcolor;
 import vanim.storage.vector.FVector;
 import vanim.storage.vector.IVector;
-import vanim.text.TextVObject;
+import vanim.text.Text;
 import vanim.util.MapConstant;
+import vanim.util.Reason;
 import vanim.util.Useful;
 
 import java.util.ArrayList;
@@ -30,9 +31,9 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
     float aspectRatio;
     boolean frameWait;
     /* Object initializations */  // Create color object soon for animateVector();
-    public VObject xAxis, yAxis;
-    public VObject[] xLines, yLines;
-    public TextVObject[] xText, yText;
+    public Line xAxis, yAxis;
+    public Line[] xLines, yLines;
+    public Text[] xText, yText;
     //  List<PVector> points = new ArrayList<PVector>();
     /* Object initializations */
 
@@ -54,43 +55,40 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
         max = startingValues.getX() - ticks.getX() / 5; // should start at 25
         aspectRatio = (WIDTH / 1080.0f) / (rescale.getX() / rescale.getY());
 
-        xAxis = new DoubleLine(this, new FVector(startingValues.getX(), 0), new FVector(-startingValues.getX(), 0), 4, new Color(new Subcolor(255), new Subcolor(), new Subcolor(255), color.getAlpha()));
-        yAxis = new DoubleLine(this, new FVector(0, startingValues.getY()), new FVector(0, -startingValues.getY()), 4, new Color(new Subcolor(255), new Subcolor(), new Subcolor(255), color.getAlpha()));
+        xAxis = new DoubleLine(this, new FVector(startingValues.getX(), 0), new FVector(-startingValues.getX(), 0), 4, new Color(new Subcolor(255), new Subcolor(), new Subcolor(255), color.getAlpha()), Reason.PLANE_GENERATED);
+        yAxis = new DoubleLine(this, new FVector(0, startingValues.getY()), new FVector(0, -startingValues.getY()), 4, new Color(new Subcolor(255), new Subcolor(), new Subcolor(255), color.getAlpha()), Reason.PLANE_GENERATED);
 
         frameCountInit = processing.frameCount;
         frameCountBuffer = 15;
 
         textColor = new Color(255, 0, 255, 0); // start from black
         /* List<VObject> inits */
-        xLines = new VObject[(int) (-4 * startingValues.getX() / ticks.getX())];
-        yLines = new VObject[(int) (-4 * startingValues.getY() / ticks.getY())];
-        xText = new TextVObject[xLines.length / 2]; // skip over 0
-        yText = new TextVObject[yLines.length / 2]; // skip over 0
+        xLines = new Line[(int) (-4 * startingValues.getX() / ticks.getX())];
+        yLines = new Line[(int) (-4 * startingValues.getY() / ticks.getY())];
+        xText = new Text[xLines.length / 2]; // skip over 0
+        yText = new Text[yLines.length / 2]; // skip over 0
         println("xLength: " + xText.length + " yLength: " + yText.length); //9, 5 or 8, 4 :(
         // Assuming xLines.length > yLines.length
 
         canvas.textSize(42);
 
-        for (int i = 0; i < xLines.length; i++){
+        for (int i = 0; i < xLines.length; i++) {
 
-            if (i != yLines.length/2 && i < yLines.length) { // Assumption takes place here
+            if (i != yLines.length / 2 && i < yLines.length) { // Assumption takes place here
                 if ((startingValues.getY() + ticks.getY() * i / 2) % ticks.getY() == 0) {
-                    yLines[i] = new DoubleLine(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 4, color); // putting in the reference?
-                    yText[i / 2] = new TextVObject(this, df.format(-startingValues.getY() - ticks.getY() * i / 2), new FVector(-12, scale.getY() * (startingValues.getY() + ticks.getY() * i / 2) - 12), textColor);
-                    yText[i / 2].setTextAlign(RIGHT);
-                    yText[i / 2].setDisplayRect(false);
-                    yText[i / 2].setInit(false);
+                    yLines[i] = new DoubleLine(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 4, color, Reason.PLANE_GENERATED); // putting in the reference?
+                    yText[i / 2] = new Text(this, df.format(-startingValues.getY() - ticks.getY() * i / 2), new FVector(-12, scale.getY() * (startingValues.getY() + ticks.getY() * i / 2) - 12), textColor, Reason.PLANE_GENERATED)
+                            .setTextAlign(RIGHT).setDisplayRect(false).setInit(false);
                 } else
-                    yLines[i] = new DoubleLine(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 1.5f, color);
+                    yLines[i] = new DoubleLine(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 1.5f, color, Reason.PLANE_GENERATED);
             }
 
             if (i != xLines.length / 2) {
                 if ((startingValues.getX() + ticks.getX() * i / 2) % ticks.getX() == 0) {
-                    xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 4, color);
-                    xText[i / 2] = new TextVObject(this, df.format(startingValues.getX() + ticks.getX() * i / 2), new FVector(startingValues.getX() + ticks.getX() * i / 2 > 0 ? scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) : scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) - 8, 44), textColor);
-                    xText[i / 2].setInit(false);
+                    xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 4, color, Reason.PLANE_GENERATED);
+                    xText[i / 2] = new Text(this, df.format(startingValues.getX() + ticks.getX() * i / 2), new FVector(startingValues.getX() + ticks.getX() * i / 2 > 0 ? scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) : scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) - 8, 44), textColor, Reason.PLANE_GENERATED).setInit(false);
                 } else
-                    xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 1.5f, color);
+                    xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 1.5f, color, Reason.PLANE_GENERATED);
             }
         }
     }
@@ -165,9 +163,15 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
         return textInit & hasCompleted;
     }
 
+    /**
+     * TODO: Scale cartesian!
+     *
+     * @param s The new Scale object that will replace the original Scale object.
+     * @return
+     */
     @Override
-    public boolean scale(Scale s) {
-        return false;
+    public CartesianPlane scale(Scale s) {
+        return this;
     }
 
     @Override
@@ -228,7 +232,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
      * @param theta Angle to be inputted
      *              Rotates the plane by theta degrees
      */
-    public void rotatePlane(float theta) { // fix this shit later
+    public CartesianPlane rotatePlane(float theta) { // fix this shit later
 
         //    slowRotate.setChange(theta);
         //  slowRotate.incEase(1.045f); fix this shit later
@@ -245,7 +249,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
         if (slowRotate.isEqual())
           slowRotate.reset(); */
 
-
+        return this;
     }
 
     /**

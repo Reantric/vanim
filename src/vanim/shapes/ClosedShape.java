@@ -5,6 +5,7 @@ import vanim.root.modular.Graphable;
 import vanim.root.vobjects.VObject;
 import vanim.storage.Color;
 import vanim.storage.vector.FVector;
+import vanim.util.Reason;
 import vanim.util.Useful;
 
 import java.util.ArrayList;
@@ -22,22 +23,25 @@ public class ClosedShape extends VObject implements Graphable { // Maybe in the 
     protected List<float[]> coords = new ArrayList<>(); //[x,y]
 
     /**
-     *
-     * @param p Plane that is to be drawn on
-     * @param pos The position of the object on that plane (in scaled coordinates, not absolute)
-     * @param dimensions The width, height (and depth) of the object (in scaled coordinates, not absolute)
-     * @param speed How fast the circle should be drawn. 1 is 1/TAU points every tick
-     * @param delVal How fast the circle should be colored in per tick. After delVal ticks, the color wheel will
-     *               have reached the beginning.
+     * @param p             Plane that is to be drawn on
+     * @param pos           The position of the object on that plane (in scaled coordinates, not absolute)
+     * @param dimensions    The width, height (and depth) of the object (in scaled coordinates, not absolute)
+     * @param speed         How fast the circle should be drawn. 1 is 1/TAU points every tick
+     * @param delVal        How fast the circle should be colored in per tick. After delVal ticks, the color wheel will
+     *                      have reached the beginning.
+     * @param reasonCreated The reason this object was created
      */
-    public ClosedShape(Plane p, FVector pos, FVector dimensions, int speed, int delVal) {
-        super(p, pos, dimensions, new Color(0)); // For now, it does not utilize a color Hue (but does have sat and brightness!)
+    public ClosedShape(Plane p, FVector pos, FVector dimensions, int speed, int delVal, Reason reasonCreated) {
+        super(p, pos, dimensions, new Color(0), reasonCreated); // For now, it does not utilize a color Hue (but does have sat and brightness!)
         this.speed = speed;
         this.delVal = delVal;
     }
 
+    public ClosedShape(Plane p, FVector pos, FVector dimensions, int speed, int delVal) {
+        this(p, pos, dimensions, speed, delVal, Reason.USER_CREATED);
+    }
+
     /**
-     *
      * @param x X-coordinate of the point to be added to the coordinates list
      * @param y Y-coordinate of the point to be added to the coordinates list
      * @return When the operation has successfully added the required number of points

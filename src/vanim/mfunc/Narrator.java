@@ -4,7 +4,7 @@ import vanim.core.Graphics2D;
 import vanim.root.CanvasObject;
 import vanim.storage.Color;
 import vanim.storage.vector.FVector;
-import vanim.text.TextVObject;
+import vanim.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import static vanim.planar.LEFT;
 import static vanim.planar.println;
 
 public class Narrator extends CanvasObject {
-    List<TextVObject> allText = new ArrayList<>();
+    List<Text> allText = new ArrayList<>();
 
     public Narrator(Graphics2D c) {
         super(c, new FVector(0, 0), new FVector());
@@ -23,7 +23,7 @@ public class Narrator extends CanvasObject {
 
 
     public void setupNarrator(){
-        allText.add(new TextVObject(plane, "But how do we find the slope of the tangent line?", new FVector(-630, -480), 80, new Color(30)));
+        allText.add(new Text(plane, "But how do we find the slope of the tangent line?", new FVector(-630, -480), 80, new Color(30)));
       //  allText.add(new TextVObject(canvas,"Vanim",-660,-320,130,77));
     }
 
@@ -32,7 +32,7 @@ public class Narrator extends CanvasObject {
         boolean b = true;
         canvas.textAlign(LEFT);
         canvas.textSize(70);
-        for (TextVObject m: allText) {
+        for (Text m : allText) {
             m.setDisplayRect(false);
             if (!m.display())
                 b = false;

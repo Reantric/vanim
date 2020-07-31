@@ -7,9 +7,14 @@ import vanim.storage.Color;
 import vanim.storage.Scale;
 import vanim.storage.vector.FVector;
 
+import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author protonlaser91
@@ -85,12 +90,19 @@ public abstract class CanvasObject implements ColorCompatible {
     }
 
     /**
-     * @param type The class (<T>) of objects of which to be returned
-     * @return An immutable list of all objects that have been created and are <T> Type
-     * or a subclass of <T>
+     * @param types The class(es) (<T>) of objects of which to be returned
+     * @return An immutable Set of all objects that have been created and are <T> Type
+     * or a subclass of <T>, where <T> is the Class Type of the types parameter
      */
-    public static <T> List<T> getAllObjects(Class<T> type) {
-        return allObjects.get(type).stream().map(f -> type.cast(f.get())).collect(Collectors.toList());
+
+    @SuppressWarnings("unchecked")
+    public static <K> Set<K> getAllObjects(Class<? extends K>... types) {
+        Stream<K> stream = Stream.empty();
+        for (Class<? extends K> type : types) {
+            stream = (Stream<K>) Stream.concat(stream, allObjects.get(type).parallelStream().map(Reference::get));
+        }
+
+        return stream.collect(Collectors.toUnmodifiableSet());
     }
 
     /**

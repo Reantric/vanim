@@ -1,6 +1,8 @@
 package vanim.core;
 
 import processing.core.PApplet;
+import processing.core.PShape;
+import vanim.storage.vector.FVector;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -79,4 +81,12 @@ public class Applet extends PApplet {
         }
 
     }
+
+    public void shape(PShape latex, FVector pos) {
+        this.shape(latex, pos.getX(), pos.getY());
+    }
+
+    // public void shape(PShape latex, FVector pos, float size) {
+    //    this.shape(latex,pos.getX(),pos.getY());
+    // }
 }

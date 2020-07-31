@@ -4,6 +4,7 @@ package vanim.planes;
 import processing.core.PVector;
 import vanim.core.Applet;
 import vanim.root.CanvasObject;
+import vanim.root.modular.Scalable;
 import vanim.storage.Color;
 import vanim.storage.Scale;
 import vanim.storage.vector.FVector;
@@ -12,7 +13,7 @@ import vanim.storage.vector.IVector;
 /**
  * @author protonlaser91
  */
-public abstract class Plane extends CanvasObject {
+public abstract class Plane extends CanvasObject implements Scalable<Plane> {
 
     protected FVector ticks;
     protected int frameCountInit;
@@ -32,12 +33,6 @@ public abstract class Plane extends CanvasObject {
     }
 
     /**
-     * @param s The new Scale object that will replace the original Scale object.
-     * @return If the operation was a success.
-     */
-    protected abstract boolean scale(Scale s);
-
-    /**
      * Generate a plane with correct tick marks, grid lines, and data attributes.
      * @return When the operation has finished
      */
@@ -45,9 +40,10 @@ public abstract class Plane extends CanvasObject {
 
     /**
      * TODO
+     *
      * @param theta
      */
-    protected abstract void rotatePlane(float theta);
+    protected abstract Plane rotatePlane(float theta);
 
     /**
      * TODO
@@ -67,6 +63,7 @@ public abstract class Plane extends CanvasObject {
     /**
      * @return The scale the plane uses.
      */
+    @Override
     public Scale getScale() {
         return this.scale;
     }

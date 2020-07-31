@@ -1,26 +1,34 @@
 package vanim.shapes;
 
+import org.jetbrains.annotations.NotNull;
 import vanim.planes.CartesianPlane;
 import vanim.planes.Plane;
 import vanim.root.vobjects.VObject;
 import vanim.storage.Color;
 import vanim.storage.Subcolor;
 import vanim.storage.vector.FVector;
+import vanim.util.Reason;
 
 import static vanim.util.MapConstant.EASE_IN_OUT;
 import static vanim.util.Mapper.map3;
+
 
 public class Line extends VObject {
 
     float weight;
     FVector start, end, amtPush = new FVector(), inc = new FVector();
     int strokeNum;
+    float dividend = 100;
 
-    public Line(Plane p, FVector start, FVector end, float weight, Color color) { //p not used here...
-        super(p, start, new FVector(), color);
+    public Line(Plane p, FVector start, @NotNull FVector end, float weight, Color color, Reason reasonCreated) { //p not used here...
+        super(p, start, new FVector(), color, reasonCreated);
         this.weight = weight;
         this.end = new FVector(absScale.getX() * end.getX(), absScale.getY() * end.getY());
         this.start = new FVector(pos); // Copy constructor
+    }
+
+    public Line(Plane p, FVector start, @NotNull FVector end, float weight, Color color) {
+        this(p, start, end, weight, color, Reason.USER_CREATED);
     }
 
     public Line(Plane p, FVector start, FVector end) {
@@ -31,24 +39,39 @@ public class Line extends VObject {
         this(plane, start, end, 4, color);
     }
 
-    public void setEnd(float x, float y) {
+    public Line setEnd(float x, float y) {
         end.setXY(absScale.getX() * x, absScale.getY() * y);
+        return this;
     }
 
-    public void setStrokeCap(int WHAT) {
+    public Line setStartEnd(FVector start, FVector end) {
+        this.start = start;
+        this.end = end;
+        return this;
+    }
+
+    public Line setStrokeCap(int WHAT) {
         strokeNum = WHAT;
+        return this;
     }
 
-    public void setMapPower(float jj) {
+    public Line setMapPower(float jj) {
         mapPower = jj;
+        return this;
     }
 
-    public void setStart(float x, float y) {
-        start.setXY(x,y);
+    public Line setStart(float x, float y) {
+        start.setXY(x, y);
+        return this;
+    }
+
+    public Line setDividend(float dividend) {
+        this.dividend = dividend;
+        return this;
     }
 
     //float value, float start1, float stop1, float start2, float stop2, int type, int when
-    public void push(float dividend) {
+    protected void push(float dividend) {
         amtPush.setX((end.getX() - start.getX()) / dividend);
         amtPush.setY((end.getY() - start.getY()) / dividend);
 
@@ -94,7 +117,7 @@ public class Line extends VObject {
 
     public boolean display(Object... obj) {
         canvas.strokeCap(strokeNum);
-        push(50);
+        push(dividend / 2);
         if (weight != 0)
             canvas.strokeWeight(weight);
 

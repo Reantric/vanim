@@ -71,6 +71,10 @@ public class Color implements Interpolatable<Color> {
         alpha.setValue(newAlpha);
     }
 
+    public java.awt.Color toJavaRGB() {
+        return java.awt.Color.getHSBColor(hue.getValue() / 255, saturation.getValue() / 255, brightness.getValue() / 255);
+    }
+
     @Override
     public boolean interpolate(Color color, MapConstant interpType, float speed) {
         return this.getHue().interpolate(color.getHue().getValue(), interpType, speed) &
