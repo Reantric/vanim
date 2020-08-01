@@ -9,6 +9,10 @@ import vanim.storage.Color;
 import vanim.storage.Scale;
 import vanim.storage.vector.FVector;
 import vanim.storage.vector.IVector;
+import vanim.text.Text;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author protonlaser91
@@ -20,6 +24,7 @@ public abstract class Plane extends CanvasObject implements Scalable<Plane> {
     protected int frameCountBuffer;
     protected boolean textInit = true;
     protected Color textColor;
+    protected Map<Text, Boolean> texts = new HashMap<>(); // Text, hasDisplayed
 
     /**
      * @param p          Processing instance that is to be used.
@@ -73,6 +78,18 @@ public abstract class Plane extends CanvasObject implements Scalable<Plane> {
      */
     public Applet getProcessingInstance() {
         return this.processing;
+    }
+
+    /**
+     * Add text to Map<Text,Boolean> where Text is the text to be added
+     * and Boolean is whether it has displayed (doesn't call display)
+     *
+     * @param text The text to be added
+     * @return If that text object has been displayed
+     */
+    public boolean displayText(Text text) {
+        texts.putIfAbsent(text, false);
+        return texts.get(text);
     }
 
     /**

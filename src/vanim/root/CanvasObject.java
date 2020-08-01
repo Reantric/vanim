@@ -27,6 +27,7 @@ public abstract class CanvasObject implements ColorCompatible {
     protected Scale scale = new Scale(1, 1, 1);
     protected FVector pos;
     protected FVector dimensions; //width height
+    protected boolean isRemoved = false, isDisplayed = false;
     public Applet processing;
 
     /**
@@ -90,6 +91,20 @@ public abstract class CanvasObject implements ColorCompatible {
     }
 
     /**
+     * @return If this CanvasObject has been removed
+     */
+    public boolean isRemoved() {
+        return this.isRemoved;
+    }
+
+    /**
+     * @return If the object has displayed without calling display()
+     */
+    public boolean isDisplayed() {
+        return isDisplayed;
+    }
+
+    /**
      * @param types The class(es) (<T>) of objects of which to be returned
      * @return An immutable Set of all objects that have been created and are <T> Type
      * or a subclass of <T>, where <T> is the Class Type of the types parameter
@@ -106,7 +121,16 @@ public abstract class CanvasObject implements ColorCompatible {
     }
 
     /**
+     * @return null if the operation is a success
+     */
+    public CanvasObject remove() {
+        isRemoved = true;
+        return null;
+    }
+
+    /**
      * Interpolate alpha to 0 (fade to black)
+     *
      * @return When the operation has completed
      */
 

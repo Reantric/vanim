@@ -188,6 +188,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
         processing.noFill();
         processing.rect(pos.getX(), pos.getY(), canvas.width, canvas.height);
         processing.image(canvas, pos.getX(), pos.getY());
+        texts.forEach((k, v) -> v = k.display());
         return true;
         // popMatrix();
     }
@@ -353,5 +354,4 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
     public void run(PGraphics p){
         // To be implemented
     }
-
 }

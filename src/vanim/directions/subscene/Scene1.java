@@ -66,7 +66,7 @@ public final class Scene1 extends Scene {
 
 
         if (step[2]) {
-            bruh.display();
+            plane.displayText(bruh);
             plane.getCanvas().text("Radius: " + b.getRadius(), 300, -330);
             inc += globalIncrementor;
             plane.getCanvas().textSize(40);

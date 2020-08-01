@@ -14,7 +14,8 @@ import static vanim.planar.CENTER;
 /**
  * @author protonlaser91
  */
-public class Text extends AbsoluteVObject {
+public class Text extends AbsoluteVObject { // Create superclass called Text
+    // and make this one FancyText with the interp
     public String str;
     float tSize;
     int align = CENTER;

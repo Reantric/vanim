@@ -17,7 +17,6 @@ import static vanim.util.MapConstant.EASE_IN_OUT;
 import static vanim.util.MapConstant.SINUSOIDAL;
 
 public class Directions {
-    public static boolean[] sceneStep = new boolean[100];
     public static Set<Scene> allScenes = new HashSet<>();
     public static int destinationInc = 1; // be consistent with mapInc initialization!
     // ^^ Also the reason that destinationInc-1 is used and not +1
@@ -60,8 +59,18 @@ public class Directions {
     public static void directions() {
         //call the scenes here
         for (Scene s : allScenes) {
-            if (!s.execute())
+            if (!s.execute()) { // if scene hasn't completed
+               /* Iterator<CanvasObject> it = s.getOrder().iterator();
+                while (it.hasNext()){
+                    CanvasObject holder = it.next();
+                    if (holder.isRemoved())
+                        it.remove();
+                    else
+                        holder.display();
+                } */
                 break;
+            }
+
         }
 
     }
