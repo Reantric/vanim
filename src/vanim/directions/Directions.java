@@ -13,8 +13,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static vanim.planar.PI;
-import static vanim.util.MapConstant.EASE_IN_OUT;
-import static vanim.util.MapConstant.SINUSOIDAL;
+import static vanim.util.map.MapEase.EASE_IN_OUT;
+import static vanim.util.map.MapType.SINUSOIDAL;
 
 public class Directions {
     public static Set<Scene> allScenes = new HashSet<>();

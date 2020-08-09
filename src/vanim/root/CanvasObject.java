@@ -2,7 +2,7 @@ package vanim.root;
 
 import vanim.core.Applet;
 import vanim.core.Graphics2D;
-import vanim.root.modular.ColorCompatible;
+import vanim.root.modular.Colorable;
 import vanim.storage.Color;
 import vanim.storage.Scale;
 import vanim.storage.vector.FVector;
@@ -16,10 +16,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static vanim.util.map.MapEase.EASE_IN;
+
 /**
  * @author protonlaser91
  */
-public abstract class CanvasObject implements ColorCompatible {
+public abstract class CanvasObject implements Colorable<CanvasObject> {
 
     private static final Map<Class<? extends CanvasObject>, Set<WeakReference<CanvasObject>>> allObjects = new HashMap<>();
     protected Graphics2D canvas;
@@ -27,7 +29,7 @@ public abstract class CanvasObject implements ColorCompatible {
     protected Scale scale = new Scale(1, 1, 1);
     protected FVector pos;
     protected FVector dimensions; //width height
-    protected boolean isRemoved = false, isDisplayed = false;
+    protected boolean isRemoved = false;
     public Applet processing;
 
     /**
@@ -98,13 +100,6 @@ public abstract class CanvasObject implements ColorCompatible {
     }
 
     /**
-     * @return If the object has displayed without calling display()
-     */
-    public boolean isDisplayed() {
-        return isDisplayed;
-    }
-
-    /**
      * @param types The class(es) (<T>) of objects of which to be returned
      * @return An immutable Set of all objects that have been created and are <T> Type
      * or a subclass of <T>, where <T> is the Class Type of the types parameter
@@ -136,7 +131,7 @@ public abstract class CanvasObject implements ColorCompatible {
 
     @Override
     public boolean fadeOut() {
-        return color.getAlpha().interpolate(0);
+        return color.getAlpha().interpolate(0, EASE_IN);
     }
 
     /**
@@ -146,7 +141,12 @@ public abstract class CanvasObject implements ColorCompatible {
      */
     @Override
     public boolean fadeIn() {
-        return color.getAlpha().interpolate(255);
+        return color.getAlpha().interpolate(255, EASE_IN);
+    }
+
+    public CanvasObject setColor(Color color) {
+        this.color = color;
+        return this;
     }
 
     /**

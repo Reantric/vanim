@@ -11,9 +11,9 @@ import vanim.storage.Subcolor;
 import vanim.storage.vector.FVector;
 import vanim.storage.vector.IVector;
 import vanim.text.Text;
-import vanim.util.MapConstant;
 import vanim.util.Reason;
 import vanim.util.Useful;
+import vanim.util.map.MapType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,6 +115,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
         canvas.textAlign(CENTER);
         canvas.rectMode(CENTER);
         canvas.colorMode(HSB);
+        // maybe move all of this to the plane.super() ?
         canvas.stroke(150, 200, 255);
         canvas.strokeWeight(4);
 
@@ -147,7 +148,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
         boolean hasCompleted = true;
 
         if (textInit) {
-            textColor.getAlpha().interpolate(255, MapConstant.QUADRATIC, 0.3f);
+            textColor.getAlpha().interpolate(255, MapType.QUADRATIC, 0.3f);
             textInit = !textColor.getAlpha().is255();
         }
 

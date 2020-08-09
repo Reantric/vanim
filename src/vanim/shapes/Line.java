@@ -9,8 +9,8 @@ import vanim.storage.Subcolor;
 import vanim.storage.vector.FVector;
 import vanim.util.Reason;
 
-import static vanim.util.MapConstant.EASE_IN_OUT;
 import static vanim.util.Mapper.map3;
+import static vanim.util.map.MapEase.EASE_IN_OUT;
 
 
 public class Line extends VObject {

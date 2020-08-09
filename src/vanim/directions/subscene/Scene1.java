@@ -9,6 +9,7 @@ import vanim.root.CanvasObject;
 import vanim.root.vobjects.AbsoluteVObject;
 import vanim.shapes.Circle;
 import vanim.shapes.Line;
+import vanim.specific.rational.Fraction;
 import vanim.storage.Color;
 import vanim.storage.Scale;
 import vanim.storage.vector.FVector;
@@ -18,10 +19,14 @@ import vanim.util.Mapper;
 import vanim.util.Reason;
 import vanim.util.Useful;
 
+import java.util.Map;
+
 import static processing.core.PApplet.cos;
 import static processing.core.PApplet.sin;
 import static vanim.directions.Directions.*;
-import static vanim.util.MapConstant.*;
+import static vanim.util.map.MapEase.EASE_IN_OUT;
+import static vanim.util.map.MapType.LINEAR;
+import static vanim.util.map.MapType.SINUSOIDAL;
 
 public final class Scene1 extends Scene {
 
@@ -32,14 +37,15 @@ public final class Scene1 extends Scene {
     public static Line l;
     public static boolean changeHue = false;
     public static LaTeX bruh;
+    Map.Entry<Long, Long> frac = Fraction.reduce(0, 1);
 
     public Scene1(Applet window) {
         super(window);
         plane = new CartesianPlane(window, new FVector(), new IVector(1920, 1080), new FVector(1, 1));
         b = new Circle(plane, new FVector(0, 0), 1, 4);
         n = new Narrator(plane.getCanvas());
-        l = new Line(plane, new FVector(), new FVector(1, 1), new Color(160, 255, 255));
-        bruh = new LaTeX(plane, "\\[ x^2 = sin(9x) \\]", new FVector(0, 0), 30, new Color(195, 255, 255)).scale(new Scale(4.6f, 4.6f));
+        //  l = new Line(plane, new FVector(), new FVector(1, 1), new Color(255, 255, 255));
+        bruh = new LaTeX(plane, "\\[ x^2 = sin(9x) \\]", new FVector(0, 0), 120, new Color(190, 255, 255));
         System.out.println("welcome to the game!");
     }
 
@@ -58,6 +64,12 @@ public final class Scene1 extends Scene {
                 changeHue = false;
 
             b.scale(sinus);
+            bruh.setColor(plane.getColor().invert()); // :) Well this aint g00d
+            if (window.frameCount % 20 == 0)
+                frac = Fraction.reduce(window.frameCount, 1000);
+            bruh.setLaTeX(String.format("\\[ $x^{%d}$ = sin(\\frac{%d}{%d}x) \\]", window.frameCount, frac.getKey(), frac.getValue())); // Change to something
+            // That implements Map.Entry and has methods getNumerator and getDenominator (can be Frac class itself?)
+            plane.displayText(bruh.scale(sinus));
             step[1] = b.display();
         }
 
@@ -66,7 +78,7 @@ public final class Scene1 extends Scene {
 
 
         if (step[2]) {
-            plane.displayText(bruh);
+            //  plane.displayText(bruh);
             plane.getCanvas().text("Radius: " + b.getRadius(), 300, -330);
             inc += globalIncrementor;
             plane.getCanvas().textSize(40);
@@ -89,11 +101,12 @@ public final class Scene1 extends Scene {
         }
 
         if (step[3]) {
+            //System.out.println("Col: " + plane.getColor() + " tC: " + plane.getTextColor());
             CanvasObject.getAllObjects(AbsoluteVObject.class).parallelStream()
                     .filter(k -> k.getReasonCreated().equals(Reason.USER_CREATED))
                     .forEach(CanvasObject::fadeOut);
 
-            CanvasObject.getAllObjects(Plane.class).parallelStream().forEach(CanvasObject::fadeOut);
+            CanvasObject.getAllObjects(Plane.class).parallelStream().forEach(Plane::fadeOut);
 
 
             if (incTrack == 0) {

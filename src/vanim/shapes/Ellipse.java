@@ -8,9 +8,10 @@ import vanim.util.Mapper;
 import vanim.util.Reason;
 
 import static processing.core.PApplet.*;
-import static vanim.util.MapConstant.EASE_IN;
-import static vanim.util.MapConstant.QUADRATIC;
 import static vanim.util.Reason.USER_CREATED;
+import static vanim.util.map.MapEase.EASE_IN;
+import static vanim.util.map.MapType.EXPONENTIAL;
+import static vanim.util.map.MapType.QUADRATIC;
 
 /**
  * @author protonlaser91
@@ -23,19 +24,21 @@ public class Ellipse extends ClosedShape {
      * @param pos           The position of the object on that plane (in scaled coordinates, not absolute)
      * @param dimensions    The width, height (and depth) of the object (in scaled coordinates, not absolute)
      * @param speed         How fast the circle should be drawn. 1 is 1/TAU points every tick
-     * @param delVal        How fast the circle should be colored in per tick. After delVal ticks, the color wheel will
-     *                      have reached the beginning.
      * @param reasonCreated The reason this object was created
      */
-    public Ellipse(Plane p, FVector pos, FVector dimensions, int speed, int delVal, Reason reasonCreated) {
-        super(p, pos, dimensions, speed, delVal, reasonCreated);
+    public Ellipse(Plane p, FVector pos, FVector dimensions, int speed, Reason reasonCreated) {
+        super(p, pos, dimensions, speed, reasonCreated);
         distance = (scale.getY() * dimensions.getY() + scale.getX() * dimensions.getX()) * 0.9f;
         //300*0.9 = 270 which IS the distance
         tangentLine = new DoubleLine(p, new FVector(), new FVector(), 5, new Color(30, 255, 255, 255)).setDividend(1);
     }
 
-    public Ellipse(Plane p, FVector pos, FVector dimensions, int speed, int delVal) {
-        this(p, pos, dimensions, speed, delVal, USER_CREATED);
+    public Ellipse(Plane p, FVector pos, FVector dimensions, int speed) {
+        this(p, pos, dimensions, speed, USER_CREATED);
+    }
+
+    public Ellipse(Plane p, FVector pos, FVector dimensions) {
+        this(p, pos, dimensions, 4, USER_CREATED);
     }
 
     /**
@@ -98,8 +101,22 @@ public class Ellipse extends ClosedShape {
      */
     @Override
     public boolean display(Object... obj) {
-        super.addPoint(cos(incrementor / 100f), sin(incrementor / 100f));
-        incrementor += speed;
+        prevInterpVal = newInterpVal;
+        newInterpVal = Mapper.map2(incrementor, 0, maxPoints, 0, maxPoints, EXPONENTIAL, EASE_IN);
+
+        for (long i = (long) Math.ceil(prevInterpVal); i <= maxPoints && i < newInterpVal; i++) { // +=speed
+            super.addPoint(cos(i / 100f), sin(i / 100f));
+            // div by 100 because incrementor is of type long
+
+        }
+
+        incrementor += speed; // += speed
+        if (incrementor >= maxPoints) {
+            incrementor = maxPoints;
+        }
+
+
+        //    System.out.println(new FVector(incrementor,(float) prevInterpVal,(float) newInterpVal));
         return graph();
     }
 }

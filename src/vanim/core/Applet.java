@@ -1,7 +1,9 @@
 package vanim.core;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 import processing.core.PShape;
+import vanim.storage.Color;
 import vanim.storage.vector.FVector;
 
 import java.lang.reflect.Constructor;
@@ -84,6 +86,18 @@ public class Applet extends PApplet {
 
     public void shape(PShape latex, FVector pos) {
         this.shape(latex, pos.getX(), pos.getY());
+    }
+
+    public void image(PImage pImage, FVector pos) {
+        this.image(pImage, pos.getX(), pos.getY());
+    }
+
+    public void fill(Color color) {
+        this.fill(color.getHue().getValue(), color.getSaturation().getValue(), color.getBrightness().getValue(), color.getAlpha().getValue());
+    }
+
+    public void tint(Color color) {
+        this.tint(color.getHue().getValue(), color.getSaturation().getValue(), color.getBrightness().getValue(), color.getAlpha().getValue());
     }
 
     // public void shape(PShape latex, FVector pos, float size) {

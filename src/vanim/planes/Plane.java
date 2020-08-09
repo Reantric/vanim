@@ -10,6 +10,7 @@ import vanim.storage.Scale;
 import vanim.storage.vector.FVector;
 import vanim.storage.vector.IVector;
 import vanim.text.Text;
+import vanim.util.map.MapEase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -100,6 +101,6 @@ public abstract class Plane extends CanvasObject implements Scalable<Plane> {
 
     @Override
     public boolean fadeOut() {
-        return textColor.getAlpha().interpolate(0) & super.fadeOut();
+        return textColor.getAlpha().interpolate(0, MapEase.EASE_IN) & super.fadeOut();
     }
 }

@@ -36,6 +36,7 @@ public class planar extends Applet {
             System.exit(1);
         }
 
+        colorMode(HSB);
         System.out.println(destinationOnCircleLabel);
     }
 

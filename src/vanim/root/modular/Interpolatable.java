@@ -1,7 +1,8 @@
 package vanim.root.modular;
 
-import vanim.util.MapConstant;
+import vanim.util.map.MapEase;
+import vanim.util.map.MapType;
 
 public interface Interpolatable<T> {
-    boolean interpolate(T bound, MapConstant interpType, float speed);
+    boolean interpolate(T bound, MapType interpType, float speed, MapEase easing);
 }

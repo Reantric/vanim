@@ -1,6 +1,10 @@
 package vanim.util;
+
+import vanim.util.map.MapEase;
+import vanim.util.map.MapType;
+
 import static processing.core.PApplet.*;
-import static vanim.util.MapConstant.*;
+import static vanim.util.map.MapEase.*;
 
 public class Mapper {
     /* The map2() function supports the following easing types */
@@ -17,7 +21,7 @@ public class Mapper {
      * type  :   The type of easing (see above)
      * when  :   One of EASE_IN, EASE_OUT, or EASE_IN_OUT
      */
-    public static float map2(float value, float start1, float stop1, float start2, float stop2, MapConstant type, MapConstant when) {
+    public static float map2(float value, float start1, float stop1, float start2, float stop2, MapType type, MapEase when) {
         float c = stop2 - start2;
         float t = value - start1;
         float d = stop1 - start1;
@@ -149,7 +153,7 @@ public class Mapper {
      * v     :   The exponent value (e.g., 0.5, 0.1, 0.3)
      * when  :   One of EASE_IN, EASE_OUT, or EASE_IN_OUT
      */
-    public static float map3(float value, float start1, float stop1, float start2, float stop2, float v, MapConstant when) {
+    public static float map3(float value, float start1, float stop1, float start2, float stop2, float v, MapEase when) {
         float c = stop2 - start2;
         float t = value - start1;
         float d = stop1 - start1;

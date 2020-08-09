@@ -102,9 +102,14 @@ public abstract class AbsoluteVObject extends CanvasObject implements Scalable<C
      *
      * @param s The new Scale object that will replace the original Scale object.
      */
-    //@Override
+
     public AbsoluteVObject scale(Scale s) {
         this.scale = s;
+        return this;
+    }
+
+    public AbsoluteVObject scale(float s) {
+        scale.setAll(s);
         return this;
     }
 

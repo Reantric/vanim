@@ -16,10 +16,11 @@ import java.util.List;
  */
 public class ClosedShape extends VObject implements Graphable { // Maybe in the far far future when i add 3D call this ClosedShape2D
 
-    protected int delVal, optimalDelVal;
     protected float incrementTangentLine = 0;
     protected int speed;
-    protected float distance;
+    protected float distance; // Soon make this Line tangentLine;
+    protected long maxPoints = 630;
+    protected double newInterpVal = 0, prevInterpVal = 0;
     protected List<float[]> coords = new ArrayList<>(); //[x,y]
 
     /**
@@ -27,18 +28,26 @@ public class ClosedShape extends VObject implements Graphable { // Maybe in the 
      * @param pos           The position of the object on that plane (in scaled coordinates, not absolute)
      * @param dimensions    The width, height (and depth) of the object (in scaled coordinates, not absolute)
      * @param speed         How fast the circle should be drawn. 1 is 1/TAU points every tick
-     * @param delVal        How fast the circle should be colored in per tick. After delVal ticks, the color wheel will
-     *                      have reached the beginning.
      * @param reasonCreated The reason this object was created
      */
-    public ClosedShape(Plane p, FVector pos, FVector dimensions, int speed, int delVal, Reason reasonCreated) {
+    public ClosedShape(Plane p, FVector pos, FVector dimensions, int speed, Reason reasonCreated) {
         super(p, pos, dimensions, new Color(0), reasonCreated); // For now, it does not utilize a color Hue (but does have sat and brightness!)
         this.speed = speed;
-        this.delVal = delVal;
     }
 
-    public ClosedShape(Plane p, FVector pos, FVector dimensions, int speed, int delVal) {
-        this(p, pos, dimensions, speed, delVal, Reason.USER_CREATED);
+    public ClosedShape(Plane p, FVector pos, FVector dimensions, int speed) {
+        this(p, pos, dimensions, speed, Reason.USER_CREATED);
+    }
+
+    //TODO: Add Predicate type thing to add Points[] to ClosedShape
+
+    public ClosedShape setMaxPoints(long maxPoints) {
+        this.maxPoints = maxPoints;
+        return this;
+    }
+
+    public long getPoints() {
+        return this.maxPoints;
     }
 
     /**
@@ -48,11 +57,11 @@ public class ClosedShape extends VObject implements Graphable { // Maybe in the 
      */
     @Override
     public boolean addPoint(float x, float y) {
-        if (coordsSize < delVal) {
+        if (coordsSize < maxPoints) { // Optimization check originally delVal
             coords.add(new float[]{dimensions.getX() * x, -dimensions.getY() * y});
             coordsSize++;
         }
-        return coordsSize < delVal;
+        return coordsSize < maxPoints;
     }
 
     /**
@@ -77,13 +86,13 @@ public class ClosedShape extends VObject implements Graphable { // Maybe in the 
         //TODO: Add color class to ClosedShape and its children and have Useful.getColor(i,0,delVal)
         // be a change to the hue and canvas.stroke(color);
         for (int i = 0; i < coordsSize - 1; i++) {
-            canvas.stroke(Useful.getColor(i, 0, delVal), color.getSaturation().getValue(),
+            canvas.stroke(Useful.getColor(i, 0, maxPoints), color.getSaturation().getValue(),
                     color.getBrightness().getValue(), color.getAlpha().getValue());
             canvas.strokeWeight(5);
             canvas.line(coords.get(i)[0] * xMult, coords.get(i)[1] * yMult, coords.get(i + 1)[0] * xMult, coords.get(i + 1)[1] * yMult);
         }
 
-        return coordsSize == delVal;
+        return coordsSize == maxPoints; // might not be necessary because of addPoints() bool result!
     }
 
     /**

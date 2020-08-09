@@ -21,7 +21,6 @@ public class Text extends AbsoluteVObject { // Create superclass called Text
     int align = CENTER;
     boolean displayRect = true;
     boolean initializable = true;
-    protected Color color;
 
     /**
      * @param p             Plane that is to be drawn on

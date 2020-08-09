@@ -17,6 +17,7 @@ import org.scilab.forge.jlatexmath.cyrillic.CyrillicRegistration;
 import org.scilab.forge.jlatexmath.greek.GreekRegistration;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import vanim.root.modular.Convertable;
 
 import javax.swing.*;
@@ -37,32 +38,32 @@ public class SVGConverter implements Convertable {
     public static final int EPS = 2;
 
     @Override
-    public boolean write(String latex, String file, boolean fontAsShapes) {
+    public boolean write(String latex, String file, float size) {
         DOMImplementation domImpl = GenericDOMImplementation.getDOMImplementation();
         String svgNS = "http://www.w3.org/2000/svg";
         Document document = domImpl.createDocument(svgNS, "svg", null);
         SVGGeneratorContext ctx = SVGGeneratorContext.createDefault(document);
 
-        SVGGraphics2D g2 = new SVGGraphics2D(ctx, fontAsShapes);
+        SVGGraphics2D g2 = new SVGGraphics2D(ctx, true);
         DefaultTeXFont.registerAlphabet(new CyrillicRegistration());
         DefaultTeXFont.registerAlphabet(new GreekRegistration());
 
         TeXFormula formula = new TeXFormula(latex);
-        TeXIcon icon = formula.createTeXIcon(TeXConstants.STYLE_DISPLAY, 20);
+        TeXIcon icon = formula.createTeXIcon(TeXConstants.STYLE_DISPLAY, size);
         icon.setInsets(new Insets(5, 5, 5, 5));
         g2.setSVGCanvasSize(new Dimension(icon.getIconWidth(), icon.getIconHeight()));
         g2.setColor(new Color(255, 255, 255, 0)); // Color.WHITE + Transparency
-        g2.fillRect(0, 0, icon.getIconWidth(), icon.getIconHeight());
-
+        // g2.fillRect(0, 0, icon.getIconWidth(), icon.getIconHeight());
         JLabel jl = new JLabel();
         jl.setForeground(color);
+        // icon.paintIcon(jl, g2, 0, 0);
         icon.paintIcon(jl, g2, 0, 0);
-
-        boolean useCSS = true;
+        Element root = g2.getRoot();
+        ((Element) root.getChildNodes().item(2)).setAttribute("id", "eq");
         try {
             FileOutputStream svgs = new FileOutputStream(file);
             Writer out = new OutputStreamWriter(svgs, StandardCharsets.UTF_8);
-            g2.stream(out, useCSS);
+            g2.stream(root, out, true, false);
             svgs.flush();
             svgs.close();
         } catch (IOException e) {
@@ -106,4 +107,5 @@ public class SVGConverter implements Convertable {
         }
         return true;
     }
+
 }
