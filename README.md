@@ -4,28 +4,25 @@ A vector animation software that can be used for educational purposes and for ve
 
 ![VANIM](/coverImages/vanim.gif)
 
-## To access the imports required for vanim
+## Installation
+Vanim uses Gradle and the Gradle build system. 
+It also uses [Processing](https://processingfoundation.org/) as the main framework
+Other dependencies are: 
+* [JLatexMath](https://github.com/opencollab/jlatexmath)
+* [Apache Batik (SVG)](https://xmlgraphics.apache.org/batik/)
+* [Apache FOP](https://xmlgraphics.apache.org/fop/)
 
-![VANIM](/coverImages/projectstructure.png)
+## Running the program
+Vanim can be run via the command line like so:
+```sh
+gradle run 
+```
+or via an IDE (like IntelliJ)
 
-Go to File --> Project Structure
+## Basic commands and explanation of the project
+Vanim utilizes Processing's draw method to display something every frame. This has been further abstracted by creating scenes
+where certain lines of code are run at a time (in batches) to avoid overbearing complexity.
 
-![VANIM](/coverImages/addlibrary.png)
+Currently, there are very limited shapes that can be drawn, but over time the selection of polygons will be increased. 
 
-Then go to Libraries and add a new Project Library.
-
-![VANIM](/coverImages/javalib.png)
-
-Make sure it is a Java library!
-
-![VANIM](/coverImages/processinglib.png)
-
-Find the directory that vanim is in, and selected the 'library' folder that is contained within vanim.
-
-![VANIM](/coverImages/confirm.png)
-
-Confirm and hit OK.
-
-![VANIM](/coverImages/apply.png)
-
-Finally, save all changes, hit 'Apply', then OK. You are ready to run vanim!
+## that's really about it, licensed under GPL 3 

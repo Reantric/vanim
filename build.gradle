@@ -2,9 +2,10 @@ plugins {
     id 'java'
     id "application"
     id 'java-library'
+    id 'maven'
 }
 
-group 'org.example'
+group 'com.protonlaser'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -41,4 +42,21 @@ ext {
 
 application {
     mainClassName = javaMainClass
+}
+
+task createPom {
+    doLast {
+        pom {
+            project {
+                inceptionYear '2020'
+                licenses {
+                    license {
+                        name = 'The Apache Software License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution = 'repo'
+                    }
+                }
+            }
+        }.writeTo("pom.xml")
+    }
 }

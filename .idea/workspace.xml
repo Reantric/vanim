@@ -1,61 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a8d5c5e-595c-47e0-84ea-38985ab8dc26" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_io_commons_io_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_logging_commons_logging_1_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_anim_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_awt_util_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_bridge_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_constants_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_css_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_dom_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_ext_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_gvt_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_i18n_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_parser_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_script_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_shared_resources_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_svg_dom_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_svggen_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_transcoder_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_util_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_batik_xml_1_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlgraphics_xmlgraphics_commons_2_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_16_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_scilab_forge_jlatexmath_1_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_scilab_forge_jlatexmath_font_cyrillic_1_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_scilab_forge_jlatexmath_font_greek_1_0_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__xalan_serializer_2_7_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__xalan_xalan_2_7_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__xml_apis_xml_apis_1_4_01.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__xml_apis_xml_apis_ext_1_3_04.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/processing.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/library/vanim.library.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+    <list default="true" id="2a8d5c5e-595c-47e0-84ea-38985ab8dc26" name="Default Changelist" comment="Created pom file and changed README.md">
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/processing.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/library/vanim.library.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/vanim.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/vanim.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/vanim.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/vanim.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/vanim.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/vanim.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/fop-transcoder-allinone-2.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/rhino-1.7.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/serializer-2.7.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/xalan-2.7.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/xercesImpl-2.12.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/xml-apis-1.4.01.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/xml-apis-ext-1.3.04.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/xmlgraphics-commons-2.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/planar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverImages/addlibrary.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverImages/apply.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverImages/confirm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverImages/javalib.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverImages/processinglib.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverImages/projectstructure.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-all-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-anim-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-awt-util-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-bridge-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-codec-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-constants-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-css-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-dom-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-ext-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-extension-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-gui-util-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-gvt-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-i18n-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-parser-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-rasterizer-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-script-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-shared-resources-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-slideshow-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-squiggle-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-svg-dom-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-svgbrowser-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-svggen-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-svgpp-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-svgrasterizer-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-swing-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-test-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-test-old-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-test-svg-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-test-swing-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-transcoder-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-ttf2svg-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-util-1.13-tests.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-util-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-1.13/batik-xml-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/jai_core-1.1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/jlatexmath-1.0.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +103,13 @@
     </system>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="John &lt;44213272+protonlaser91@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="ProjectId" id="1frpLRqtO79uCJXckp83CeHlPfa" />
   <component name="ProjectViewState">
@@ -146,19 +162,34 @@
     </task>
     <servers />
   </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Created pom file and changed README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created pom file and changed README.md" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="2765" y="403" key="#Notifications" timestamp="1596986300982">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2765" y="403" key="#Notifications/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1596986300982" />
-    <state x="2334" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597001107990">
+    <state x="2334" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597078484987">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2334" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597001107990" />
+    <state x="2334" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597078484987" />
     <state x="2630" y="342" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596989590960">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2630" y="342" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1596989590960" />
+    <state x="2507" y="105" key="CommitChangelistDialog2" timestamp="1597079793671">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2507" y="105" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597079793671" />
     <state x="2698" y="481" key="DetectedRootsChooserDialog" timestamp="1597031543415">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -167,22 +198,22 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2660" y="281" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597031541793" />
-    <state width="1860" height="291" key="GridCell.Tab.0.bottom" timestamp="1597031628119">
+    <state width="930" height="291" key="GridCell.Tab.0.bottom" timestamp="1597079793776">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1860" height="291" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597031628119" />
-    <state width="1860" height="291" key="GridCell.Tab.0.center" timestamp="1597031628119">
+    <state width="930" height="291" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597079793776" />
+    <state width="930" height="291" key="GridCell.Tab.0.center" timestamp="1597079793776">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1860" height="291" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597031628119" />
-    <state width="1860" height="291" key="GridCell.Tab.0.left" timestamp="1597031628119">
+    <state width="930" height="291" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597079793776" />
+    <state width="930" height="291" key="GridCell.Tab.0.left" timestamp="1597079793776">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1860" height="291" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597031628119" />
-    <state width="1860" height="291" key="GridCell.Tab.0.right" timestamp="1597031628119">
+    <state width="930" height="291" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597079793776" />
+    <state width="930" height="291" key="GridCell.Tab.0.right" timestamp="1597079793776">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1860" height="291" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597031628119" />
+    <state width="930" height="291" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597079793776" />
     <state width="1860" height="359" key="GridCell.Tab.1.bottom" timestamp="1597030778807">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -199,9 +230,9 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1860" height="359" key="GridCell.Tab.1.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597030778807" />
-    <state x="2136" y="69" width="1442" height="851" key="SettingsEditor" timestamp="1597031621774">
+    <state x="2136" y="69" width="1442" height="851" key="SettingsEditor" timestamp="1597074581370">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2136" y="69" width="1442" height="851" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597031621774" />
+    <state x="2136" y="69" width="1442" height="851" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597074581370" />
   </component>
 </project>
