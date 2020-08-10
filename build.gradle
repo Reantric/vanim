@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id "application"
+    id 'java-library'
 }
 
 group 'org.example'
@@ -16,5 +18,27 @@ sourceSets {
     }
 }
 dependencies {
-   // compile 'junit:junit:4.9'
+
+    implementation fileTree(dir: 'library/processing', include: ['*.jar'])
+
+    implementation 'org.jetbrains:annotations:16.0.2'
+
+    implementation group: 'org.scilab.forge', name: 'jlatexmath', version: '1.0.7'
+
+    implementation group: 'org.apache.xmlgraphics', name: 'batik-transcoder', version: '1.13'
+
+    implementation fileTree(dir: 'library/fop-2.5', include: ['*.jar'])
+
+   // api group: 'org.apache.xmlgraphics', name: 'fop', version: '2.5'
+
+
+
+}
+
+ext {
+    javaMainClass = "vanim.planar"
+}
+
+application {
+    mainClassName = javaMainClass
 }

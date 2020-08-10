@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/vanim.iml" filepath="$PROJECT_DIR$/.idea/modules/vanim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/vanim.library.iml" filepath="$PROJECT_DIR$/.idea/modules/library/vanim.library.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/vanim.main.iml" filepath="$PROJECT_DIR$/.idea/modules/vanim.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/vanim.test.iml" filepath="$PROJECT_DIR$/.idea/modules/vanim.test.iml" />
     </modules>

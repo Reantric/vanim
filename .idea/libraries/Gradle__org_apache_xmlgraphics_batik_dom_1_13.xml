@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.xmlgraphics:batik-dom:1.13">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../../Gradle/caches/modules-2/files-2.1/org.apache.xmlgraphics/batik-dom/1.13/818605a4cffadb5ec0db39b2f560c2206d65f691/batik-dom-1.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../../../Gradle/caches/modules-2/files-2.1/org.apache.xmlgraphics/batik-dom/1.13/cb8ceeb902b4e5e9a99b7588b315e7445e27f4f/batik-dom-1.13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

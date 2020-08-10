@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.scilab.forge:jlatexmath-font-greek:1.0.7">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../../Gradle/caches/modules-2/files-2.1/org.scilab.forge/jlatexmath-font-greek/1.0.7/63e33c6019f38bd15441410b3ab0c29a5e0dbdaa/jlatexmath-font-greek-1.0.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../../../Gradle/caches/modules-2/files-2.1/org.scilab.forge/jlatexmath-font-greek/1.0.7/d994babf7d54dae719e4ba50596159472b179d5a/jlatexmath-font-greek-1.0.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

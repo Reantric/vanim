@@ -24,7 +24,7 @@ public class planar extends Applet {
     public static final int HEIGHT = 1080;
 
     public void setup() {
-        String commonPath = "vanim\\data\\";
+        String commonPath = "src\\vanim\\data\\";
         myFont = createFont(commonPath + "cmunbmr.ttf", 150, true);
         italics = createFont(commonPath + "cmunbmo.ttf", 150, true);
         textFont(myFont, 64);
