@@ -7,10 +7,9 @@ import vanim.storage.vector.FVector;
 import vanim.util.Mapper;
 import vanim.util.Reason;
 
-import static processing.core.PApplet.*;
+import static processing.core.PApplet.sqrt;
 import static vanim.util.Reason.USER_CREATED;
 import static vanim.util.map.MapEase.EASE_IN;
-import static vanim.util.map.MapType.EXPONENTIAL;
 import static vanim.util.map.MapType.QUADRATIC;
 
 /**
@@ -94,29 +93,8 @@ public class Ellipse extends ClosedShape {
         return this;
     }
 
-    /**
-     *
-     * @param obj Varargs to display the object at coordinates
-     * @return Graphing the points in the coordinates list
-     */
     @Override
-    public boolean display(Object... obj) {
-        prevInterpVal = newInterpVal;
-        newInterpVal = Mapper.map2(incrementor, 0, maxPoints, 0, maxPoints, EXPONENTIAL, EASE_IN);
-
-        for (long i = (long) Math.ceil(prevInterpVal); i <= maxPoints && i < newInterpVal; i++) { // +=speed
-            super.addPoint(cos(i / 100f), sin(i / 100f));
-            // div by 100 because incrementor is of type long
-
-        }
-
-        incrementor += speed; // += speed
-        if (incrementor >= maxPoints) {
-            incrementor = maxPoints;
-        }
-
-
-        //    System.out.println(new FVector(incrementor,(float) prevInterpVal,(float) newInterpVal));
-        return graph();
+    public boolean display() {
+        return super.display(Math::cos, Math::sin);
     }
 }

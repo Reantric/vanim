@@ -1,5 +1,6 @@
 package vanim.directions.subscene;
 
+import org.apache.commons.math3.analysis.solvers.BrentSolver;
 import vanim.core.Applet;
 import vanim.directions.Scene;
 import vanim.mfunc.Narrator;
@@ -18,11 +19,11 @@ import vanim.text.LaTeX;
 import vanim.util.Mapper;
 import vanim.util.Reason;
 import vanim.util.Useful;
+import vanim.util.function.ParametricFunction;
 
 import java.util.Map;
 
-import static processing.core.PApplet.cos;
-import static processing.core.PApplet.sin;
+import static processing.core.PApplet.*;
 import static vanim.directions.Directions.*;
 import static vanim.util.map.MapEase.EASE_IN_OUT;
 import static vanim.util.map.MapType.LINEAR;
@@ -38,6 +39,9 @@ public final class Scene1 extends Scene {
     public static boolean changeHue = false;
     public static LaTeX bruh;
     Map.Entry<Long, Long> frac = Fraction.reduce(0, 1);
+    BrentSolver solver = new BrentSolver();
+    ParametricFunction function = new ParametricFunction(t -> t * Math.cos(t), t -> t * Math.sin(t));
+    // Ascending order
 
     public Scene1(Applet window) {
         super(window);
@@ -57,6 +61,9 @@ public final class Scene1 extends Scene {
         /* Maybe think about a MObject[] or ArrayList<MObject> where display can be called on everyone */
 
         if (step[0]) {
+            println(solver.solve(Integer.MAX_VALUE, t -> 4 * plane.getAxes().getX() - function.getParametricX().value(t), -Integer.MAX_VALUE, Integer.MAX_VALUE));
+            println(solver.solve(Integer.MAX_VALUE, t -> 4 * plane.getAxes().getX() + function.getParametricX().value(t), -Integer.MAX_VALUE, Integer.MAX_VALUE));
+
             plane.getColor().getHue().interpolate(changeHue ? 0 : 255, LINEAR, 1);
             if (plane.getColor().getHue().is255())
                 changeHue = true;
@@ -78,7 +85,6 @@ public final class Scene1 extends Scene {
 
 
         if (step[2]) {
-            //  plane.displayText(bruh);
             plane.getCanvas().text("Radius: " + b.getRadius(), 300, -330);
             inc += globalIncrementor;
             plane.getCanvas().textSize(40);

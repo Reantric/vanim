@@ -67,6 +67,13 @@ public abstract class Plane extends CanvasObject implements Scalable<Plane> {
     }
 
     /**
+     * @return FVector of the axes
+     */
+    public FVector getAxes() {
+        return ticks;
+    }
+
+    /**
      * @return The scale the plane uses.
      */
     @Override

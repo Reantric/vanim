@@ -19,6 +19,7 @@ public abstract class AbsoluteVObject extends CanvasObject implements Scalable<C
     protected float mapPower = 1;
     protected int coordsSize = 0;
     protected Scale absScale;
+    protected Plane plane;
     Reason reasonCreated;
 
     /**
@@ -30,6 +31,7 @@ public abstract class AbsoluteVObject extends CanvasObject implements Scalable<C
      */
     public AbsoluteVObject(Plane p, FVector pos, FVector dimensions, Color color, Reason reasonCreated) { // Plane constructor!
         super(p.getProcessingInstance(), p.getCanvas(), pos, dimensions, color);
+        plane = p;
         absScale = p.getScale();
         this.reasonCreated = reasonCreated;
     }

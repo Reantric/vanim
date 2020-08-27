@@ -3,6 +3,7 @@ package vanim.root;
 import vanim.core.Applet;
 import vanim.core.Graphics2D;
 import vanim.root.modular.Colorable;
+import vanim.root.modular.Displayable;
 import vanim.storage.Color;
 import vanim.storage.Scale;
 import vanim.storage.vector.FVector;
@@ -21,7 +22,7 @@ import static vanim.util.map.MapEase.EASE_IN;
 /**
  * @author protonlaser91
  */
-public abstract class CanvasObject implements Colorable<CanvasObject> {
+public abstract class CanvasObject implements Colorable<CanvasObject>, Displayable {
 
     private static final Map<Class<? extends CanvasObject>, Set<WeakReference<CanvasObject>>> allObjects = new HashMap<>();
     protected Graphics2D canvas;
@@ -148,10 +149,4 @@ public abstract class CanvasObject implements Colorable<CanvasObject> {
         this.color = color;
         return this;
     }
-
-    /**
-     * @param obj Varargs to display the object at coordinates
-     * @return If the operation was a success
-     */
-    public abstract boolean display(Object... obj); // Display the VObject
 }
