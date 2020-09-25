@@ -6,10 +6,9 @@ import vanim.util.Useful;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import static vanim.planar.PI;
@@ -17,7 +16,7 @@ import static vanim.util.map.MapEase.EASE_IN_OUT;
 import static vanim.util.map.MapType.SINUSOIDAL;
 
 public class Directions {
-    public static Set<Scene> allScenes = new HashSet<>();
+    public static List<Scene> allScenes = new ArrayList<>(); // Order must be preserved!
     public static int destinationInc = 1; // be consistent with mapInc initialization!
     // ^^ Also the reason that destinationInc-1 is used and not +1
     public static final Float[] destinationOnCircle = {-PI, 0f, PI / 4, PI / 2}; // A sad necessity
@@ -28,13 +27,19 @@ public class Directions {
     // public static Line d = new Line(2);
     //Cosmetics
 
-    public static void init(Applet window) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    public static void init(Applet window) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         File[] files = new File(".\\src\\vanim\\directions\\subscene").listFiles();
 
         if (files != null)
             for (File file : files) {
                 if (file.isFile()) { // Assuming folders?
-                    Class<?> c = Class.forName("vanim.directions.subscene." + Useful.removeExtension(file.getName()));
+                    Class<?> c;
+                    try {
+                        c = Class.forName("vanim.directions.subscene." + Useful.removeExtension(file.getName()));
+                    } catch (ClassNotFoundException e) {
+                        System.out.println(file.getName() + " is not a java file!");
+                        continue;
+                    }
                     if (Scene.class.isAssignableFrom(c))
                         allScenes.add((Scene) c.getDeclaredConstructor(Applet.class).newInstance(window));
                 }

@@ -1,4 +1,4 @@
-package vanim.planes;
+package vanim.geometry.twodim;
 
 
 import processing.core.PVector;
@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * @author protonlaser91
  */
-public abstract class Plane extends CanvasObject implements Scalable<Plane> {
+public abstract class Plane extends CanvasObject implements Scalable<Plane> { // TODO: maybe try changing superclass to AbsVob?
 
     protected FVector ticks;
     protected int frameCountInit;

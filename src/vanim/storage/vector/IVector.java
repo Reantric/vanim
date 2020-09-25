@@ -4,7 +4,7 @@ import vanim.storage.Vector;
 
 public class IVector extends Vector<Integer> {
 
-    public <E> IVector(Vector<E> v) {
+    public <E extends Number> IVector(Vector<E> v) {
         super(v);
     }
 
@@ -24,42 +24,36 @@ public class IVector extends Vector<Integer> {
         this(0,0,0);
     }
 
-    public void addX(Vector<Integer> v){
+    public IVector addX(Vector<Integer> v) {
         this.x += v.getX();
+        return this;
     }
 
-    public void addXY(Vector<Integer> v){
+    public IVector addXY(Vector<Integer> v) {
         this.x += v.getX();
         this.y += v.getY();
+        return this;
     }
 
-    public void addY(Vector<Integer> v){
+    public IVector addY(Vector<Integer> v) {
         this.y += v.getY();
+        return this;
     }
 
-    public void addZ(Vector<Integer> v){
+    public IVector addZ(Vector<Integer> v) {
         this.z += v.getZ();
+        return this;
     }
 
-    public void add(Vector<Integer> v){
+    public IVector add(Vector<Integer> v) {
         this.x += v.getX();
         this.y += v.getY();
         this.z += v.getZ();
+        return this;
     }
 
-    public void multiplyX(Integer scaleX){
-        multiplyAll(scaleX,1,1);
-    }
 
-    public void multiplyY(Integer scaleY){
-        multiplyAll(1,scaleY,1);
-    }
-
-    public void multiplyZ(Integer scaleZ){
-        multiplyAll(1,1,scaleZ);
-    }
-
-    public void multiplyAll(Integer... scale){
+    public IVector scale(Integer... scale) {
         int len = scale.length;
         switch (len) {
             case 1 -> {
@@ -77,10 +71,32 @@ public class IVector extends Vector<Integer> {
                 this.z *= scale[2];
             }
         }
+        return this;
     }
 
-    public FVector getFloatVec(){
-        return new FVector(x,y,z);
+    @Override
+    public IVector reciprocate() { // Is not well defined!, Truncates!
+        if (x != 0)
+            x = 1 / x;
+        if (y != 0)
+            y = 1 / y;
+        if (z != 0)
+            z = 1 / z;
+        return this;
+    }
+
+    @Override // TODO: bruhh1gh
+    public Vector<Integer> normalize() {
+        return null;
+    }
+
+    @Override
+    public float getMag() {
+        return (float) Math.sqrt(x * x + y * y + z * z);
+    }
+
+    public FVector getFloatVec() {
+        return new FVector(x, y, z);
     }
 
 }

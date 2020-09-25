@@ -32,7 +32,7 @@ public class Color implements Interpolatable<Color> {
     }
 
     public Color() {
-        this(0, 0, 0);
+        this(0, 255, 255, 255);
     }
 
     public Color(Subcolor hue, Subcolor saturation, Subcolor brightness, Subcolor alpha) {

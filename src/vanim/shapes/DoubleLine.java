@@ -1,46 +1,23 @@
 package vanim.shapes;
 
-import vanim.planes.Plane;
-import vanim.storage.Color;
+import vanim.root.builder.LineBuilder;
 import vanim.storage.vector.FVector;
-import vanim.util.Reason;
-
-import static vanim.util.Reason.USER_CREATED;
 
 public class DoubleLine extends Line {
 
     FVector average;
+    Line l1, l2;
 
-    public DoubleLine(Plane p, FVector start, FVector end, float weight, Color color, Reason reasonCreated) {
-        super(p, start, end, weight, color, reasonCreated);
-        end.multiplyAll(absScale.getX(), absScale.getY());
+    public DoubleLine(LineBuilder builder) {
+        super(builder);
+        // System.out.println("r u serious m9: " + start);
         average = new FVector((start.getX() + end.getX()) / 2.0f, (start.getY() + end.getY()) / 2.0f);
-    }
-
-    public DoubleLine(Plane p, FVector start, FVector end, float weight, Color color) {
-        this(p, start, end, weight, color, USER_CREATED);
-    }
-
-    public DoubleLine(Plane p, FVector start, FVector end) {
-        this(p, start, end, 4, new Color());
-    }
-
-    public DoubleLine(Plane p, FVector start, FVector end, float weight) {
-        this(p, start, end, weight, new Color());
+        l1 = new Line(new LineBuilder(plane, average, start, weight, color, builder.getReasonCreated()));
+        l2 = new Line(new LineBuilder(plane, average, end, weight, color, builder.getReasonCreated()));
     }
 
     @Override
     public boolean display(Object... obj) {
-        canvas.stroke(color);
-        canvas.strokeCap(strokeNum);
-        setMapPower(3);
-        push(dividend);
-        if (weight != 0)
-            canvas.strokeWeight(weight);
-
-
-        canvas.line(average, pos);
-        canvas.line(average.getX(), average.getY(), 2 * average.getX() - pos.getX(), 2 * average.getY() - pos.getY());
-        return pos.equals(end);
+        return l1.display() & l2.display();
     }
 }

@@ -7,10 +7,7 @@ import org.scilab.forge.jlatexmath.TeXIcon;
 import org.scilab.forge.jlatexmath.cyrillic.CyrillicRegistration;
 import org.scilab.forge.jlatexmath.greek.GreekRegistration;
 import processing.core.PImage;
-import vanim.planes.Plane;
-import vanim.storage.Color;
-import vanim.storage.vector.FVector;
-import vanim.util.Reason;
+import vanim.root.builder.TextBuilder;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,25 +19,13 @@ public class LaTeX extends Text {
     TeXFormula formula;
     TeXIcon icon;
 
-    /**
-     * @param p             Plane that is to be drawn on
-     * @param latex         String to be displayed
-     * @param pos           The position of the object on the canvas (in absolute coordinates)
-     * @param tSize         The size of the text (can be omitted)
-     * @param color         The color of the object, in HSB
-     * @param reasonCreated The reason this object was created
-     */
-    public LaTeX(Plane p, String latex, FVector pos, float tSize, Color color, Reason reasonCreated) {
-        super(p, latex, pos, tSize, color, reasonCreated);
-        this.formula = new TeXFormula(latex);
+    public LaTeX(TextBuilder builder) {
+        super(builder);
+        this.formula = new TeXFormula(str);
         this.icon = formula.createTeXIcon(TeXConstants.STYLE_DISPLAY, tSize);
-        this.setLaTeX(latex);
+        this.setLaTeX(str);
         doImage();
         // Now we have a BufferedImage that we can modify!
-    }
-
-    public LaTeX(Plane plane, String latex, FVector pos, float tSize, Color color) {
-        this(plane, latex, pos, tSize, color, Reason.USER_CREATED);
     }
 
     public LaTeX setLaTeX(String latex) {

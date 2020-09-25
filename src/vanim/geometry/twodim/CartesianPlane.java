@@ -1,8 +1,10 @@
-package vanim.planes;
+package vanim.geometry.twodim;
 
 import processing.core.PGraphics;
 import processing.core.PVector;
 import vanim.core.Applet;
+import vanim.root.builder.LineBuilder;
+import vanim.root.builder.TextBuilder;
 import vanim.shapes.DoubleLine;
 import vanim.shapes.Line;
 import vanim.storage.Color;
@@ -55,8 +57,8 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
         max = startingValues.getX() - ticks.getX() / 5; // should start at 25
         aspectRatio = (WIDTH / 1080.0f) / (rescale.getX() / rescale.getY());
 
-        xAxis = new DoubleLine(this, new FVector(startingValues.getX(), 0), new FVector(-startingValues.getX(), 0), 4, new Color(new Subcolor(255), new Subcolor(), new Subcolor(255), color.getAlpha()), Reason.PLANE_GENERATED);
-        yAxis = new DoubleLine(this, new FVector(0, startingValues.getY()), new FVector(0, -startingValues.getY()), 4, new Color(new Subcolor(255), new Subcolor(), new Subcolor(255), color.getAlpha()), Reason.PLANE_GENERATED);
+        xAxis = new DoubleLine(new LineBuilder(this, new FVector(startingValues.getX(), 0), new FVector(-startingValues.getX(), 0), 4, new Color(new Subcolor(255), new Subcolor(), new Subcolor(255), color.getAlpha()), Reason.PLANE_GENERATED));
+        yAxis = new DoubleLine(new LineBuilder(this, new FVector(0, startingValues.getY()), new FVector(0, -startingValues.getY()), 4, new Color(new Subcolor(255), new Subcolor(), new Subcolor(255), color.getAlpha()), Reason.PLANE_GENERATED));
 
         frameCountInit = processing.frameCount;
         frameCountBuffer = 15;
@@ -76,19 +78,19 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
 
             if (i != yLines.length / 2 && i < yLines.length) { // Assumption takes place here
                 if ((startingValues.getY() + ticks.getY() * i / 2) % ticks.getY() == 0) {
-                    yLines[i] = new DoubleLine(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 4, color, Reason.PLANE_GENERATED); // putting in the reference?
-                    yText[i / 2] = new Text(this, df.format(-startingValues.getY() - ticks.getY() * i / 2), new FVector(-12, scale.getY() * (startingValues.getY() + ticks.getY() * i / 2) - 12), textColor, Reason.PLANE_GENERATED)
+                    yLines[i] = new DoubleLine(new LineBuilder(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 4, color, Reason.PLANE_GENERATED)); // putting in the reference?
+                    yText[i / 2] = new Text(new TextBuilder(this, df.format(-startingValues.getY() - ticks.getY() * i / 2), new FVector(-12, scale.getY() * (startingValues.getY() + ticks.getY() * i / 2) - 12), textColor, Reason.PLANE_GENERATED))
                             .setTextAlign(RIGHT).setDisplayRect(false).setInit(false);
                 } else
-                    yLines[i] = new DoubleLine(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 1.5f, color, Reason.PLANE_GENERATED);
+                    yLines[i] = new DoubleLine(new LineBuilder(this, new FVector(startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), new FVector(-startingValues.getX(), startingValues.getY() + ticks.getY() * i / 2), 1.5f, color, Reason.PLANE_GENERATED));
             }
 
             if (i != xLines.length / 2) {
                 if ((startingValues.getX() + ticks.getX() * i / 2) % ticks.getX() == 0) {
-                    xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 4, color, Reason.PLANE_GENERATED);
-                    xText[i / 2] = new Text(this, df.format(startingValues.getX() + ticks.getX() * i / 2), new FVector(startingValues.getX() + ticks.getX() * i / 2 > 0 ? scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) : scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) - 8, 44), textColor, Reason.PLANE_GENERATED).setInit(false);
+                    xLines[i] = new DoubleLine(new LineBuilder(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 4, color, Reason.PLANE_GENERATED));
+                    xText[i / 2] = new Text(new TextBuilder(this, df.format(startingValues.getX() + ticks.getX() * i / 2), new FVector(startingValues.getX() + ticks.getX() * i / 2 > 0 ? scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) : scale.getX() * (startingValues.getX() + ticks.getX() * i / 2) - 8, 44), textColor, Reason.PLANE_GENERATED)).setInit(false);
                 } else
-                    xLines[i] = new DoubleLine(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 1.5f, color, Reason.PLANE_GENERATED);
+                    xLines[i] = new DoubleLine(new LineBuilder(this, new FVector(startingValues.getX() + ticks.getX() * i / 2, startingValues.getY()), new FVector(startingValues.getX() + ticks.getX() * i / 2, -startingValues.getY()), 1.5f, color, Reason.PLANE_GENERATED));
             }
         }
     }
@@ -154,7 +156,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
 
         for (int i = 0; i < xText.length; i++) {
             if (i != xText.length / 2 && !xText[i].display()) {
-                xText[i].setWidthHeight(60 + (xText[i].str.length() - 3) * 10, 56);
+                xText[i].setDimensions(60 + (xText[i].str.length() - 3) * 10, 56);
                 hasCompleted = false;
             }
 
@@ -188,7 +190,7 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
         processing.strokeWeight(7);
         processing.noFill();
         processing.rect(pos.getX(), pos.getY(), canvas.width, canvas.height);
-        processing.image(canvas, pos.getX(), pos.getY());
+        processing.image(canvas, pos.getX(), pos.getY()); // <--- Do all method!
         texts.forEach((k, v) -> v = k.display());
         return true;
         // popMatrix();
@@ -219,11 +221,11 @@ public final class CartesianPlane extends Plane { // Work on mouseDrag after!
     public void loadRandArr(){
         randArr.add(10*Math.random() - 5);
     }
+
     /**
-     *
      * @param x1 Left side of domain restriction
-     * @param x2 Rigt side of domain restriction
-     * Restrict the domain
+     * @param x2 Right side of domain restriction
+     *           Restrict the domain
      */
     public void restrictDomain(float x1, float x2){
         restrictedDomain.setXY(x1, x2);

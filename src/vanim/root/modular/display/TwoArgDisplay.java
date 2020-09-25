@@ -7,10 +7,6 @@ public interface TwoArgDisplay<A, B> extends Displayable {
 
     boolean display(A a, B b);
 
-    default boolean display() {
-        return true;
-    }
-
     /**
      * @param args Varargs to display the object at coordinates
      * @return If the operation was a success

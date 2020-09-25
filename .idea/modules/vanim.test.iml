@@ -232,7 +232,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:16.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:19.0.0" level="project" />
     <orderEntry type="library" name="Gradle: org.scilab.forge:jlatexmath:1.0.7" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.xmlgraphics:batik-transcoder:1.13" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.commons:commons-math3:3.6.1" level="project" />

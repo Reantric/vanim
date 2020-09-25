@@ -2,100 +2,112 @@ vanim/root/modular/Interpolatable.java
  vanim.root.modular.Interpolatable
 vanim/planar.java
  vanim.planar
+vanim/shapes/Parameterizable.java
+ vanim.shapes.Parameterizable
 vanim/storage/vector/FVector.java
  vanim.storage.vector.FVector
 vanim/directions/Scene.java
  vanim.directions.Scene
+vanim/root/modular/display/TwoArgDisplay.java
+ vanim.root.modular.display.TwoArgDisplay
 vanim/storage/Subcolor.java
  vanim.storage.Subcolor
 vanim/util/map/MapEase.java
  vanim.util.map.MapEase
-vanim/shapes/functional/graph/GraphFuncOfX2D.java
- vanim.shapes.functional.graph.GraphFuncOfX2D
-vanim/root/modular/Scalable.java
- vanim.root.modular.Scalable
+vanim/util/function/ParametricFunction.java
+ vanim.util.function.ParametricFunction
+vanim/util/Useful.java
+ vanim.util.Useful
 vanim/storage/vector/IVector.java
  vanim.storage.vector.IVector
-vanim/text/Text.java
- vanim.text.Text
+vanim/util/tex/SVGConverter.java
+ vanim.util.tex.SVGConverter
+vanim/util/map/MapType.java
+ vanim.util.map.MapType
+vanim/specific/rational/Fraction.java
+ vanim.specific.rational.Fraction
+vanim/storage/Scale.java
+ vanim.storage.Scale
 vanim/storage/Vector.java
  vanim.storage.Vector
 vanim/storage/Color.java
  vanim.storage.Color
-vanim/shapes/Circle.java
- vanim.shapes.Circle
 vanim/root/modular/Convertable.java
  vanim.root.modular.Convertable
-vanim/root/CanvasObject.java
- vanim.root.CanvasObject
+vanim/util/Mapper.java
+ vanim.util.Mapper
+ vanim.util.Mapper$1
+vanim/root/exception/ImpossibleBoundsException.java
+ vanim.root.exception.ImpossibleBoundsException
 vanim/root/modular/Displayable.java
  vanim.root.modular.Displayable
-vanim/root/vobjects/VObject.java
- vanim.root.vobjects.VObject
+vanim/directions/Directions.java
+ vanim.directions.Directions
+vanim/core/Graphics2D.java
+ vanim.core.Graphics2D
 vanim/util/Reason.java
  vanim.util.Reason
-vanim/shapes/Line.java
- vanim.shapes.Line
-vanim/directions/subscene/Scene1.java
- vanim.directions.subscene.Scene1
+vanim/util/RandomDebug.java
+ vanim.util.RandomDebug
 vanim/root/modular/Colorable.java
  vanim.root.modular.Colorable
 vanim/storage/Point.java
  vanim.storage.Point
 vanim/core/Applet.java
  vanim.core.Applet
-vanim/shapes/Ellipse.java
- vanim.shapes.Ellipse
-vanim/root/modular/Graphable.java
- vanim.root.modular.Graphable
-vanim/shapes/OpenShape.java
- vanim.shapes.OpenShape
-vanim/text/ImmutableLaTeX.java
- vanim.text.ImmutableLaTeX
 vanim/root/exception/IncorrectBoundsException.java
  vanim.root.exception.IncorrectBoundsException
+vanim/root/modular/Graphable.java
+ vanim.root.modular.Graphable
+vanim/storage/Bounds.java
+ vanim.storage.Bounds
+vanim/shapes/Ellipse.java
+ vanim.shapes.Ellipse
+vanim/text/ImmutableLaTeX.java
+ vanim.text.ImmutableLaTeX
+vanim/root/builder/ParametricBuilder.java
+ vanim.root.builder.ParametricBuilder
 vanim/shapes/Shape.java
  vanim.shapes.Shape
-vanim/util/function/ParametricFunction.java
- vanim.util.function.ParametricFunction
-vanim/util/RandomDebug.java
- vanim.util.RandomDebug
-vanim/core/Graphics2D.java
- vanim.core.Graphics2D
-vanim/planes/CartesianPlane.java
- vanim.planes.CartesianPlane
+vanim/shapes/functional/graph/GraphFuncOfX2D.java
+ vanim.shapes.functional.graph.GraphFuncOfX2D
+vanim/root/modular/Scalable.java
+ vanim.root.modular.Scalable
+vanim/text/Text.java
+ vanim.text.Text
+vanim/root/builder/LineBuilder.java
+ vanim.root.builder.LineBuilder
+vanim/root/builder/VObjectBuilder.java
+ vanim.root.builder.VObjectBuilder
+vanim/directions/subscene/Scene2.java
+ vanim.directions.subscene.Scene2
 vanim/mfunc/Narrator.java
  vanim.mfunc.Narrator
 vanim/text/LaTeX.java
  vanim.text.LaTeX
+vanim/shapes/Circle.java
+ vanim.shapes.Circle
 vanim/shapes/DoubleLine.java
  vanim.shapes.DoubleLine
-vanim/util/Mapper.java
- vanim.util.Mapper
- vanim.util.Mapper$1
-vanim/shapes/ClosedShape.java
- vanim.shapes.ClosedShape
-vanim/planes/Plane.java
- vanim.planes.Plane
-vanim/directions/Directions.java
- vanim.directions.Directions
-vanim/specific/rational/Fraction.java
- vanim.specific.rational.Fraction
-vanim/util/map/MapType.java
- vanim.util.map.MapType
-vanim/util/tex/SVGConverter.java
- vanim.util.tex.SVGConverter
-vanim/util/Useful.java
- vanim.util.Useful
+vanim/geometry/onedim/NumberLine.java
+ vanim.geometry.onedim.NumberLine
+vanim/root/CanvasObject.java
+ vanim.root.CanvasObject
+vanim/geometry/twodim/Plane.java
+ vanim.geometry.twodim.Plane
+vanim/root/vobjects/VObject.java
+ vanim.root.vobjects.VObject
+vanim/root/builder/TextBuilder.java
+ vanim.root.builder.TextBuilder
+vanim/shapes/Line.java
+ vanim.shapes.Line
 vanim/shapes/functional/graph/Graph2D.java
  vanim.shapes.functional.graph.Graph2D
-vanim/root/modular/display/TwoArgDisplay.java
- vanim.root.modular.display.TwoArgDisplay
+vanim/shapes/ParametricShape.java
+ vanim.shapes.ParametricShape
 vanim/root/vobjects/AbsoluteVObject.java
  vanim.root.vobjects.AbsoluteVObject
-vanim/storage/Bounds.java
- vanim.storage.Bounds
-vanim/root/exception/ImpossibleBoundsException.java
- vanim.root.exception.ImpossibleBoundsException
-vanim/storage/Scale.java
- vanim.storage.Scale
+vanim/geometry/twodim/CartesianPlane.java
+ vanim.geometry.twodim.CartesianPlane
+vanim/root/modular/NumberScalable.java
+ vanim.root.modular.NumberScalable

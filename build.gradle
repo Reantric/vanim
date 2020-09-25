@@ -31,6 +31,7 @@ dependencies {
     implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
 
     implementation fileTree(dir: 'library/fop-2.5', include: ['*.jar'])
+    implementation 'org.jetbrains:annotations:19.0.0'
 
     //Change version to 2.3 or download a local version of fop (JAI core is not present)
     // Uncomment above or change version for this to work!

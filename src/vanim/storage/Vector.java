@@ -4,18 +4,18 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class Vector<T> {
-    protected T x,y,z;
+public abstract class Vector<T extends Number> {
+    protected T x, y, z;
     protected int size = 0;
 
     @SuppressWarnings("unchecked")
-    public <E> Vector(@NotNull Vector<E> v){
+    public <E extends Number> Vector(@NotNull Vector<E> v) {
         try {
             x = (T) v.getX();
             y = (T) v.getY();
             z = (T) v.getZ();
             size = v.getSize();
-        } catch (ClassCastException e){
+        } catch (ClassCastException e) {
             e.printStackTrace();
         }
     }
@@ -67,13 +67,23 @@ public class Vector<T> {
         return z;
     }
 
-    public void setZ(T z){
+    public void setZ(T z) {
         this.z = z;
     }
 
     public int getSize() {
         return size;
     }
+
+    public abstract Vector<T> add(Vector<T> other);
+
+    public abstract Vector<T> scale(T... other);
+
+    public abstract Vector<T> reciprocate();
+
+    public abstract Vector<T> normalize();
+
+    public abstract float getMag();
 
     @Override
     public boolean equals(Object o) {

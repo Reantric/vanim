@@ -1,14 +1,11 @@
 package vanim.root.vobjects;
 
-import vanim.planes.Plane;
+import vanim.geometry.twodim.Plane;
 import vanim.root.CanvasObject;
+import vanim.root.builder.VObjectBuilder;
 import vanim.root.modular.Scalable;
-import vanim.storage.Color;
 import vanim.storage.Scale;
-import vanim.storage.vector.FVector;
 import vanim.util.Reason;
-
-import static vanim.util.Reason.USER_CREATED;
 
 /**
  * @author protonlaser91
@@ -16,44 +13,18 @@ import static vanim.util.Reason.USER_CREATED;
 public abstract class AbsoluteVObject extends CanvasObject implements Scalable<CanvasObject> {
 
     protected long incrementor = 0;
-    protected float mapPower = 1;
-    protected int coordsSize = 0;
-    protected Scale absScale;
+    protected float mapPower = 2;
     protected Plane plane;
     Reason reasonCreated;
 
     /**
-     * @param p             Plane that is to be drawn on
-     * @param pos           The position of the object on that plane (in scaled coordinates, not absolute)
-     * @param dimensions    The width, height (and depth) of the object (in scaled coordinates, not absolute)
-     * @param color         The color of the object, in HSB
-     * @param reasonCreated The reason this object was created
+     * @param builder The VObject builder needed to build this VObject
+     *                Contains Plane p, FVector pos, FVector dimensions, Color color, Reason reasonCreated
      */
-    public AbsoluteVObject(Plane p, FVector pos, FVector dimensions, Color color, Reason reasonCreated) { // Plane constructor!
-        super(p.getProcessingInstance(), p.getCanvas(), pos, dimensions, color);
-        plane = p;
-        absScale = p.getScale();
-        this.reasonCreated = reasonCreated;
-    }
-
-    public AbsoluteVObject(Plane p, FVector pos, FVector dimensions, Color color) {
-        this(p, pos, dimensions, color, USER_CREATED);
-    }
-
-    public AbsoluteVObject(Plane p, FVector pos, Color color) {
-        this(p, pos, new FVector(), color);
-    }
-
-    public AbsoluteVObject(Plane p, FVector pos, float s, Color color) {
-        this(p, pos, new FVector(s, s, s), color);
-    }
-
-    public AbsoluteVObject(Plane p, FVector pos, FVector dimensions) {
-        this(p, pos, dimensions, new Color());
-    }
-
-    public AbsoluteVObject(Plane p, FVector pos, Color color, Reason reasonCreated) {
-        this(p, pos, new FVector(), new Color(), reasonCreated);
+    public AbsoluteVObject(VObjectBuilder builder) { // Plane constructor!
+        super(builder.getPlane().getProcessingInstance(), builder.getPlane().getCanvas(), builder.getPos(), builder.getDimensions(), builder.getColor());
+        plane = builder.getPlane();
+        this.reasonCreated = builder.getReasonCreated();
     }
 
     /**
@@ -94,7 +65,7 @@ public abstract class AbsoluteVObject extends CanvasObject implements Scalable<C
      * @param newHeight New height of VObject.
      *                  If the VObject has been displayed, this may cause errors.
      */
-    public AbsoluteVObject setWidthHeight(float newWidth, float newHeight) {
+    public AbsoluteVObject setDimensions(float newWidth, float newHeight) {
         dimensions.setXY(newWidth, newHeight);
         return this;
     }
@@ -105,6 +76,7 @@ public abstract class AbsoluteVObject extends CanvasObject implements Scalable<C
      * @param s The new Scale object that will replace the original Scale object.
      */
 
+    @Override
     public AbsoluteVObject scale(Scale s) {
         this.scale = s;
         return this;

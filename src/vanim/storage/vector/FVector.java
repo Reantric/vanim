@@ -1,10 +1,11 @@
 package vanim.storage.vector;
 
+import vanim.storage.Scale;
 import vanim.storage.Vector;
 
 public class FVector extends Vector<Float> { // Field Vector or Float Vector lmao
 
-    public <E> FVector(Vector<E> v) {
+    public <E extends Number> FVector(Vector<E> v) {
         super(v);
     }
 
@@ -24,42 +25,73 @@ public class FVector extends Vector<Float> { // Field Vector or Float Vector lma
         this(0, 0, 0);
     }
 
-    public void addX(Vector<Float> v) {
-        this.x += v.getX();
+    public static FVector scale(FVector start, Scale scale) {
+        return FVector.scale(start, scale.getX(), scale.getY(), scale.getZ());
     }
 
-    public void addXY(Vector<Float> v){
+    public static FVector scale(FVector v, Float... scale) {
+        return new FVector(v).scale(scale);
+    }
+
+    public static FVector add(FVector v, FVector o) {
+        return new FVector(v).add(o);
+    }
+
+    public static FVector subtract(FVector v, FVector o) {
+        return new FVector(v).subtract(o);
+    }
+
+    public static FVector reciprocate(FVector v) {
+        return new FVector(v).reciprocate();
+    }
+
+    public FVector addX(FVector v) {
+        this.x += v.getX();
+        return this;
+    }
+
+    public FVector addXY(FVector v) {
         this.x += v.getX();
         this.y += v.getY();
+        return this;
     }
 
-    public void addY(Vector<Float> v){
+    public FVector addY(FVector v) {
         this.y += v.getY();
+        return this;
     }
 
-    public void addZ(Vector<Float> v){
+    public FVector addZ(FVector v) {
         this.z += v.getZ();
+        return this;
     }
 
-    public void add(Vector<Float> v){
+    /**
+     * @param scaleAll Set all scale variables to this parameter.
+     */
+    public void setAll(float scaleAll) {
+        this.x = scaleAll;
+        this.y = scaleAll;
+        this.z = scaleAll;
+    }
+
+    @Override
+    public FVector add(Vector<Float> v) {
         this.x += v.getX();
         this.y += v.getY();
         this.z += v.getZ();
+        return this;
     }
 
-    public void multiplyX(float scaleX){
-        multiplyAll(scaleX,1,1);
+    public FVector subtract(FVector v) {
+        this.x -= v.getX();
+        this.y -= v.getY();
+        this.z -= v.getZ();
+        return this;
     }
 
-    public void multiplyY(float scaleY){
-        multiplyAll(1,scaleY,1);
-    }
-
-    public void multiplyZ(float scaleZ){
-        multiplyAll(1,1,scaleZ);
-    }
-
-    public void multiplyAll(float... scale){
+    @Override
+    public FVector scale(Float... scale) {
         int len = scale.length;
         switch (len) {
             case 1 -> {
@@ -77,10 +109,37 @@ public class FVector extends Vector<Float> { // Field Vector or Float Vector lma
                 this.z *= scale[2];
             }
         }
+        return this;
     }
 
-    public IVector getIntVec(){
-        return new IVector(Math.round(x),Math.round(y),Math.round(z));
+    @Override
+    public FVector reciprocate() {
+        if (x != 0)
+            x = 1 / x;
+        if (y != 0)
+            y = 1 / y;
+        if (z != 0)
+            z = 1 / z;
+        return this;
+    }
+
+    @Override
+    public FVector normalize() {
+        this.scale(1.0f / this.getMag());
+        return this;
+    }
+
+    @Override
+    public float getMag() {
+        return (float) Math.sqrt(x * x + y * y + z * z);
+    }
+
+    public IVector getIntVec() {
+        return new IVector(Math.round(x), Math.round(y), Math.round(z));
+    }
+
+    public FVector scale(Scale scale) {
+        return this.scale(scale.getX(), scale.getY(), scale.getZ());
     }
 
 }

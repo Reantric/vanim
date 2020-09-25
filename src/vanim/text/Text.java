@@ -1,11 +1,8 @@
 package vanim.text;
 
-import vanim.planes.Plane;
+import vanim.root.builder.TextBuilder;
 import vanim.root.vobjects.AbsoluteVObject;
-import vanim.storage.Color;
 import vanim.storage.Scale;
-import vanim.storage.vector.FVector;
-import vanim.util.Reason;
 
 import static processing.core.PConstants.CORNER;
 import static processing.core.PConstants.LEFT;
@@ -22,33 +19,10 @@ public class Text extends AbsoluteVObject { // Create superclass called Text
     boolean displayRect = true;
     boolean initializable = true;
 
-    /**
-     * @param p             Plane that is to be drawn on
-     * @param s             String to be displayed
-     * @param pos           The position of the object on the canvas (in absolute coordinates)
-     * @param tSize         The size of the text (can be omitted)
-     * @param color         The color of the object, in HSB
-     * @param reasonCreated The reason this object was created
-     */
-    public Text(Plane p, String s, FVector pos, float tSize, Color color, Reason reasonCreated) {
-        super(p, pos, color, reasonCreated);
-        this.color = color;
-        str = s;
-        this.tSize = tSize;
-        canvas.textSize(this.tSize);
-        dimensions.setXY(canvas.textWidth(str), this.tSize);
-    }
-
-    public Text(Plane p, String s, FVector pos, Color color, Reason reasonCreated) {
-        this(p, s, pos, p.getCanvas().textSize, color, reasonCreated);
-    }
-
-    public Text(Plane p, String s, FVector pos, float tSize, Color color) {
-        this(p, s, pos, tSize, color, Reason.USER_CREATED);
-    }
-
-    public Text(Plane p, String s, FVector pos, Color color) {
-        this(p, s, pos, p.getCanvas().textSize, color);
+    public Text(TextBuilder builder) {
+        super(builder);
+        str = builder.getText();
+        this.tSize = builder.getTextSize();
     }
 
     /**

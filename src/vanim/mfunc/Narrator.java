@@ -2,14 +2,12 @@ package vanim.mfunc;
 
 import vanim.core.Graphics2D;
 import vanim.root.CanvasObject;
-import vanim.storage.Color;
 import vanim.storage.vector.FVector;
 import vanim.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static vanim.directions.subscene.Scene1.plane;
 import static vanim.planar.LEFT;
 import static vanim.planar.println;
 
@@ -23,8 +21,8 @@ public class Narrator extends CanvasObject {
 
 
     public void setupNarrator(){
-        allText.add(new Text(plane, "But how do we find the slope of the tangent line?", new FVector(-630, -480), 80, new Color(30)));
-      //  allText.add(new TextVObject(canvas,"Vanim",-660,-320,130,77));
+      //  allText.add(new Text(new TextBuilder(plane, "But how do we find the slope of the tangent line?", new FVector(-630, -480), 80, new Color(30))));
+        //  allText.add(new TextVObject(canvas,"Vanim",-660,-320,130,77));
     }
 
 

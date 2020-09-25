@@ -145,6 +145,10 @@ public abstract class CanvasObject implements Colorable<CanvasObject>, Displayab
         return color.getAlpha().interpolate(255, EASE_IN);
     }
 
+    /**
+     * @param color The color to change
+     * @return The original CanvasObject
+     */
     public CanvasObject setColor(Color color) {
         this.color = color;
         return this;

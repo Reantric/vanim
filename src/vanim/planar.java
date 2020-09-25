@@ -11,7 +11,6 @@ import java.text.DecimalFormat;
 
 import static vanim.directions.Directions.destinationOnCircleLabel;
 import static vanim.directions.Directions.directions;
-import static vanim.directions.subscene.Scene1.plane;
 
 public class planar extends Applet {
 
@@ -31,7 +30,7 @@ public class planar extends Applet {
 
         try {
             Directions.init(this);
-        } catch (ClassNotFoundException | InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException noSuchMethodException) {
+        } catch (InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException noSuchMethodException) {
             noSuchMethodException.printStackTrace();
             System.exit(1);
         }
@@ -48,8 +47,8 @@ public class planar extends Applet {
         switch (key) {
             case 'v' -> angle = PI / 2;
             case 'c' -> angle = 0;
-            case 'd' -> plane.restrictDomain(-PI / 2, PI / 2);
-            case 's' -> plane.getScale().setXY(1.1f, 1.1f);
+            // case 'd' -> plane.restrictDomain(-PI / 2, PI / 2);
+            // case 's' -> plane.getScale().setXY(1.1f, 1.1f);
             case 'x' -> startSavingFrames = true;//frameRate(2);
         }
     }
