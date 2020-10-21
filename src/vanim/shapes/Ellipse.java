@@ -3,9 +3,9 @@ package vanim.shapes;
 import vanim.root.builder.LineBuilder;
 import vanim.root.builder.VObjectBuilder;
 import vanim.storage.Bounds;
-import vanim.storage.Color;
 import vanim.storage.Point;
 import vanim.storage.Scale;
+import vanim.storage.color.Color;
 import vanim.storage.vector.FVector;
 import vanim.util.Mapper;
 import vanim.util.function.ParametricFunction;
@@ -32,7 +32,7 @@ public class Ellipse extends ParametricShape {
         distance = (scale.getY() * dimensions.getY() + scale.getX() * dimensions.getX()) * 0.5f;
         System.out.println("STOP: " + distance);
         //300*0.9 = 270 which IS the distance
-        tangentLine = new DoubleLine(new LineBuilder(plane, new FVector(), new FVector(), 5, new Color(30, 255, 255, 255))).setDividend(2);
+        tangentLine = new DoubleLine(new LineBuilder(geometricSpace, new FVector(), new FVector(), 5, new Color(30, 255, 255, 255))).setDividend(2);
     }
 
     /**
@@ -76,8 +76,8 @@ public class Ellipse extends ParametricShape {
         // tangentLine.display();
         //System.out.println("TL: " + tangentLine.getDimensions());
         //System.out.println("XX: " + new FVector(x2-x1,y2-y1));
-        float scaleX = plane.getScale().getX();
-        float scaleY = plane.getScale().getY();
+        float scaleX = geometricSpace.getScale().getX();
+        float scaleY = geometricSpace.getScale().getY();
 
         canvas.line(scaleX * x1, scaleY * y1, scaleX * x2, scaleY * y2);
 

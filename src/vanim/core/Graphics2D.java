@@ -1,8 +1,8 @@
 package vanim.core;
 
 import processing.opengl.PGraphics2D;
-import vanim.storage.Color;
-import vanim.storage.Subcolor;
+import vanim.storage.color.Color;
+import vanim.storage.color.Subcolor;
 import vanim.storage.vector.FVector;
 
 
@@ -47,6 +47,5 @@ public class Graphics2D extends PGraphics2D {
     public void text(String s, FVector pos) {
         this.text(s, pos.getX(), pos.getY());
     }
-
 
 }

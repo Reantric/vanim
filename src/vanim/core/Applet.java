@@ -3,8 +3,9 @@ package vanim.core;
 import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PShape;
-import vanim.storage.Color;
+import vanim.storage.color.Color;
 import vanim.storage.vector.FVector;
+import vanim.storage.vector.IVector;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -14,6 +15,10 @@ public class Applet extends PApplet {
 
     public Graphics2D createGraphics2D(int w, int h) {
         return this.makeGraphics2D(w, h);
+    }
+
+    public Graphics2D createGraphics2D(IVector v) {
+        return this.makeGraphics2D(v.getX(), v.getY());
     }
 
     protected Graphics2D makeGraphics2D(int w, int h) {

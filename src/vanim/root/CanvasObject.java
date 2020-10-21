@@ -2,10 +2,11 @@ package vanim.root;
 
 import vanim.core.Applet;
 import vanim.core.Graphics2D;
+import vanim.root.builder.GeometricSpaceBuilder;
 import vanim.root.modular.Colorable;
 import vanim.root.modular.Displayable;
-import vanim.storage.Color;
 import vanim.storage.Scale;
+import vanim.storage.color.Color;
 import vanim.storage.vector.FVector;
 
 import java.lang.ref.Reference;
@@ -65,6 +66,10 @@ public abstract class CanvasObject implements Colorable<CanvasObject>, Displayab
         this(null, c, pos, dimensions);
     }
 
+    public CanvasObject(GeometricSpaceBuilder builder) {
+        this(builder.getProcessingInstance(), builder.getProcessingInstance().createGraphics2D(builder.getDimensions()), builder.getPos(), new FVector(builder.getDimensions()), builder.getColor());
+    } // Gah this needs to be checked for 3D too!
+
     /**
      * @return Color object of the selected CanvasObject
      */
@@ -84,13 +89,6 @@ public abstract class CanvasObject implements Colorable<CanvasObject>, Displayab
      */
     public FVector getDimensions() {
         return this.dimensions;
-    }
-
-    /**
-     * @return The reference to the canvas the host plane uses to draw on
-     */
-    public Graphics2D getCanvas() {
-        return this.canvas;
     }
 
     /**
@@ -122,6 +120,13 @@ public abstract class CanvasObject implements Colorable<CanvasObject>, Displayab
     public CanvasObject remove() {
         isRemoved = true;
         return null;
+    }
+
+    /**
+     * @return The scale the plane uses.
+     */
+    public Scale getScale() {
+        return this.scale;
     }
 
     /**

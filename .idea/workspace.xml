@@ -5,91 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a8d5c5e-595c-47e0-84ea-38985ab8dc26" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_19_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vanim/geometry/onedim/NumberLine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vanim/root/builder/LineBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vanim/root/builder/ParametricBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vanim/root/builder/TextBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vanim/root/builder/VObjectBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vanim/root/modular/NumberScalable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vanim/shapes/Parameterizable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vanim/shapes/ParametricShape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/geometry/GeometricSpace.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/geometry/twodim/Grid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/root/builder/GeometricSpaceBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vanim/storage/color/ColorType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_16_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/vanim.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/vanim.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/vanim.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/vanim.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/core/Applet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/core/Applet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/core/Graphics2D.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/core/Graphics2D.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/directions/Directions.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/directions/Directions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/directions/subscene/Scene1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/mfunc/Narrator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/mfunc/Narrator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/planar.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/planar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/planes/CartesianPlane.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/planes/CartesianPlane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/planes/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/planes/Plane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/root/CanvasObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/root/CanvasObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/root/vobjects/AbsoluteVObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/root/vobjects/AbsoluteVObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/root/vobjects/VObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/root/vobjects/VObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/shapes/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/shapes/Circle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/shapes/ClosedShape.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/shapes/DoubleLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/shapes/DoubleLine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/shapes/Ellipse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/shapes/Ellipse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/shapes/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/shapes/Line.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/storage/Color.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/storage/Color.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/storage/Scale.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/storage/Scale.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/storage/Vector.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/storage/Vector.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/storage/vector/FVector.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/storage/vector/FVector.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/storage/vector/IVector.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/storage/vector/IVector.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/text/ImmutableLaTeX.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/text/ImmutableLaTeX.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/text/LaTeX.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/text/LaTeX.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/vanim/text/Text.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/vanim/text/Text.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/directions/Directions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/Directions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/mfunc/Narrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/mfunc/Narrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/core/Applet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/core/Applet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/core/Graphics2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/core/Graphics2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/directions/subscene/Scene2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/geometry/onedim/NumberLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/geometry/onedim/NumberLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/geometry/twodim/CartesianPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/geometry/twodim/CartesianGrid2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/geometry/twodim/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/geometry/twodim/Grid2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/planar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/planar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/planes/CartesianPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/geometry/twodim/CartesianPlane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/planes/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/geometry/twodim/Plane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/CanvasObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/root/modular/Scalable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/modular/Scalable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/root/modular/display/TwoArgDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/modular/display/TwoArgDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/root/builder/LineBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/builder/LineBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/root/builder/ParametricBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/builder/ParametricBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/root/builder/TextBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/builder/TextBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/root/builder/VObjectBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/builder/VObjectBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/root/modular/Colorable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/modular/Colorable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/root/modular/Graphable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/modular/Graphable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/root/vobjects/AbsoluteVObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/vobjects/AbsoluteVObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/root/vobjects/VObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/root/vobjects/VObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Circle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/ClosedShape.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/DoubleLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Ellipse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Line.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/OpenShape.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/Shape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/shapes/functional/graph/Graph2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/functional/graph/Graph2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/shapes/functional/graph/GraphFuncOfX2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/shapes/functional/graph/GraphFuncOfX2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Bounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Bounds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/color/Color.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/storage/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Scale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Scale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/storage/Subcolor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/color/Subcolor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/storage/vector/FVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/vector/FVector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/storage/vector/IVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/storage/vector/IVector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/text/ImmutableLaTeX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/text/ImmutableLaTeX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/text/LaTeX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/text/LaTeX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vanim/text/Text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/text/Text.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vanim/util/function/ParametricFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/util/function/ParametricFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/line-000104.png" beforeDir="false" afterPath="$PROJECT_DIR$/test/line-000104.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/line-000105.png" beforeDir="false" afterPath="$PROJECT_DIR$/test/line-000105.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/line-000106.png" beforeDir="false" afterPath="$PROJECT_DIR$/test/line-000106.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vanim/util/tex/SVGConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vanim/util/tex/SVGConverter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,8 +98,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -137,6 +112,13 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.3.1\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1frpLRqtO79uCJXckp83CeHlPfa" />
   <component name="ProjectLevelVcsManager">
@@ -162,6 +144,9 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="vanim.storage" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\arnav\Desktop\whyArrayList\vanim\src\vanim\geometry\twodim" />
     </key>
   </component>
   <component name="RunManager" selected="Application.planar">
@@ -222,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598558019907</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed DoubleLine and Line, suspending all work on Graph for now, beginning NumberLine (1D).">
+      <created>1600993095707</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1600993095707</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -232,7 +224,8 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Created pom file and changed README.md" />
     <MESSAGE value="Added prototype of Graph class and added Apache Commons Math3 library" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added prototype of Graph class and added Apache Commons Math3 library" />
+    <MESSAGE value="Fixed DoubleLine and Line, suspending all work on Graph for now, beginning NumberLine (1D)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed DoubleLine and Line, suspending all work on Graph for now, beginning NumberLine (1D)." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -242,31 +235,37 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2765" y="403" key="#Notifications/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1596986300982" />
-    <state x="2334" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597078484987">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601155165849">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601155165849" />
     <state x="2334" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597078484987" />
     <state x="2630" y="342" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596989590960">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2630" y="342" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1596989590960" />
-    <state x="765" y="256" key="#com.intellij.ide.util.MemberChooser" timestamp="1600989987529">
+    <state x="765" y="256" key="#com.intellij.ide.util.MemberChooser" timestamp="1602876856865">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="765" y="256" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600989987529" />
+    <state x="765" y="256" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602876856865" />
     <state x="2685" y="256" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1600023225246" />
     <state x="640" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1600548532436">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="640" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600548532436" />
-    <state x="2663" y="443" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597888249454">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2663" y="443" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597888249454" />
-    <state x="587" y="105" key="CommitChangelistDialog2" timestamp="1598558013141">
+    <state x="743" y="443" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1602872056232">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="587" y="105" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1598558013141" />
+    <state x="743" y="443" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602872056232" />
+    <state x="2663" y="443" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597888249454" />
+    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603321027652">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1603321027652" />
+    <state x="587" y="105" key="CommitChangelistDialog2" timestamp="1600993087428">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="587" y="105" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600993087428" />
     <state x="2507" y="105" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597079793671" />
     <state x="2698" y="481" key="DetectedRootsChooserDialog" timestamp="1597366731659">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -277,67 +276,72 @@
     </state>
     <state x="740" y="281" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600298534748" />
     <state x="2660" y="281" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599931647702" />
-    <state width="1860" height="244" key="GridCell.Tab.0.bottom" timestamp="1600988950644">
+    <state width="1877" height="233" key="GridCell.Tab.0.bottom" timestamp="1603321297901">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1860" height="244" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600988950644" />
+    <state width="1877" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1603321297901" />
     <state width="1860" height="231" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1600023053818" />
-    <state width="1860" height="244" key="GridCell.Tab.0.center" timestamp="1600988950644">
+    <state width="1877" height="233" key="GridCell.Tab.0.center" timestamp="1603321297901">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1860" height="244" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600988950644" />
+    <state width="1877" height="233" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1603321297901" />
     <state width="1860" height="231" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1600023053818" />
-    <state width="1860" height="244" key="GridCell.Tab.0.left" timestamp="1600988950644">
+    <state width="1877" height="233" key="GridCell.Tab.0.left" timestamp="1603321297901">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1860" height="244" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600988950644" />
+    <state width="1877" height="233" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1603321297901" />
     <state width="1860" height="231" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1600023053818" />
-    <state width="1860" height="244" key="GridCell.Tab.0.right" timestamp="1600988950644">
+    <state width="1877" height="233" key="GridCell.Tab.0.right" timestamp="1603321297901">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1860" height="244" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600988950644" />
+    <state width="1877" height="233" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1603321297901" />
     <state width="1860" height="231" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1600023053818" />
-    <state width="1877" height="361" key="GridCell.Tab.1.bottom" timestamp="1600735574591">
+    <state width="1877" height="360" key="GridCell.Tab.1.bottom" timestamp="1602878692209">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600735574591" />
+    <state width="1877" height="360" key="GridCell.Tab.1.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602878692209" />
     <state width="1860" height="359" key="GridCell.Tab.1.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599962898600" />
-    <state width="1877" height="361" key="GridCell.Tab.1.center" timestamp="1600735574591">
+    <state width="1877" height="360" key="GridCell.Tab.1.center" timestamp="1602878692209">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600735574591" />
+    <state width="1877" height="360" key="GridCell.Tab.1.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602878692209" />
     <state width="1860" height="359" key="GridCell.Tab.1.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599962898600" />
-    <state width="1877" height="361" key="GridCell.Tab.1.left" timestamp="1600735574591">
+    <state width="1877" height="360" key="GridCell.Tab.1.left" timestamp="1602878692209">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600735574591" />
+    <state width="1877" height="360" key="GridCell.Tab.1.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602878692209" />
     <state width="1860" height="359" key="GridCell.Tab.1.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599962898600" />
-    <state width="1877" height="361" key="GridCell.Tab.1.right" timestamp="1600735574591">
+    <state width="1877" height="360" key="GridCell.Tab.1.right" timestamp="1602878692209">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.1.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600735574591" />
+    <state width="1877" height="360" key="GridCell.Tab.1.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1602878692209" />
     <state width="1860" height="359" key="GridCell.Tab.1.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599962898600" />
     <state x="2136" y="69" width="1442" height="851" key="SettingsEditor" timestamp="1597366888019">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2136" y="69" width="1442" height="851" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597366888019" />
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1598558022719">
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2" timestamp="1600993099537">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1598558022719" />
-    <state x="2425" y="276" width="909" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1597419794908">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="552" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600993099537" />
+    <state x="777" y="487" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601229256027">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="777" y="487" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601229256027" />
+    <state x="505" y="276" width="909" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601426118411">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="505" y="276" width="909" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601426118411" />
     <state x="2425" y="276" width="909" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1597419794908" />
-    <state x="1988" y="0" width="930" height="787" maximized="true" key="dock-window-1" timestamp="1600969899043">
+    <state x="1970" y="82" width="1263" height="804" maximized="true" key="dock-window-1" timestamp="1603320805579">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="1988" y="0" width="930" height="787" maximized="true" key="dock-window-1/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1600969899043" />
+    <state x="1970" y="82" width="1263" height="804" maximized="true" key="dock-window-1/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1603320805579" />
     <state x="449" y="48" width="1122" height="739" key="dock-window-1/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599776473668" />
-    <state x="2052" y="0" width="1156" height="1059" key="dock-window-2" timestamp="1599593725070">
+    <state x="1991" y="138" width="808" height="870" key="dock-window-2" timestamp="1601760914690">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2052" y="0" width="1156" height="1059" key="dock-window-2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1599593725070" />
+    <state x="1991" y="138" width="808" height="870" key="dock-window-2/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601760914690" />
     <state x="2243" y="107" width="1156" height="801" key="dock-window-3" timestamp="1599776211030">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -347,6 +351,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2440" y="149" key="new project wizard/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1599748249066" />
+    <state x="803" y="297" key="refactoring.ChangeSignatureDialog" timestamp="1601758421306">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="803" y="297" key="refactoring.ChangeSignatureDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601758421306" />
     <state x="623" y="248" width="672" height="678" key="search.everywhere.popup" timestamp="1600301472854">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -356,7 +364,7 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint enabled="true" log-stack="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>

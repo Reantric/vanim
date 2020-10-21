@@ -1,4 +1,4 @@
-package vanim.storage;
+package vanim.storage.color;
 
 import vanim.root.modular.Interpolatable;
 import vanim.util.Mapper;

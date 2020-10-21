@@ -1,4 +1,4 @@
-package vanim.storage;
+package vanim.storage.color;
 
 import vanim.root.modular.Interpolatable;
 import vanim.util.map.MapEase;
@@ -29,6 +29,36 @@ public class Color implements Interpolatable<Color> {
         this.saturation = new Subcolor(saturation);
         this.brightness = new Subcolor(brightness);
         this.alpha = new Subcolor(alpha);
+    }
+
+    public Color(ColorType c) { // Fix this
+        switch (c) {
+            case WHITE -> {
+                hue = new Subcolor(0);
+                saturation = new Subcolor(0);
+                brightness = new Subcolor(255);
+            }
+            case RED -> {
+                hue = new Subcolor(0);
+                saturation = new Subcolor(0);
+                brightness = new Subcolor(255);
+            }
+            case CYAN -> {
+                hue = new Subcolor(0);
+                saturation = new Subcolor(0);
+                brightness = new Subcolor(255);
+            }
+            case BLACK -> {
+                hue = new Subcolor(0);
+                saturation = new Subcolor(0);
+                brightness = new Subcolor(255);
+            }
+            case GREEN -> {
+                hue = new Subcolor(0);
+                saturation = new Subcolor(0);
+                brightness = new Subcolor(255);
+            }
+        }
     }
 
     public Color() {

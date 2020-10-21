@@ -1,6 +1,7 @@
 package vanim.storage;
 
 import vanim.root.modular.Colorable;
+import vanim.storage.color.Color;
 import vanim.storage.vector.FVector;
 
 public class Point extends FVector implements Colorable<Point> {

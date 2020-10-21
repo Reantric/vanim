@@ -19,7 +19,7 @@ public class Graph2D extends Shape implements Parameterizable {
         this.yt = builder.getParametricY();
 
         //boundY = new Bounds(-4 * p.getAxes().getY(), 4 * p.getAxes().getY(), yt);
-        FVector vec = plane.getAxes();
+        FVector vec = geometricSpace.getAxes();
         super.setDividend((vec.getX() * vec.getY()) / 50.0f); // idk about this one brudda FIX (boundasTX.getLength()/maxPoints)
         System.out.println(new FVector(maxPoints, dividend));
         System.out.println("bounds: " + boundT);

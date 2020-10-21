@@ -1,7 +1,9 @@
 package vanim.root.vobjects;
 
-import vanim.geometry.twodim.Plane;
+import vanim.core.Graphics2D;
+import vanim.geometry.GeometricSpace;
 import vanim.root.CanvasObject;
+import vanim.root.builder.GeometricSpaceBuilder;
 import vanim.root.builder.VObjectBuilder;
 import vanim.root.modular.Scalable;
 import vanim.storage.Scale;
@@ -14,7 +16,7 @@ public abstract class AbsoluteVObject extends CanvasObject implements Scalable<C
 
     protected long incrementor = 0;
     protected float mapPower = 2;
-    protected Plane plane;
+    protected GeometricSpace geometricSpace;
     Reason reasonCreated;
 
     /**
@@ -22,9 +24,13 @@ public abstract class AbsoluteVObject extends CanvasObject implements Scalable<C
      *                Contains Plane p, FVector pos, FVector dimensions, Color color, Reason reasonCreated
      */
     public AbsoluteVObject(VObjectBuilder builder) { // Plane constructor!
-        super(builder.getPlane().getProcessingInstance(), builder.getPlane().getCanvas(), builder.getPos(), builder.getDimensions(), builder.getColor());
-        plane = builder.getPlane();
+        super(builder.getGeometricSpace().getProcessingInstance(), (Graphics2D) builder.getGeometricSpace().getCanvas(), builder.getPos(), builder.getDimensions(), builder.getColor());
+        geometricSpace = builder.getGeometricSpace();
         this.reasonCreated = builder.getReasonCreated();
+    }
+
+    public AbsoluteVObject(GeometricSpaceBuilder builder) {
+        super(builder);
     }
 
     /**

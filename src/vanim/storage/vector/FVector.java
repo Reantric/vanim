@@ -123,6 +123,14 @@ public class FVector extends Vector<Float> { // Field Vector or Float Vector lma
         return this;
     }
 
+    public FVector setMag(float s) {
+        return this.normalize().scale(s);
+    }
+
+    public FVector getPerpendicular2D() {
+        return new FVector(y, -x);
+    }
+
     @Override
     public FVector normalize() {
         this.scale(1.0f / this.getMag());

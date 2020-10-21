@@ -54,12 +54,17 @@ public class planar extends Applet {
     }
 
     public void draw() {
-        background(0);
-        scale(e);
+        init();
         directions();
-      //  plane.display();
+        //  plane.display();
         if (startSavingFrames)
             saveFrame("test/line-######.png");
+    }
+
+    private void init() {
+        background(0);
+        translate(width / 2.0f, height / 2.0f);
+        imageMode(CENTER);
     }
 
     public void settings() {

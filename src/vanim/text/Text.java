@@ -88,7 +88,6 @@ public class Text extends AbsoluteVObject { // Create superclass called Text
             canvas.textAlign(align);
 
         canvas.text(str, pos);
-
         return !initializable;
     }
 

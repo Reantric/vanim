@@ -20,7 +20,7 @@ public abstract class VObject extends AbsoluteVObject {
      */
     @Override
     public VObject setWidth(float newWidth) {
-        return (VObject) super.setWidth(plane.getScale().getX() * newWidth);
+        return (VObject) super.setWidth(geometricSpace.getScale().getX() * newWidth);
     }
 
     /**
@@ -29,7 +29,7 @@ public abstract class VObject extends AbsoluteVObject {
      */
     @Override
     public VObject setHeight(float newHeight) {
-        return (VObject) super.setHeight(plane.getScale().getY() * newHeight);
+        return (VObject) super.setHeight(geometricSpace.getScale().getY() * newHeight);
     }
 
     /**
@@ -39,7 +39,7 @@ public abstract class VObject extends AbsoluteVObject {
      */
     @Override
     public VObject setDimensions(float newWidth, float newHeight) {
-        return (VObject) super.setDimensions(plane.getScale().getX() * newWidth, plane.getScale().getY() * newHeight);
+        return (VObject) super.setDimensions(geometricSpace.getScale().getX() * newWidth, geometricSpace.getScale().getY() * newHeight);
     }
 
 }

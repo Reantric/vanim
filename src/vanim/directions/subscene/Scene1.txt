@@ -18,7 +18,7 @@ import vanim.shapes.DoubleLine;
 import vanim.shapes.Line;
 import vanim.shapes.functional.graph.Graph2D;
 import vanim.specific.rational.Fraction;
-import vanim.storage.Color;
+import vanim.storage.color.Color;
 import vanim.storage.Scale;
 import vanim.storage.vector.FVector;
 import vanim.storage.vector.IVector;

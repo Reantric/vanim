@@ -1,6 +1,6 @@
 package vanim.root.modular;
 
-import vanim.storage.Color;
+import vanim.storage.color.Color;
 
 public interface Graphable {
     //Graph dis!

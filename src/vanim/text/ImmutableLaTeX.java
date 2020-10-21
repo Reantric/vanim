@@ -26,7 +26,7 @@ public class ImmutableLaTeX extends Text {
         converter = new SVGConverter(color); // TODO: Modify Later
         System.out.println("hello there m9!");
         converter.write(str, ".\\temp\\" + this.ID + ".svg", tSize);
-        this.latex = plane.getProcessingInstance().loadShape(".\\temp\\" + this.ID + ".svg").getChild("eq");
+        this.latex = geometricSpace.getProcessingInstance().loadShape(".\\temp\\" + this.ID + ".svg").getChild("eq");
         this.latex.disableStyle();
         originalScale = new FVector(this.latex.getWidth(), this.latex.getHeight());
         //     }

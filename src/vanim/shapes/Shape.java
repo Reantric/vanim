@@ -7,8 +7,8 @@ import vanim.root.modular.Graphable;
 import vanim.root.modular.display.TwoArgDisplay;
 import vanim.root.vobjects.VObject;
 import vanim.storage.Bounds;
-import vanim.storage.Color;
 import vanim.storage.Point;
+import vanim.storage.color.Color;
 import vanim.util.Mapper;
 import vanim.util.Useful;
 
@@ -39,7 +39,7 @@ public abstract class Shape extends VObject implements Graphable, TwoArgDisplay<
     public Shape(VObjectBuilder builder, int speed, Bounds bounds) {
         super(builder);
         this.speed = speed;
-        dividend = 3 / plane.getScale().getX();
+        dividend = 3 / geometricSpace.getScale().getX();
         this.boundT = bounds;
         maxPoints = (long) Math.ceil(boundT.getMag() / dividend) + 1;
         // Add 1 for the 0 case (if boundT.getLength() == 0) then there must be at least 1 point!
@@ -63,8 +63,8 @@ public abstract class Shape extends VObject implements Graphable, TwoArgDisplay<
      */
     @Override
     public boolean addPoint(float x, float y, Color color) {
-        x *= plane.getScale().getX();
-        y *= plane.getScale().getY();
+        x *= geometricSpace.getScale().getX();
+        y *= geometricSpace.getScale().getY();
         if (pointsSize < maxPoints) { // Optimization check originally delVal
             points.add(new Point(dimensions.getX() * x, -dimensions.getY() * y, color));
             pointsSize++;

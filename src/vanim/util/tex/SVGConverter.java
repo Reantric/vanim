@@ -29,7 +29,7 @@ public class SVGConverter implements Convertable {
 
     Color color;
 
-    public SVGConverter(vanim.storage.Color color) {
+    public SVGConverter(vanim.storage.color.Color color) {
         this.color = color.toJavaRGB();
     }
 
